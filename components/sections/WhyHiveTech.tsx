@@ -25,6 +25,14 @@ export default function WhyHiveTech() {
         </svg>
       </div>
 
+      {/* Vector art background */}
+      <img
+        src="/images/vector.png"
+        alt=""
+        aria-hidden
+        className="absolute right-[-4%] top-1/2 -translate-y-1/2 w-[52%] max-w-[680px] pointer-events-none select-none opacity-[0.07] object-contain hidden lg:block"
+      />
+
       {/* Floating amber orbs */}
       {floatingDots.map((d, i) => (
         <motion.div key={i}

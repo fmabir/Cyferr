@@ -4,7 +4,7 @@ import { Mail, Phone } from "lucide-react";
 
 export default function CTABanner() {
   return (
-    <section id="contact" className="relative py-28 px-6 lg:px-10 overflow-hidden" style={{ background: "#1A0F00" }}>
+    <section id="contact" className="relative py-16 lg:py-28 px-6 lg:px-10 overflow-hidden" style={{ background: "#1A0F00" }}>
       <div className="absolute inset-0 hex-bg opacity-30" aria-hidden />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden>
         <div className="w-[500px] h-[400px] rounded-full"

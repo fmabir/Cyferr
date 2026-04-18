@@ -1,8 +1,10 @@
 import Navbar       from "@/components/layout/Navbar";
 import Footer       from "@/components/layout/Footer";
 import Hero         from "@/components/sections/Hero";
-import Services     from "@/components/sections/Services";
-import HowWeWork    from "@/components/sections/HowWeWork";
+import ClientLogos  from "@/components/sections/ClientLogos";
+import Services       from "@/components/sections/Services";
+import BannerDivider  from "@/components/sections/BannerDivider";
+import HowWeWork      from "@/components/sections/HowWeWork";
 import WhyHiveTech  from "@/components/sections/WhyHiveTech";
 import FeaturedWork from "@/components/sections/FeaturedWork";
 import StatsSection from "@/components/sections/StatsSection";
@@ -18,10 +20,12 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <ClientLogos />
         <Services />
-        <HowWeWork />
-        <WhyHiveTech />
+        <BannerDivider src="/images/vector2.png" />
         <FeaturedWork />
+        <WhyHiveTech />
+        <HowWeWork />
         <StatsSection />
         <TechStack />
         <Testimonials />

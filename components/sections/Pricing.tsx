@@ -109,7 +109,7 @@ export default function Pricing() {
   }
 
   return (
-    <section id="pricing" className="py-24 bg-bg px-6 lg:px-10">
+    <section id="pricing" className="py-14 lg:py-24 bg-bg px-6 lg:px-10">
       <div className="mx-auto max-w-7xl">
 
         {/* Header */}
@@ -119,7 +119,7 @@ export default function Pricing() {
           className="mb-14 text-center"
         >
           <span className="section-pill mb-4">Transparent Pricing</span>
-          <h2 className="font-display font-black text-4xl lg:text-5xl tracking-tight text-txt mt-4">
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-txt mt-4">
             Transparent Pricing. <span className="gradient-text">No Surprises.</span>
           </h2>
           <p className="text-txt-2 mt-4 max-w-xl mx-auto leading-relaxed text-sm">

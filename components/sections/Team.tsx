@@ -26,16 +26,16 @@ const team = [
 
 export default function Team() {
   return (
-    <section id="team" className="py-24 px-6 lg:px-10 bg-surface">
+    <section id="team" className="py-14 lg:py-24 px-6 lg:px-10 bg-surface">
       <div className="mx-auto max-w-7xl">
 
         <motion.div
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}
-          className="mb-14 text-center"
+          className="mb-10 lg:mb-14 text-center"
         >
           <span className="section-pill mb-4">The Team</span>
-          <h2 className="font-display font-black text-4xl lg:text-5xl tracking-tight text-txt mt-4">
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-txt mt-4">
             You Work With <span className="gradient-text">the Founders</span>
           </h2>
           <p className="text-txt-2 mt-4 max-w-md mx-auto leading-relaxed text-sm">

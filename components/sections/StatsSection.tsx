@@ -80,7 +80,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="relative py-24 px-6 lg:px-10 overflow-hidden bg-bg-2">
+    <section className="relative py-14 lg:py-24 px-6 lg:px-10 overflow-hidden bg-bg-2">
       {/* Top wave */}
       <div className="absolute top-0 inset-x-0">
         <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full block" style={{ transform: "rotate(180deg)" }}>
@@ -92,10 +92,10 @@ export default function StatsSection() {
         <motion.div
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}
-          className="mb-14 text-center"
+          className="mb-10 lg:mb-14 text-center"
         >
           <span className="section-pill mb-4">By the Numbers</span>
-          <h2 className="font-display font-black text-4xl lg:text-5xl tracking-tight text-txt mt-4">
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-txt mt-4">
             The Numbers <span className="gradient-text">Behind the Work</span>
           </h2>
         </motion.div>

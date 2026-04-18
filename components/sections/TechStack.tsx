@@ -52,14 +52,17 @@ function Strip({ items, reverse }: { items: typeof row1; reverse?: boolean }) {
 
 export default function TechStack() {
   return (
-    <section className="py-20 border-y-2 border-border bg-bg-2 overflow-hidden">
+    <section className="py-20 border-y-2 border-border bg-bg-2 relative">
+
       <div className="mx-auto max-w-7xl px-6 lg:px-10 mb-10 text-center">
         <span className="section-pill mb-4">Tech Stack</span>
         <h2 className="font-display font-black text-4xl lg:text-5xl tracking-tight text-txt mt-4">
           Technologies We <span className="gradient-text">Work With</span>
         </h2>
       </div>
-      <div className="relative flex flex-col gap-3">
+
+      {/* Strips in their own overflow-hidden container */}
+      <div className="relative flex flex-col gap-3 overflow-hidden">
         {/* Fade masks */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-bg-2 to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-bg-2 to-transparent" />
