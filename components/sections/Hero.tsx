@@ -9,146 +9,167 @@ const stats = [
   { value: "100%", label: "On-time"  },
 ];
 
-/* ── Illustrated workspace SVG ─────────────────────────────────────────────── */
-function WorkspaceIllustration() {
+/* ── Hive Network illustration ─────────────────────────────────────────────── */
+const NODES = [
+  { cx: 405, cy: 240, label: "Web App",  dur: "1.8", begin: "0s"    },
+  { cx: 333, cy: 114, label: "Mobile",   dur: "2.2", begin: "0.4s"  },
+  { cx: 188, cy: 114, label: "AI / ML",  dur: "1.5", begin: "0.8s"  },
+  { cx: 115, cy: 240, label: "Commerce", dur: "2.5", begin: "1.2s"  },
+  { cx: 188, cy: 366, label: "SaaS",     dur: "2.0", begin: "1.6s"  },
+  { cx: 333, cy: 366, label: "Design",   dur: "1.7", begin: "2.0s"  },
+];
+
+/* outer hexagon edges: each adjacent pair */
+const EDGES = [[0,1],[1,2],[2,3],[3,4],[4,5],[5,0]];
+
+function HiveNetworkIllustration() {
   return (
     <svg viewBox="0 0 520 480" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <defs>
+        <radialGradient id="hglow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stopColor="#F5A623" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="#F5A623" stopOpacity="0"    />
+        </radialGradient>
+      </defs>
 
-      {/* ── Background blob ── */}
-      <ellipse cx="270" cy="250" rx="200" ry="180"
-        fill="#FFF3D9" opacity="0.8"/>
+      {/* Ambient glow */}
+      <circle cx="260" cy="240" r="210" fill="url(#hglow)" />
 
-      {/* ── Main laptop body ── */}
-      {/* Screen outer */}
-      <rect x="120" y="100" width="280" height="200" rx="16"
-        fill="#1A0F00" stroke="#F5A623" strokeWidth="3"/>
-      {/* Screen bezel inner */}
-      <rect x="132" y="112" width="256" height="176" rx="10"
-        fill="#0D0700"/>
-      {/* Screen glow */}
-      <rect x="140" y="120" width="240" height="160" rx="8"
-        fill="#F5A623" opacity="0.08"/>
+      {/* Outer hexagon edges */}
+      {EDGES.map(([a, b], i) => (
+        <line key={`edge-${i}`}
+          x1={NODES[a].cx} y1={NODES[a].cy} x2={NODES[b].cx} y2={NODES[b].cy}
+          stroke="#F5A623" strokeWidth="1" strokeDasharray="4 7" opacity="0.18" />
+      ))}
 
-      {/* Code lines on screen */}
-      <rect x="158" y="140" width="90" height="7" rx="3.5" fill="#F5A623" opacity="0.7"/>
-      <rect x="158" y="155" width="140" height="7" rx="3.5" fill="#F5A623" opacity="0.45"/>
-      <rect x="168" y="170" width="70"  height="7" rx="3.5" fill="#FFB84D" opacity="0.5"/>
-      <rect x="168" y="185" width="110" height="7" rx="3.5" fill="#F5A623" opacity="0.35"/>
-      <rect x="158" y="200" width="60"  height="7" rx="3.5" fill="#FFB84D" opacity="0.6"/>
-      <rect x="168" y="215" width="130" height="7" rx="3.5" fill="#F5A623" opacity="0.4"/>
-      <rect x="158" y="230" width="80"  height="7" rx="3.5" fill="#F5A623" opacity="0.55"/>
-      <rect x="168" y="245" width="50"  height="7" rx="3.5" fill="#FFB84D" opacity="0.4"/>
+      {/* Spokes — center to each node */}
+      {NODES.map((n, i) => (
+        <line key={`spoke-${i}`}
+          x1="260" y1="240" x2={n.cx} y2={n.cy}
+          stroke="#F5A623" strokeWidth="1.5" strokeDasharray="5 8" opacity="0.28" />
+      ))}
 
-      {/* Cursor blink */}
-      <rect x="158" y="260" width="8" height="14" rx="2" fill="#F5A623" opacity="0.9"/>
+      {/* Flowing dots along spokes */}
+      {NODES.map((n, i) => (
+        <circle key={`dot-${i}`} r="3.5" fill="#F5A623" opacity="0.85">
+          <animateMotion
+            dur={`${n.dur}s`}
+            repeatCount="indefinite"
+            begin={n.begin}
+            path={`M 260 240 L ${n.cx} ${n.cy}`}
+          />
+        </circle>
+      ))}
 
-      {/* Laptop base / keyboard */}
-      <rect x="95"  y="298" width="330" height="22" rx="8"
-        fill="#2A1A05" stroke="#F5A623" strokeWidth="2"/>
-      {/* Keyboard detail */}
-      <rect x="175" y="294" width="170" height="6" rx="3"
-        fill="#1A0F00" opacity="0.6"/>
-      {/* Trackpad */}
-      <rect x="220" y="306" width="80" height="8" rx="4"
-        fill="#1A0F00" opacity="0.4"/>
+      {/* Pulsing rings around center */}
+      <circle cx="260" cy="240" r="58" fill="none" stroke="#F5A623" strokeWidth="1.5" opacity="0.2">
+        <animate attributeName="r" values="55;72;55" dur="3s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.22;0;0.22" dur="3s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="260" cy="240" r="80" fill="none" stroke="#F5A623" strokeWidth="1" opacity="0.1">
+        <animate attributeName="r" values="76;96;76" dur="4.2s" repeatCount="indefinite" begin="0.6s" />
+        <animate attributeName="opacity" values="0.12;0;0.12" dur="4.2s" repeatCount="indefinite" begin="0.6s" />
+      </circle>
 
-      {/* ── Floating hex bubbles ── */}
+      {/* Center hexagon */}
+      <path d="M260 188 L305 214 L305 266 L260 292 L215 266 L215 214 Z"
+        fill="#FFF3D9" stroke="#F5A623" strokeWidth="3" />
+      {/* Inner mini hex */}
+      <path d="M260 210 L278 220 L278 240 L260 250 L242 240 L242 220 Z"
+        fill="none" stroke="#F5A623" strokeWidth="1.5" opacity="0.45" />
+      {/* Center code symbol */}
+      <text x="260" y="246" textAnchor="middle" fontSize="18"
+        fontWeight="900" fill="#F5A623" fontFamily="monospace" opacity="0.95">
+        {'</>'}
+      </text>
 
-      {/* Hex 1 — top right (Web) */}
-      <g transform="translate(390, 70)">
-        <path d="M28 0L52 14V42L28 56L4 42V14L28 0Z"
-          fill="#FFF3D9" stroke="#F5A623" strokeWidth="2.5"/>
-        {/* Globe icon */}
-        <circle cx="28" cy="28" r="10" stroke="#F5A623" strokeWidth="1.8" fill="none"/>
-        <ellipse cx="28" cy="28" rx="5" ry="10" stroke="#F5A623" strokeWidth="1.5" fill="none"/>
-        <line x1="18" y1="28" x2="38" y2="28" stroke="#F5A623" strokeWidth="1.5"/>
+      {/* Satellite nodes */}
+      {NODES.map((n, i) => {
+        const labelY = n.cy < 240 ? n.cy - 38 : n.cy + 40;
+        return (
+          <g key={`node-${i}`}>
+            <circle cx={n.cx} cy={n.cy} r="34" fill="#F5A623" opacity="0.07" />
+            <circle cx={n.cx} cy={n.cy} r="26" fill="#FFF3D9" stroke="#F5A623" strokeWidth="2.5" />
+            <text x={n.cx} y={labelY} textAnchor="middle"
+              fontSize="10" fontWeight="700" fill="#6B4E1A" fontFamily="system-ui, sans-serif">
+              {n.label}
+            </text>
+          </g>
+        );
+      })}
+
+      {/* Node icons — Web (globe) */}
+      <g transform="translate(393,228)">
+        <circle cx="12" cy="12" r="9" stroke="#F5A623" strokeWidth="1.8" fill="none"/>
+        <ellipse cx="12" cy="12" rx="4.5" ry="9" stroke="#F5A623" strokeWidth="1.4" fill="none"/>
+        <line x1="3" y1="12" x2="21" y2="12" stroke="#F5A623" strokeWidth="1.4"/>
+        <line x1="5" y1="7"  x2="19" y2="7"  stroke="#F5A623" strokeWidth="1" opacity="0.5"/>
+        <line x1="5" y1="17" x2="19" y2="17" stroke="#F5A623" strokeWidth="1" opacity="0.5"/>
       </g>
 
-      {/* Hex 2 — left (Mobile) */}
-      <g transform="translate(52, 160)">
-        <path d="M24 0L44 11.5V34.5L24 46L4 34.5V11.5L24 0Z"
-          fill="#FFF3D9" stroke="#F5A623" strokeWidth="2.5"/>
-        {/* Phone icon */}
-        <rect x="16" y="16" width="16" height="24" rx="3" stroke="#F5A623" strokeWidth="1.8" fill="none"/>
-        <circle cx="24" cy="35" r="1.5" fill="#F5A623"/>
+      {/* Mobile (phone) */}
+      <g transform="translate(323,103)">
+        <rect x="5" y="2" width="14" height="22" rx="3" stroke="#F5A623" strokeWidth="1.8" fill="none"/>
+        <circle cx="12" cy="20" r="1.5" fill="#F5A623"/>
+        <line x1="9" y1="5" x2="15" y2="5" stroke="#F5A623" strokeWidth="1.5" strokeLinecap="round"/>
       </g>
 
-      {/* Hex 3 — bottom right (AI) */}
-      <g transform="translate(400, 310)">
-        <path d="M26 0L48 13V39L26 52L4 39V13L26 0Z"
-          fill="#FFF3D9" stroke="#F5A623" strokeWidth="2.5"/>
-        {/* Brain/AI icon — simplified */}
-        <circle cx="26" cy="26" r="9" stroke="#F5A623" strokeWidth="1.8" fill="none"/>
-        <line x1="26" y1="17" x2="26" y2="22" stroke="#F5A623" strokeWidth="1.5"/>
-        <line x1="26" y1="30" x2="26" y2="35" stroke="#F5A623" strokeWidth="1.5"/>
-        <line x1="17" y1="26" x2="22" y2="26" stroke="#F5A623" strokeWidth="1.5"/>
-        <line x1="30" y1="26" x2="35" y2="26" stroke="#F5A623" strokeWidth="1.5"/>
-        <circle cx="26" cy="26" r="3" fill="#F5A623" opacity="0.6"/>
+      {/* AI (neural dots) */}
+      <g transform="translate(176,102)">
+        <circle cx="12" cy="12" r="3.5" fill="#F5A623" opacity="0.85"/>
+        <circle cx="3"  cy="6"  r="2.5" fill="none" stroke="#F5A623" strokeWidth="1.5"/>
+        <circle cx="21" cy="6"  r="2.5" fill="none" stroke="#F5A623" strokeWidth="1.5"/>
+        <circle cx="3"  cy="18" r="2.5" fill="none" stroke="#F5A623" strokeWidth="1.5"/>
+        <circle cx="21" cy="18" r="2.5" fill="none" stroke="#F5A623" strokeWidth="1.5"/>
+        <line x1="5.5" y1="7"  x2="9"  y2="10" stroke="#F5A623" strokeWidth="1.2"/>
+        <line x1="18.5" y1="7" x2="15" y2="10" stroke="#F5A623" strokeWidth="1.2"/>
+        <line x1="5.5" y1="17" x2="9"  y2="14" stroke="#F5A623" strokeWidth="1.2"/>
+        <line x1="18.5" y1="17" x2="15" y2="14" stroke="#F5A623" strokeWidth="1.2"/>
       </g>
 
-      {/* Hex 4 — top left small (Design) */}
-      <g transform="translate(75, 70)">
-        <path d="M18 0L33 8.5V25.5L18 34L3 25.5V8.5L18 0Z"
-          fill="#FFF3D9" stroke="#F5A623" strokeWidth="2"/>
-        <circle cx="18" cy="17" r="5" stroke="#F5A623" strokeWidth="1.5" fill="none"/>
-        <circle cx="18" cy="17" r="2" fill="#F5A623" opacity="0.7"/>
+      {/* Commerce (bag) */}
+      <g transform="translate(103,228)">
+        <path d="M3 9 L3 22 Q3 24 5 24 L19 24 Q21 24 21 22 L21 9 Z" stroke="#F5A623" strokeWidth="1.8" fill="none"/>
+        <path d="M8 9 C8 4 16 4 16 9" stroke="#F5A623" strokeWidth="1.8" fill="none"/>
+        <line x1="9" y1="15" x2="15" y2="15" stroke="#F5A623" strokeWidth="1.4" opacity="0.55"/>
       </g>
 
-      {/* ── Decorative stars / sparkles ── */}
-      {/* Star 1 */}
-      <g transform="translate(350, 55)">
-        <line x1="8" y1="0"  x2="8"  y2="16" stroke="#F5A623" strokeWidth="2.5" strokeLinecap="round"/>
-        <line x1="0" y1="8"  x2="16" y2="8"  stroke="#F5A623" strokeWidth="2.5" strokeLinecap="round"/>
-        <line x1="2" y1="2"  x2="14" y2="14" stroke="#F5A623" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-        <line x1="14" y1="2" x2="2"  y2="14" stroke="#F5A623" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+      {/* SaaS (stack of layers) */}
+      <g transform="translate(176,354)">
+        <rect x="2" y="4"  width="20" height="5" rx="1.5" stroke="#F5A623" strokeWidth="1.5" fill="none"/>
+        <rect x="2" y="11" width="20" height="5" rx="1.5" stroke="#F5A623" strokeWidth="1.5" fill="none" opacity="0.7"/>
+        <rect x="2" y="18" width="20" height="5" rx="1.5" stroke="#F5A623" strokeWidth="1.5" fill="none" opacity="0.4"/>
       </g>
-      {/* Star 2 */}
-      <g transform="translate(60, 280)">
-        <line x1="6" y1="0"  x2="6"  y2="12" stroke="#D4891A" strokeWidth="2" strokeLinecap="round"/>
-        <line x1="0" y1="6"  x2="12" y2="6"  stroke="#D4891A" strokeWidth="2" strokeLinecap="round"/>
-      </g>
-      {/* Star 3 */}
-      <g transform="translate(460, 160)">
-        <line x1="5" y1="0" x2="5"  y2="10" stroke="#F5A623" strokeWidth="2" strokeLinecap="round"/>
-        <line x1="0" y1="5" x2="10" y2="5"  stroke="#F5A623" strokeWidth="2" strokeLinecap="round"/>
-      </g>
-      {/* Dot accents */}
-      <circle cx="440" cy="100" r="5" fill="#F5A623" opacity="0.4"/>
-      <circle cx="100" cy="350" r="4" fill="#F5A623" opacity="0.35"/>
-      <circle cx="480" cy="280" r="3" fill="#D4891A" opacity="0.5"/>
-      <circle cx="90"  cy="130" r="3" fill="#F5A623" opacity="0.3"/>
-      <circle cx="430" cy="390" r="6" fill="#FFF3D9" stroke="#F5A623" strokeWidth="2"/>
-      <circle cx="140" cy="400" r="5" fill="#FFF3D9" stroke="#F5A623" strokeWidth="2"/>
 
-      {/* ── Connecting dotted lines ── */}
-      <line x1="175" y1="126" x2="418" y2="98"
-        stroke="#F5A623" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.35"/>
-      <line x1="120" y1="200" x2="96" y2="194"
-        stroke="#F5A623" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.35"/>
-      <line x1="400" y1="296" x2="426" y2="336"
-        stroke="#F5A623" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.35"/>
-
-      {/* ── Small bee / mascot hint ── */}
-      <g transform="translate(305, 380)">
-        {/* Body */}
-        <ellipse cx="20" cy="22" rx="14" ry="18" fill="#F5A623" stroke="#D4891A" strokeWidth="2"/>
-        {/* Stripes */}
-        <rect x="7"  y="18" width="26" height="5" rx="2" fill="#D4891A" opacity="0.6"/>
-        <rect x="7"  y="25" width="26" height="5" rx="2" fill="#D4891A" opacity="0.4"/>
-        {/* Wings */}
-        <ellipse cx="6"  cy="16" rx="8"  ry="6"  fill="white" stroke="#F5A623" strokeWidth="1.5" opacity="0.85" transform="rotate(-20 6 16)"/>
-        <ellipse cx="34" cy="16" rx="8"  ry="6"  fill="white" stroke="#F5A623" strokeWidth="1.5" opacity="0.85" transform="rotate(20 34 16)"/>
-        {/* Eyes */}
-        <circle cx="15" cy="14" r="3" fill="white" stroke="#1A0F00" strokeWidth="1.2"/>
-        <circle cx="25" cy="14" r="3" fill="white" stroke="#1A0F00" strokeWidth="1.2"/>
-        <circle cx="15" cy="14" r="1.5" fill="#1A0F00"/>
-        <circle cx="25" cy="14" r="1.5" fill="#1A0F00"/>
-        {/* Antennae */}
-        <line x1="14" y1="7"  x2="10" y2="2"  stroke="#1A0F00" strokeWidth="1.5" strokeLinecap="round"/>
-        <line x1="26" y1="7"  x2="30" y2="2"  stroke="#1A0F00" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="10" cy="2" r="2" fill="#F5A623" stroke="#D4891A" strokeWidth="1"/>
-        <circle cx="30" cy="2" r="2" fill="#F5A623" stroke="#D4891A" strokeWidth="1"/>
+      {/* Design (pen nib) */}
+      <g transform="translate(321,354)">
+        <path d="M4 20 L12 6 L20 20 Z" stroke="#F5A623" strokeWidth="1.8" fill="none" strokeLinejoin="round"/>
+        <line x1="7" y1="15" x2="17" y2="15" stroke="#F5A623" strokeWidth="1.4"/>
+        <circle cx="12" cy="5" r="2" fill="#F5A623" opacity="0.8"/>
+        <line x1="12" y1="20" x2="12" y2="24" stroke="#F5A623" strokeWidth="1.8" strokeLinecap="round"/>
       </g>
+
+      {/* Ambient sparkle dots */}
+      {[
+        { cx: 350, cy: 52,  r: 4,   dur: "2.1s",  begin: "0s"   },
+        { cx: 466, cy: 178, r: 3,   dur: "2.9s",  begin: "0.5s" },
+        { cx: 62,  cy: 318, r: 3,   dur: "3.4s",  begin: "1s"   },
+        { cx: 468, cy: 382, r: 3.5, dur: "2.6s",  begin: "0.7s" },
+        { cx: 78,  cy: 138, r: 2.5, dur: "3.1s",  begin: "1.4s" },
+        { cx: 440, cy: 72,  r: 2.5, dur: "2.4s",  begin: "1.8s" },
+      ].map((s, i) => (
+        <circle key={`spark-${i}`} cx={s.cx} cy={s.cy} r={s.r} fill="#F5A623" opacity="0.4">
+          <animate attributeName="opacity" values="0.4;0.08;0.4" dur={s.dur} repeatCount="indefinite" begin={s.begin}/>
+        </circle>
+      ))}
+
+      {/* Node pulse animations — one ring per node */}
+      {NODES.map((n, i) => (
+        <circle key={`pulse-${i}`} cx={n.cx} cy={n.cy} r="28" fill="none" stroke="#F5A623" strokeWidth="1" opacity="0">
+          <animate attributeName="r" values="28;46;28" dur="3.5s" repeatCount="indefinite" begin={`${i * 0.6}s`}/>
+          <animate attributeName="opacity" values="0.25;0;0.25" dur="3.5s" repeatCount="indefinite" begin={`${i * 0.6}s`}/>
+        </circle>
+      ))}
     </svg>
   );
 }
@@ -313,7 +334,7 @@ export default function Hero() {
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               className="w-full max-w-[520px]"
             >
-              <WorkspaceIllustration />
+              <HiveNetworkIllustration />
             </motion.div>
           </motion.div>
         </div>

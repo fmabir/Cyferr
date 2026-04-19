@@ -3,22 +3,22 @@ import { motion } from "framer-motion";
 
 const team = [
   {
-    name: "Fahim Abrar",
+    name: "F. M Abir Hossain",
     role: "Co-Founder & CEO",
-    bio: "Full-stack engineer with a passion for building products that solve real problems. Leads client strategy, architecture decisions, and oversees every delivery.",
-    tags: ["React", "Next.js", "Node.js", "System Design"],
+    bio: "Full-stack engineer who leads strategy, architecture, and every client delivery.",
     linkedin: "#",
-    initials: "FA",
+    email: "hello@hivetech.dev",
+    image: "/images/abir.png",
     color: "#F5A623",
     bg: "#FFF3D9",
   },
   {
-    name: "Your Cofounder",
+    name: "Safwan-Ul-Islam",
     role: "Co-Founder & CTO",
-    bio: "Placeholder — replace with your cofounder's actual bio. Highlight their speciality, years of experience, and what they bring to the team.",
-    tags: ["Flutter", "AI/ML", "Python", "Cloud"],
+    bio: "Full-stack developer who drives technical decisions, system architecture, and ensures every build ships production-ready.",
     linkedin: "#",
-    initials: "CF",
+    email: "hello@hivetech.dev",
+    image: "/images/safwan.png",
     color: "#6366F1",
     bg: "#F0F4FF",
   },
@@ -39,69 +39,54 @@ export default function Team() {
             You Work With <span className="gradient-text">the Founders</span>
           </h2>
           <p className="text-txt-2 mt-4 max-w-md mx-auto leading-relaxed text-sm">
-            No account managers, no junior handoffs. When you hire HiveTech, you work directly with the people who built it — and who stay accountable to every line of code.
+            Every project is owned end-to-end by the founders — from first brief to final deployment, with no middlemen in between.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="flex flex-col max-w-2xl mx-auto">
           {team.map((p, i) => (
             <motion.div
               key={p.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" as const }}
-              whileHover={{ y: -6 }}
-              className="flex flex-col rounded-2xl border-2 border-border bg-surface overflow-hidden"
-              style={{ boxShadow: "4px 6px 0px #F0DDB0" }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" as const }}
             >
-              {/* Avatar area */}
-              <div
-                className="relative flex items-center justify-center py-10"
-                style={{ background: p.bg }}
-              >
-                <div className="hex-bg absolute inset-0 opacity-30" />
-                {/* Avatar circle — replace with <img> once you have a photo */}
-                <div
-                  className="relative z-10 w-28 h-28 rounded-full border-4 flex items-center justify-center font-display font-black text-3xl"
-                  style={{ background: p.bg, borderColor: p.color, color: p.color, boxShadow: `0 0 0 6px ${p.color}22` }}
-                >
-                  {p.initials}
-                </div>
-              </div>
+              {i > 0 && <div className="border-t-2 border-border my-8" />}
 
-              {/* Content */}
-              <div className="flex flex-col gap-4 p-6 flex-1">
-                <div>
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <h3 className="font-display font-black text-xl text-txt leading-tight">{p.name}</h3>
-                      <p className="text-xs font-black uppercase tracking-widest mt-0.5" style={{ color: p.color }}>{p.role}</p>
-                    </div>
+              <div className={`flex items-center gap-8 ${i % 2 === 1 ? "flex-row-reverse" : ""}`}>
+                {/* Photo */}
+                <div
+                  className="shrink-0 w-32 h-32 rounded-full border-4 overflow-hidden"
+                  style={{ borderColor: p.color, boxShadow: `0 0 0 6px ${p.color}20` }}
+                >
+                  <img src={p.image} alt={p.name} className="w-full h-full object-cover object-top" />
+                </div>
+
+                {/* Text */}
+                <div className={`flex-1 min-w-0 ${i % 2 === 1 ? "text-right" : ""}`}>
+                  <h3 className="font-display font-black text-xl text-txt leading-tight">{p.name}</h3>
+                  <p className="text-[11px] font-black uppercase tracking-widest mt-1" style={{ color: p.color }}>{p.role}</p>
+                  <p className="text-sm text-txt-2 leading-relaxed mt-2">{p.bio}</p>
+
+                  <div className={`flex items-center gap-4 mt-3 ${i % 2 === 1 ? "justify-end" : ""}`}>
                     <a
                       href={p.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-xl border-2 flex items-center justify-center shrink-0 transition-all hover:-translate-y-0.5 text-[11px] font-black"
-                      style={{ borderColor: `${p.color}44`, color: p.color }}
-                      aria-label={`${p.name} on LinkedIn`}
+                      className="text-xs font-bold transition-opacity hover:opacity-60"
+                      style={{ color: p.color }}
                     >
-                      in
+                      LinkedIn ↗
+                    </a>
+                    <a
+                      href={`mailto:${p.email}`}
+                      className="text-xs font-bold transition-opacity hover:opacity-60"
+                      style={{ color: p.color }}
+                    >
+                      {p.email}
                     </a>
                   </div>
-                  <p className="text-sm text-txt-2 leading-relaxed mt-3">{p.bio}</p>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5 mt-auto">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-xl border-2"
-                      style={{ borderColor: `${p.color}44`, color: p.color, background: p.bg }}
-                    >
-                      {t}
-                    </span>
-                  ))}
                 </div>
               </div>
             </motion.div>

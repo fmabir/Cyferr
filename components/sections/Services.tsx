@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -24,7 +24,7 @@ interface ServiceItem {
    ─────────────────────────────────────────────────────────────────────────── */
 const services: ServiceItem[] = [
   {
-    icon: "/images/01.png", title: "Web Development",
+    icon: "/images/01.png", title: "Website",
     desc: "Lightning-fast, SEO-optimised websites. From landing pages to complex portals.",
     tag: "Popular", accent: "#F5A623", stripBg: "#FFF3D9",
     slides: [
@@ -73,7 +73,7 @@ const services: ServiceItem[] = [
     desc: "Intelligent bots for customer support, lead capture & internal tools.",
     tag: "Trending", accent: "#06B6D4", stripBg: "#ECFEFF",
     slides: [
-      { g1: "#06B6D4", g2: "#67E8F9" },
+      { src: "/images/11.png", g1: "#06B6D4", g2: "#67E8F9" },
       { g1: "#0891B2", g2: "#06B6D4" },
     ],
   },
@@ -82,7 +82,7 @@ const services: ServiceItem[] = [
     desc: "Research-backed designs that convert. Wireframes, prototypes, design systems.",
     tag: null, accent: "#EC4899", stripBg: "#FDF2F8",
     slides: [
-      { g1: "#EC4899", g2: "#F9A8D4" },
+      { src: "/images/13.png", g1: "#EC4899", g2: "#F9A8D4" },
       { g1: "#DB2777", g2: "#EC4899" },
     ],
   },
@@ -91,221 +91,56 @@ const services: ServiceItem[] = [
     desc: "Tech consulting & road-mapping — build the right thing the first time.",
     tag: null, accent: "#F97316", stripBg: "#FFF7ED",
     slides: [
-      { g1: "#F97316", g2: "#FED7AA" },
+      { src: "/images/15.png", g1: "#F97316", g2: "#FED7AA" },
       { g1: "#EA580C", g2: "#F97316" },
     ],
   },
 ];
 
-/* ─── Image Slider ───────────────────────────────────────────────────────────── */
-function ImageSlider({ slides, accent }: { slides: Slide[]; accent: string }) {
-  const [idx, setIdx]       = useState(0);
-  const [paused, setPaused] = useState(false);
-  const touchX = useRef<number | null>(null);
-
-  useEffect(() => {
-    if (paused) return;
-    const t = setInterval(() => setIdx(i => (i + 1) % slides.length), 3000);
-    return () => clearInterval(t);
-  }, [paused, slides.length]);
-
-  const go = (next: number) =>
-    setIdx(((next % slides.length) + slides.length) % slides.length);
-
-  return (
-    <div
-      className="relative overflow-hidden rounded-b-3xl"
-      style={{ height: 156 }}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onTouchStart={e => { touchX.current = e.touches[0].clientX; }}
-      onTouchEnd={e => {
-        if (touchX.current === null) return;
-        const d = touchX.current - e.changedTouches[0].clientX;
-        if (Math.abs(d) > 40) go(idx + (d > 0 ? 1 : -1));
-        touchX.current = null;
-      }}
-    >
-      {/* Sliding strip */}
-      <div
-        className="flex h-full"
-        style={{
-          width: `${slides.length * 100}%`,
-          transform: `translateX(-${(idx * 100) / slides.length}%)`,
-          transition: "transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-        }}
-      >
-        {slides.map((slide, i) => (
-          <div
-            key={i}
-            className="h-full relative overflow-hidden"
-            style={{ width: `${100 / slides.length}%` }}
-          >
-            {slide.src ? (
-              <img
-                src={slide.src}
-                alt=""
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-            ) : (
-              /* Gradient placeholder — remove once real images are provided */
-              <div
-                className="w-full h-full transition-transform duration-700 group-hover:scale-110 relative"
-                style={{ background: `linear-gradient(135deg, ${slide.g1} 0%, ${slide.g2} 100%)` }}
-              >
-                <div
-                  className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(0deg,transparent,transparent 20px,rgba(255,255,255,.35) 20px,rgba(255,255,255,.35) 21px)," +
-                      "repeating-linear-gradient(90deg,transparent,transparent 20px,rgba(255,255,255,.35) 20px,rgba(255,255,255,.35) 21px)",
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-white/30 text-[10px] font-black uppercase tracking-[0.2em]">
-                    Image {i + 1}
-                  </span>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Dot indicators */}
-      <div className="absolute bottom-2.5 inset-x-0 flex justify-center gap-1.5 z-10">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => go(i)}
-            style={{
-              width: i === idx ? 18 : 6,
-              height: 6,
-              borderRadius: 99,
-              background: i === idx ? "#fff" : "rgba(255,255,255,0.45)",
-              transition: "width 0.3s ease, background 0.3s ease",
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* ─── Border style demo — 4 options, 2 cards each ───────────────────────────
-   Once you pick a style, tell Claude which letter (A/B/C/D) and it will
-   apply that one to all 8 cards and remove this demo code.
-   ─────────────────────────────────────────────────────────────────────────── */
-function getBorderStyle(accent: string, hovered: boolean) {
-  return {
-    border: "1.5px solid rgba(240,221,176,0.45)",
-    borderBottom: `6px solid ${accent}`,
-    boxShadow: hovered
-      ? `0 20px 50px ${accent}28, 0 6px 18px rgba(0,0,0,0.08)`
-      : "0 4px 14px rgba(0,0,0,0.06)",
-  };
-}
-
-/* ─── Icon top designs — 4 styles, pick one ─────────────────────────────────
-   A (0,1): White box float — clean, minimal
-   B (2,3): Filled accent circle — bold, colourful
-   C (4,5): Glassmorphism panel — frosted, premium
-   D (6,7): Bare icon, no container — ultra minimal, editorial
-   ─────────────────────────────────────────────────────────────────────────── */
-function FloatingIcon({ style, icon, accent, title, hovered }: {
-  style: "A" | "B" | "C" | "D";
-  icon: string;
+/* ─── Card Visual ────────────────────────────────────────────────────────────── */
+function CardVisual({ slide, accent, icon }: {
+  slide: Slide;
   accent: string;
-  title: string;
-  hovered: boolean;
+  icon: string;
 }) {
-  const lift = `translateX(-50%) ${hovered ? "translateY(-6px) scale(1.1)" : "translateY(0) scale(1)"}`;
+  const bg = slide.src
+    ? undefined
+    : `linear-gradient(135deg, ${slide.g1} 0%, ${slide.g2} 100%)`;
 
-  if (style === "A") return (
-    <div className="absolute top-0 left-1/2 z-20" style={{ transform: lift, transition: "transform 0.35s ease" }}>
-      <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center"
-        style={{
-          border: `1.5px solid ${accent}30`,
-          boxShadow: hovered ? `0 14px 36px ${accent}50, 0 4px 12px rgba(0,0,0,0.1)` : `0 6px 20px ${accent}28, 0 2px 8px rgba(0,0,0,0.07)`,
-          transition: "box-shadow 0.35s ease",
-        }}>
-        <img src={icon} alt={title} className="w-9 h-9 object-contain" />
-      </div>
-    </div>
-  );
-
-  if (style === "B") return (
-    <div className="absolute top-0 left-1/2 z-20" style={{ transform: lift, transition: "transform 0.35s ease" }}>
-      <div className="w-16 h-16 rounded-full flex items-center justify-center"
-        style={{
-          background: `linear-gradient(135deg, ${accent}, ${accent}99)`,
-          boxShadow: hovered ? `0 14px 36px ${accent}70, 0 0 0 4px ${accent}20` : `0 6px 22px ${accent}50, 0 0 0 3px ${accent}15`,
-          transition: "box-shadow 0.35s ease",
-        }}>
-        <img src={icon} alt={title} className="w-9 h-9 object-contain brightness-0 invert" />
-      </div>
-    </div>
-  );
-
-  if (style === "C") return (
-    <div className="absolute top-0 left-1/2 z-20" style={{ transform: lift, transition: "transform 0.35s ease" }}>
-      <div className="w-16 h-16 rounded-2xl flex items-center justify-center"
-        style={{
-          background: "rgba(255,255,255,0.55)",
-          backdropFilter: "blur(12px)",
-          border: `2px solid transparent`,
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)) padding-box, linear-gradient(135deg,${accent},${accent}44) border-box`,
-          boxShadow: hovered ? `0 14px 36px ${accent}40, 0 4px 16px rgba(0,0,0,0.12)` : `0 6px 22px ${accent}22, 0 2px 8px rgba(0,0,0,0.08)`,
-          transition: "box-shadow 0.35s ease",
-        }}>
-        <img src={icon} alt={title} className="w-9 h-9 object-contain" />
-      </div>
-    </div>
-  );
-
-  // D — bare icon, no container, just layered glow rings
   return (
-    <div className="absolute top-0 left-1/2 z-20" style={{ transform: lift, transition: "transform 0.35s ease" }}>
-      <div className="relative w-16 h-16 flex items-center justify-center">
-        <div className="absolute inset-0 rounded-full opacity-20" style={{ background: accent, filter: "blur(10px)", transform: "scale(1.3)" }} />
-        <div className="absolute inset-1 rounded-full opacity-10" style={{ background: accent }} />
-        <img src={icon} alt={title} className="w-10 h-10 object-contain relative z-10 drop-shadow-lg" />
-      </div>
-    </div>
-  );
-}
+    <div className="relative overflow-hidden rounded-b-3xl" style={{ height: 160 }}>
+      <motion.div
+        className="absolute inset-0"
+        style={{ background: bg }}
+        animate={{ scale: [1.05, 1.15, 1.05] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {slide.src ? (
+          <img src={slide.src} alt="" className="w-full h-full object-cover" />
+        ) : (
+          /* Gradient placeholder — centred icon */
+          <div className="w-full h-full flex items-center justify-center">
+            <img src={icon} alt="" className="w-12 h-12 object-contain brightness-0 invert opacity-25" />
+          </div>
+        )}
+      </motion.div>
 
-function getTitleBlock(style: "A" | "B" | "C" | "D", title: string, accent: string) {
-  if (style === "A") return (
-    <div className="pt-10 px-5 pb-2 text-center">
-      <h3 className="font-display font-black text-[15px] text-txt leading-snug">{title}</h3>
-      <div className="mx-auto mt-1.5 rounded-full" style={{ width: 28, height: 2.5, background: accent, opacity: 0.7 }} />
-    </div>
-  );
-  if (style === "B") return (
-    <div className="pt-10 px-5 pb-2 text-center">
-      <h3 className="font-display font-black text-[15px] leading-snug" style={{ color: accent }}>{title}</h3>
-    </div>
-  );
-  if (style === "C") return (
-    <div className="pt-10 px-5 pb-2 text-center">
-      <h3 className="font-display font-black text-[15px] text-txt leading-snug">{title}</h3>
-      <div className="mx-auto mt-1.5 rounded-full" style={{ width: 40, height: 1.5, background: `linear-gradient(90deg,transparent,${accent},transparent)` }} />
-    </div>
-  );
-  // D
-  return (
-    <div className="pt-10 px-5 pb-2 text-center">
-      <h3 className="font-display font-black text-[15px] text-txt leading-snug tracking-tight">{title}</h3>
-      <span className="inline-block mt-1 text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: `${accent}99` }}>● ● ●</span>
+      {/* Accent overlay */}
+      {slide.src && (
+        <div className="absolute inset-0 opacity-15 mix-blend-multiply" style={{ background: accent }} />
+      )}
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 inset-x-0 h-10 pointer-events-none"
+        style={{ background: "linear-gradient(to top, rgba(255,255,255,0.2), transparent)" }} />
     </div>
   );
 }
 
 /* ─── Card ───────────────────────────────────────────────────────────────────── */
 function ServiceCard({ s, delay }: { s: ServiceItem; delay: number }) {
-  const [hovered, setHovered] = useState(false);
-  const { border, borderBottom, boxShadow } = getBorderStyle(s.accent, hovered);
+  const slide = s.slides[0];
+  const bg = slide.src ? undefined : `linear-gradient(135deg, ${slide.g1} 0%, ${slide.g2} 100%)`;
 
   return (
     <motion.div
@@ -314,35 +149,54 @@ function ServiceCard({ s, delay }: { s: ServiceItem; delay: number }) {
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.5, delay, ease: "easeOut" as const }}
       whileHover={{ y: -8 }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="group relative cursor-default"
-      style={{ paddingTop: "2rem" }}
+      className="group relative overflow-hidden rounded-3xl cursor-default"
+      style={{
+        height: 300,
+        border: `2px solid ${s.accent}35`,
+        boxShadow: `4px 6px 0px ${s.accent}40`,
+      }}
     >
-      {/* Floating icon — Style C: glassmorphism */}
-      <FloatingIcon style="C" icon={s.icon} accent={s.accent} title={s.title} hovered={hovered} />
+      {/* Full-card animated background — zoom in/out */}
+      <motion.div
+        className="absolute inset-0"
+        style={{ background: bg }}
+        animate={{ scale: [1.05, 1.15, 1.05] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {slide.src
+          ? <img src={slide.src} alt={s.title} className="w-full h-full object-cover" />
+          : <div className="w-full h-full" />
+        }
+      </motion.div>
 
-      {/* Card body */}
-      <div className="flex flex-col rounded-3xl overflow-hidden bg-white"
-        style={{ border, borderBottom, boxShadow, transition: "box-shadow 0.35s ease" }}>
-
+      {/* Header strip overlay — top */}
+      <div className="absolute inset-x-0 top-0 z-10 flex items-center gap-2.5 px-4 py-3"
+        style={{ background: `${s.stripBg}e8`, borderBottom: `1px solid ${s.accent}30` }}>
+        <div className="w-7 h-7 rounded-lg shrink-0 flex items-center justify-center"
+          style={{ background: s.accent, boxShadow: `0 2px 8px ${s.accent}60` }}>
+          <img src={s.icon} alt="" className="w-3.5 h-3.5 object-contain brightness-0 invert" />
+        </div>
+        <h3 className="font-display font-black text-[14px] leading-tight flex-1" style={{ color: "#1a1a1a" }}>{s.title}</h3>
         {s.tag && (
-          <span className="absolute top-10 right-3 z-10 text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full text-white"
-            style={{ background: s.accent, boxShadow: `0 2px 10px ${s.accent}55` }}>
+          <span className="text-[9px] font-black tracking-widest uppercase px-2.5 py-0.5 rounded-full text-white shrink-0"
+            style={{ background: s.accent, boxShadow: `0 2px 8px ${s.accent}66` }}>
             {s.tag}
           </span>
         )}
+      </div>
 
-        {getTitleBlock("C", s.title, s.accent)}
+      {/* Dark gradient — bottom-heavy for text legibility */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0) 70%)" }} />
 
-        <div className="flex flex-col gap-3 px-5 py-4 flex-1">
-          <p className="text-[12.5px] text-txt-2 leading-relaxed">{s.desc}</p>
-          <a href="#contact" className="mt-auto inline-flex items-center gap-1 text-xs font-black" style={{ color: s.accent }}>
-            <span className="transition-transform duration-200 group-hover:translate-x-1">Get a quote →</span>
-          </a>
-        </div>
-
-        <ImageSlider slides={s.slides} accent={s.accent} />
+      {/* Description + CTA — bottom */}
+      <div className="absolute inset-x-0 bottom-0 z-10 p-4 flex flex-col gap-1.5">
+        <p className="text-[12px] leading-relaxed" style={{ color: "rgba(255,255,255,0.80)" }}>{s.desc}</p>
+        <a href="#contact"
+          className="inline-flex items-center gap-1 text-xs font-black transition-all duration-200 group-hover:gap-2"
+          style={{ color: s.accent }}>
+          Get a quote →
+        </a>
       </div>
     </motion.div>
   );

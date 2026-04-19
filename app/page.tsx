@@ -1,7 +1,6 @@
 import Navbar       from "@/components/layout/Navbar";
 import Footer       from "@/components/layout/Footer";
 import Hero         from "@/components/sections/Hero";
-import ClientLogos  from "@/components/sections/ClientLogos";
 import Services       from "@/components/sections/Services";
 import BannerDivider  from "@/components/sections/BannerDivider";
 import HowWeWork      from "@/components/sections/HowWeWork";
@@ -20,7 +19,6 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <ClientLogos />
         <Services />
         <BannerDivider src="/images/vector2.png" />
         <FeaturedWork />
