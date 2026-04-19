@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Globe, LayoutDashboard, Smartphone, Monitor, Zap, Bot, Palette, TrendingUp } from "lucide-react";
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 interface Slide {
@@ -10,7 +11,7 @@ interface Slide {
 }
 
 interface ServiceItem {
-  icon:    string;
+  icon:    React.ElementType;
   title:   string;
   desc:    string;
   tag:     string | null;
@@ -24,7 +25,7 @@ interface ServiceItem {
    ─────────────────────────────────────────────────────────────────────────── */
 const services: ServiceItem[] = [
   {
-    icon: "/images/01.png", title: "Website",
+    icon: Globe, title: "Website",
     desc: "Lightning-fast, SEO-optimised websites. From landing pages to complex portals.",
     tag: "Popular", accent: "#F5A623", stripBg: "#FFF3D9",
     slides: [
@@ -33,63 +34,63 @@ const services: ServiceItem[] = [
     ],
   },
   {
-    icon: "/images/02.png", title: "Web Application",
+    icon: LayoutDashboard, title: "Web Application",
     desc: "Full-stack apps with real-time features, auth, dashboards and custom logic.",
-    tag: null, accent: "#3B82F6", stripBg: "#EFF6FF",
+    tag: null, accent: "#F5A623", stripBg: "#FFF3D9",
     slides: [
       { src: "/images/3.png", g1: "#3B82F6", g2: "#93C5FD" },
       { src: "/images/4.png", g1: "#1D4ED8", g2: "#3B82F6" },
     ],
   },
   {
-    icon: "/images/03.png", title: "Mobile App",
+    icon: Smartphone, title: "Mobile App",
     desc: "Cross-platform iOS & Android apps with native feel — Flutter or React Native.",
-    tag: null, accent: "#8B5CF6", stripBg: "#F5F3FF",
+    tag: null, accent: "#F5A623", stripBg: "#FFF3D9",
     slides: [
       { src: "/images/5.png", g1: "#8B5CF6", g2: "#C4B5FD" },
       { src: "/images/6.png", g1: "#6D28D9", g2: "#8B5CF6" },
     ],
   },
   {
-    icon: "/images/04.png", title: "Desktop App",
+    icon: Monitor, title: "Desktop App",
     desc: "Windows, macOS & Linux software. Electron, Tauri or native — we cover it.",
-    tag: null, accent: "#475569", stripBg: "#F1F5F9",
+    tag: null, accent: "#F5A623", stripBg: "#FFF3D9",
     slides: [
       { src: "/images/7.png", g1: "#475569", g2: "#94A3B8" },
       { src: "/images/8.png", g1: "#334155", g2: "#475569" },
     ],
   },
   {
-    icon: "/images/05.png", title: "AI Automation",
+    icon: Zap, title: "AI Automation",
     desc: "Automate workflows with AI pipelines — saving your team hours every week.",
-    tag: "Trending", accent: "#10B981", stripBg: "#ECFDF5",
+    tag: "Trending", accent: "#F5A623", stripBg: "#FFF3D9",
     slides: [
       { src: "/images/9.png",  g1: "#10B981", g2: "#6EE7B7" },
       { src: "/images/10.png", g1: "#059669", g2: "#10B981" },
     ],
   },
   {
-    icon: "/images/06.png", title: "AI Chatbot",
+    icon: Bot, title: "AI Chatbot",
     desc: "Intelligent bots for customer support, lead capture & internal tools.",
-    tag: "Trending", accent: "#06B6D4", stripBg: "#ECFEFF",
+    tag: "Trending", accent: "#F5A623", stripBg: "#FFF3D9",
     slides: [
       { src: "/images/11.png", g1: "#06B6D4", g2: "#67E8F9" },
       { g1: "#0891B2", g2: "#06B6D4" },
     ],
   },
   {
-    icon: "/images/07.png", title: "UI/UX Design",
+    icon: Palette, title: "UI/UX Design",
     desc: "Research-backed designs that convert. Wireframes, prototypes, design systems.",
-    tag: null, accent: "#EC4899", stripBg: "#FDF2F8",
+    tag: null, accent: "#F5A623", stripBg: "#FFF3D9",
     slides: [
       { src: "/images/13.png", g1: "#EC4899", g2: "#F9A8D4" },
       { g1: "#DB2777", g2: "#EC4899" },
     ],
   },
   {
-    icon: "/images/08.png", title: "Digital Strategy",
+    icon: TrendingUp, title: "Digital Strategy",
     desc: "Tech consulting & road-mapping — build the right thing the first time.",
-    tag: null, accent: "#F97316", stripBg: "#FFF7ED",
+    tag: null, accent: "#F5A623", stripBg: "#FFF3D9",
     slides: [
       { src: "/images/15.png", g1: "#F97316", g2: "#FED7AA" },
       { g1: "#EA580C", g2: "#F97316" },
@@ -149,54 +150,61 @@ function ServiceCard({ s, delay }: { s: ServiceItem; delay: number }) {
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.5, delay, ease: "easeOut" as const }}
       whileHover={{ y: -8 }}
-      className="group relative overflow-hidden rounded-3xl cursor-default"
-      style={{
-        height: 300,
-        border: `2px solid ${s.accent}35`,
-        boxShadow: `4px 6px 0px ${s.accent}40`,
-      }}
+      className="group relative cursor-default"
+      style={{ paddingTop: "20px" }}
     >
-      {/* Full-card animated background — zoom in/out */}
-      <motion.div
-        className="absolute inset-0"
-        style={{ background: bg }}
-        animate={{ scale: [1.05, 1.15, 1.05] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      >
-        {slide.src
-          ? <img src={slide.src} alt={s.title} className="w-full h-full object-cover" />
-          : <div className="w-full h-full" />
-        }
-      </motion.div>
-
-      {/* Header strip overlay — top */}
-      <div className="absolute inset-x-0 top-0 z-10 flex items-center gap-2.5 px-4 py-3"
-        style={{ background: `${s.stripBg}e8`, borderBottom: `1px solid ${s.accent}30` }}>
-        <div className="w-7 h-7 rounded-lg shrink-0 flex items-center justify-center"
-          style={{ background: s.accent, boxShadow: `0 2px 8px ${s.accent}60` }}>
-          <img src={s.icon} alt="" className="w-3.5 h-3.5 object-contain brightness-0 invert" />
+      {/* Title badge — straddles the top edge of the card */}
+      <div className="absolute top-0 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-xl"
+        style={{
+          background: s.stripBg,
+          border: `2px solid ${s.accent}50`,
+          boxShadow: `3px 4px 0 ${s.accent}35`,
+        }}>
+        <div className="w-5 h-5 rounded-md shrink-0 flex items-center justify-center"
+          style={{ background: s.accent }}>
+          <s.icon size={11} color="#fff" strokeWidth={2.5} />
         </div>
-        <h3 className="font-display font-black text-[14px] leading-tight flex-1" style={{ color: "#1a1a1a" }}>{s.title}</h3>
+        <span className="font-display font-black text-[13px] leading-tight" style={{ color: "#1a1a1a" }}>{s.title}</span>
         {s.tag && (
-          <span className="text-[9px] font-black tracking-widest uppercase px-2.5 py-0.5 rounded-full text-white shrink-0"
-            style={{ background: s.accent, boxShadow: `0 2px 8px ${s.accent}66` }}>
+          <span className="text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded-full text-white"
+            style={{ background: s.accent }}>
             {s.tag}
           </span>
         )}
       </div>
 
-      {/* Dark gradient — bottom-heavy for text legibility */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0) 70%)" }} />
+      {/* Card body */}
+      <div className="relative overflow-hidden rounded-3xl"
+        style={{
+          height: 210,
+          border: `2px solid ${s.accent}35`,
+          boxShadow: `4px 6px 0px ${s.accent}40`,
+        }}>
 
-      {/* Description + CTA — bottom */}
-      <div className="absolute inset-x-0 bottom-0 z-10 p-4 flex flex-col gap-1.5">
-        <p className="text-[12px] leading-relaxed" style={{ color: "rgba(255,255,255,0.80)" }}>{s.desc}</p>
-        <a href="#contact"
-          className="inline-flex items-center gap-1 text-xs font-black transition-all duration-200 group-hover:gap-2"
-          style={{ color: s.accent }}>
-          Get a quote →
-        </a>
+        {/* Full-card background — smooth zoom on hover */}
+        <div
+          className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110"
+          style={{ background: bg }}
+        >
+          {slide.src
+            ? <img src={slide.src} alt={s.title} className="w-full h-full object-cover" />
+            : <div className="w-full h-full" />
+          }
+        </div>
+
+        {/* Subtle gradient — bottom only */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0.15) 100%)" }} />
+
+        {/* Description + CTA — bottom */}
+        <div className="absolute inset-x-0 bottom-0 z-10 p-4 flex flex-col gap-1.5">
+          <p className="text-[12px] leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>{s.desc}</p>
+          <a href="#contact"
+            className="inline-flex items-center gap-1 text-xs font-black transition-all duration-200 group-hover:gap-2"
+            style={{ color: s.accent }}>
+            Get a quote →
+          </a>
+        </div>
       </div>
     </motion.div>
   );
