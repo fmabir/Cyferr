@@ -12,8 +12,21 @@ const PROJECTS = [
       { img:"/images/a3.png", a:"#BBF7D0", b:"#15803D" },
     ],
     details: {
+      liveUrl: "#",
       timeline: "11 days",
       tagline: "A full digital overhaul for a farm-to-table brand — reservations, content, and search, all in under two weeks.",
+      quote: {
+        text: "The new booking system paid for itself in the first weekend. We haven't missed a reservation since launch.",
+        author: "Maria K.", role: "Owner, GreenBite",
+      },
+      milestones: [
+        { marker: "Day 0",  event: "Kickoff & SEO keyword audit" },
+        { marker: "Day 2",  event: "Sitemap & wireframes approved" },
+        { marker: "Day 5",  event: "Design signed off by client" },
+        { marker: "Day 9",  event: "Development complete" },
+        { marker: "Day 11", event: "Live on custom domain" },
+        { marker: "Day 30", event: "Page 1 Google · reservations 3×" },
+      ],
       overview: "GreenBite had been operating with an outdated website that hadn't been touched in three years. No booking system, no way to update their menu, and zero presence on Google for local searches. They were losing customers to competitors with a stronger digital footprint — people were calling to reserve tables, and calls were being missed during busy service hours.\n\nWe came in with a clear plan: rebuild everything from scratch, prioritise mobile experience, and make sure staff could manage their own content without ever opening a code editor. The result was a custom Next.js site backed by Sanity CMS, a fully automated reservation system, and an SEO audit that pushed them to the first page of Google within weeks of launch.",
       problem: "Peak-season reservations were handled entirely over the phone. Staff were manually updating a PDF menu and emailing it to the web agency for every change — a process that took days and cost money each time. Meanwhile, competitors with basic booking widgets were capturing the digital-first customers GreenBite was missing entirely.",
       approach: "We started with a content audit and a competitor SEO analysis to identify the exact keywords their target customers were searching. The site architecture was rebuilt around those keywords before a single line of code was written. For the reservation system, we chose a lightweight custom solution over off-the-shelf tools — giving us full control over the confirmation flow, calendar integration, and admin view. Sanity CMS was chosen specifically because its Studio interface is intuitive enough for non-technical staff to use confidently on day one.",
@@ -34,6 +47,9 @@ const PROJECTS = [
         { label: "Monthly covers", value: "3×" },
       ],
       gallery: ["/images/a1.png", "/images/a2.png", "/images/a3.png"],
+      before: "/images/a2.png",
+      after:  "/images/a1.png",
+      videoUrl: "/videos/greenbite.mp4",
     },
   },
   {
@@ -45,11 +61,24 @@ const PROJECTS = [
       { img:"/images/a4.png", a:"#FFEDD5", b:"#F97316" },
     ],
     details: {
+      liveUrl: "#",
       timeline: "3 weeks",
       tagline: "Killed a 30% OTA commission by building a fully owned direct-booking platform in three weeks.",
+      quote: {
+        text: "We went from paying 30% per booking to keeping everything. Recovered the full build cost in saved commission within six weeks.",
+        author: "James O.", role: "Owner, LuxStay",
+      },
+      milestones: [
+        { marker: "Day 0",   event: "Discovery & competitor analysis" },
+        { marker: "Day 4",   event: "UI design approved" },
+        { marker: "Day 12",  event: "Booking engine built" },
+        { marker: "Day 18",  event: "Stripe + email reminders live" },
+        { marker: "Day 21",  event: "Site launched on custom domain" },
+        { marker: "Week 8",  event: "Direct bookings doubled · 0% OTA commission" },
+      ],
       overview: "LuxStay is a boutique hotel that had become entirely dependent on Booking.com and Airbnb for reservations. Every booking was costing them 30% in commission — and worse, they had no access to their guests' contact details, no ability to run promotions, and no way to build the repeat-guest relationships that drive long-term revenue for boutique properties.\n\nWe replaced that dependency with a fully owned direct-booking platform: a custom Next.js site with live room availability, Stripe deposit checkout, and a lightweight admin panel their staff uses daily. Within two months of launch, direct bookings had doubled and the owner described it as the best investment the hotel had made.",
-      problem: "The hotel was paying Booking.com 30% per reservation with no recourse. During peak season that translated to thousands in lost revenue every week. They couldn't run early-bird promotions, couldn't email past guests about availability, and couldn't offer add-ons (late checkout, airport transfer) without the OTA taking a cut of those too.",
-      approach: "We mapped out the full booking journey before building anything — from the moment a guest lands on the site to the confirmation email hitting their inbox. The availability calendar was built on a custom data model so it could be managed entirely from the admin panel without any third-party booking engine subscription. Stripe was integrated for deposit collection with automatic balance-due reminders sent via Resend. SEO-optimised room landing pages were built to capture travellers searching for the hotel by name or by area.",
+      problem: "The hotel was paying Booking.com 30% per reservation with no recourse. During peak season that translated to thousands in lost revenue every week. They couldn't run early-bird promotions, couldn't email past guests about availability, and couldn't offer add-ons without the OTA taking a cut of those too.",
+      approach: "We mapped out the full booking journey before building anything — from the moment a guest lands on the site to the confirmation email hitting their inbox. The availability calendar was built on a custom data model so it could be managed entirely from the admin panel without any third-party booking engine subscription. Stripe was integrated for deposit collection with automatic balance-due reminders sent via Resend.",
       highlights: [
         "Live room availability calendar synced in real-time with the hotel's admin panel",
         "Stripe deposit collection at booking with automated balance-due email reminders",
@@ -61,12 +90,15 @@ const PROJECTS = [
       tech: ["Next.js 14", "Stripe", "Resend", "Prisma", "PostgreSQL", "Tailwind CSS", "Vercel"],
       outcome: "In the first two months post-launch, direct bookings doubled compared to the same period the prior year. The hotel recovered the full platform cost in saved OTA commission within six weeks. The owner now runs seasonal promotions directly to past guests and has full visibility into revenue and occupancy for the first time.",
       metrics: [
-        { label: "OTA commission",   value: "0%" },
-        { label: "Direct bookings",  value: "2× up" },
+        { label: "OTA commission",    value: "0%" },
+        { label: "Direct bookings",   value: "2×" },
         { label: "Cost recovered in", value: "6 wks" },
-        { label: "Time to ship",     value: "3 wks" },
+        { label: "Time to ship",      value: "3 wks" },
       ],
       gallery: ["/images/a4.png", "/images/a4.png", "/images/a4.png"],
+      before: "/images/a4.png",
+      after:  "/images/a4.png",
+      videoUrl: "/videos/luxstay.mp4",
     },
   },
   {
@@ -78,8 +110,21 @@ const PROJECTS = [
       { img:"/images/a9.png", a:"#BFDBFE", b:"#2563EB" },
     ],
     details: {
+      liveUrl: "#",
       timeline: "5 weeks",
       tagline: "One platform to replace Notion, Slack threads, and spreadsheets — built for how a creative agency actually works.",
+      quote: {
+        text: "My team stopped writing Friday status emails entirely. The client portal alone re-engaged two clients we'd lost the previous quarter.",
+        author: "Priya M.", role: "Managing Director, TaskFlow Agency",
+      },
+      milestones: [
+        { marker: "Day 0",   event: "2-day discovery sprint with full team" },
+        { marker: "Day 7",   event: "Architecture & data model finalised" },
+        { marker: "Day 21",  event: "Internal alpha — real-time tasks live" },
+        { marker: "Day 28",  event: "Client portal shipped" },
+        { marker: "Day 35",  event: "Full team on production" },
+        { marker: "Month 1", event: "Manual reporting → 0 · onboarding −80%" },
+      ],
       overview: "A 12-person creative agency was drowning in tool fragmentation. Projects lived in Notion, conversations happened in Slack threads, timelines were tracked in spreadsheets, and client updates were written manually every Friday afternoon. Nobody had a single view of what was happening across accounts, and clients had no visibility at all unless someone wrote them an email.\n\nTaskFlow is the custom PM platform we built to fix all of that. Real-time task management, a read-only client portal, role-based access control, and an automated weekly digest that goes to every stakeholder without anyone needing to write a single word.",
       problem: "The agency's project managers were spending over six hours each week manually writing status update emails. New team members took several days to onboard because context was scattered across three tools. Clients were emailing to ask for updates, which was interrupting work and eroding trust. Two clients had churned in the previous quarter citing 'lack of visibility'.",
       approach: "We ran a two-day discovery session with the agency team before writing any code — mapping their actual workflow step by step and identifying where information was falling through the gaps. The decision to build custom rather than configure an existing tool came down to one requirement: the client portal. No off-the-shelf PM tool offered a white-labelled, read-only view they could send to clients without giving them access to internal discussions.\n\nWebSockets were chosen over polling for the real-time updates because the team is always in the app during working hours and latency matters when multiple people are on the same project simultaneously.",
@@ -90,10 +135,9 @@ const PROJECTS = [
         "Role-based access control with three tiers: Admin, Team Member, and Client",
         "File attachment support on tasks with Cloudinary storage and version history",
         "Workload view showing each team member's active tasks and capacity at a glance",
-        "Time-to-completion tracking per task type to help the team improve future estimates",
       ],
       tech: ["Next.js 14", "Socket.io", "Resend", "Prisma", "PostgreSQL", "Cloudinary", "Tailwind CSS", "Vercel"],
-      outcome: "Within the first month, manual status reporting dropped to zero. The two clients who had churned citing lack of visibility were re-engaged with the client portal as a selling point. Onboarding time for new team members dropped from three days to half a day. The agency has since added two new client accounts without adding headcount.",
+      outcome: "Within the first month, manual status reporting dropped to zero. The two clients who had churned citing lack of visibility were re-engaged with the client portal as a selling point. Onboarding time for new team members dropped from three days to half a day.",
       metrics: [
         { label: "Manual hrs saved/wk", value: "6+" },
         { label: "Tools replaced",      value: "4" },
@@ -101,6 +145,9 @@ const PROJECTS = [
         { label: "Client NPS delta",    value: "+42" },
       ],
       gallery: ["/images/a7.png", "/images/a8.png", "/images/a9.png"],
+      before: "/images/a8.png",
+      after:  "/images/a7.png",
+      videoUrl: "",
     },
   },
   {
@@ -112,29 +159,44 @@ const PROJECTS = [
       { img:"/images/a13.png", a:"#F3E8FF", b:"#9333EA" },
     ],
     details: {
+      liveUrl: "#",
       timeline: "4 weeks",
       tagline: "A fully owned e-commerce brand — off Daraz's 15% commission, with their own checkout, admin, and customer data.",
-      overview: "ShopEase's client had been selling exclusively through Daraz for three years. Every sale cost 15% in platform commission. They had no access to their customers' contact details, no control over how their products were displayed, and no way to offer promotions without going through Daraz's paid advertising system. The business was growing, but Daraz was capturing an increasingly large share of the upside.\n\nWe built them a fully owned e-commerce storefront with dual payment checkout (Stripe for international customers, bKash for Bangladesh), a custom product and inventory admin panel, and an order management system — all live in four weeks.",
-      problem: "Beyond the 15% per-sale commission, the client had deeper structural problems: zero customer data meant no repeat-purchase campaigns, no control over search placement meant newer competitors were outranking them, and reliance on Daraz's fulfilment notifications meant customers sometimes got confused about order status. The platform was a ceiling on the business.",
-      approach: "We scoped the project tightly to get them live fast: a clean product catalogue, a two-step checkout with dual payment, and a functional admin panel for the owner to manage everything. bKash integration required working directly with their merchant API — we handled the sandbox testing, callback verification, and edge-case payment state management. The admin panel was built with the owner's technical comfort level in mind: visual, minimal, and opinionated rather than flexible.",
+      quote: {
+        text: "In 60 days we moved our full catalogue off Daraz. We now own our customers, our margins, and our brand.",
+        author: "Rafi H.", role: "Founder, ShopEase",
+      },
+      milestones: [
+        { marker: "Day 0",   event: "Scope locked — 200+ SKUs catalogued" },
+        { marker: "Day 3",   event: "Design system & UI approved" },
+        { marker: "Day 14",  event: "Core storefront & checkout built" },
+        { marker: "Day 22",  event: "bKash merchant API integrated" },
+        { marker: "Day 28",  event: "Live — full catalogue migrated" },
+        { marker: "Month 3", event: "15% commission → 0 · repeat rate +60%" },
+      ],
+      overview: "ShopEase's client had been selling exclusively through Daraz for three years. Every sale cost 15% in platform commission. They had no access to their customers' contact details, no control over how their products were displayed, and no way to offer promotions without going through Daraz's paid advertising system.\n\nWe built them a fully owned e-commerce storefront with dual payment checkout (Stripe for international customers, bKash for Bangladesh), a custom product and inventory admin panel, and an order management system — all live in four weeks.",
+      problem: "Beyond the 15% per-sale commission, the client had deeper structural problems: zero customer data meant no repeat-purchase campaigns, no control over search placement meant newer competitors were outranking them, and reliance on Daraz's fulfilment notifications meant customers sometimes got confused about order status.",
+      approach: "We scoped the project tightly to get them live fast: a clean product catalogue, a two-step checkout with dual payment, and a functional admin panel for the owner to manage everything. bKash integration required working directly with their merchant API — we handled the sandbox testing, callback verification, and edge-case payment state management.",
       highlights: [
         "Dual-payment checkout: Stripe for international cards and bKash for local Bangladeshi mobile payments",
         "Custom admin panel: add/edit products, manage variants and stock levels, view and fulfil orders",
         "Discount codes and time-limited coupon engine built into the product and checkout flow",
         "Automated order confirmation, payment receipt, and shipping update notifications via SMS",
         "Customer accounts with full order history, saved addresses, and re-order functionality",
-        "Cloudinary-powered image management with automatic optimisation and responsive delivery",
         "Product variant system supporting size, colour, and custom attribute combinations",
       ],
       tech: ["Next.js 14", "Stripe", "bKash Merchant API", "Prisma", "PostgreSQL", "Cloudinary", "Resend", "Vercel"],
-      outcome: "The client moved their full catalogue off Daraz within 60 days of launch. In the first quarter of operating their own store, they retained the equivalent of six months of platform commissions. They now run a monthly email promotion to their growing customer list — something that simply wasn't possible before.",
+      outcome: "The client moved their full catalogue off Daraz within 60 days of launch. In the first quarter of operating their own store, they retained the equivalent of six months of platform commissions. They now run a monthly email promotion to their growing customer list.",
       metrics: [
-        { label: "Platform commission", value: "15% → 0" },
+        { label: "Platform commission", value: "→ 0%" },
         { label: "Time to ship",        value: "4 wks" },
-        { label: "SKUs live at launch", value: "200+" },
-        { label: "Repeat purchase rate", value: "+60%" },
+        { label: "SKUs at launch",      value: "200+" },
+        { label: "Repeat purchase",     value: "+60%" },
       ],
       gallery: ["/images/a13.png", "/images/a13.png", "/images/a13.png"],
+      before: "/images/a13.png",
+      after:  "/images/a13.png",
+      videoUrl: "",
     },
   },
   {
@@ -146,11 +208,24 @@ const PROJECTS = [
       { img:"/images/a14.png", a:"#99F6E4", b:"#115E59" },
     ],
     details: {
+      liveUrl: "#",
       timeline: "8 weeks",
       tagline: "Digitising doctor discovery and appointment booking in Ghana — from phone calls to a sub-3-minute booking flow.",
-      overview: "MediBook was founded to solve a real infrastructure problem in Ghana's healthcare system: finding and booking a verified specialist could take days of phone calls, word-of-mouth referrals, and physical visits to multiple clinics. Patients outside major cities had almost no access to specialist consultations at all.\n\nWe built a cross-platform Flutter application for both iOS and Android covering the full patient journey — browse verified doctors by specialty and location, check real-time availability, book and pay for in-person or video consultations, and access past appointment records. A companion web admin gives doctors full control over their profile, availability, and patient history.",
+      quote: {
+        text: "Patients from 6 regions who never had access to specialist care are now booking in under 3 minutes. That's real impact.",
+        author: "Dr. Kwame A.", role: "Co-founder, MediBook",
+      },
+      milestones: [
+        { marker: "Day 0",   event: "Product scope & Flutter architecture" },
+        { marker: "Day 7",   event: "Doctor profiles & availability engine" },
+        { marker: "Day 28",  event: "iOS + Android alpha shipped" },
+        { marker: "Day 42",  event: "Agora video + Paystack integrated" },
+        { marker: "Day 49",  event: "Doctor onboarding — 40 verified" },
+        { marker: "Day 56",  event: "Public launch · 6 regions live" },
+      ],
+      overview: "MediBook was founded to solve a real infrastructure problem in Ghana's healthcare system: finding and booking a verified specialist could take days of phone calls, word-of-mouth referrals, and physical visits to multiple clinics. Patients outside major cities had almost no access to specialist consultations at all.\n\nWe built a cross-platform Flutter application for both iOS and Android covering the full patient journey — browse verified doctors by specialty and location, check real-time availability, book and pay for in-person or video consultations, and access past appointment records.",
       problem: "There was no reliable digital directory of verified doctors in Ghana. Patients relied on personal referrals or walked into clinics hoping a specialist was available. For patients outside Accra or Kumasi, accessing a specialist meant a full day of travel. Doctors had no unified tool to manage appointments — most were using paper calendars or phone calls to coordinate.",
-      approach: "Flutter was chosen over separate native apps because it allowed a single codebase to ship on iOS and Android simultaneously — critical for an 8-week timeline. Firebase handled real-time availability updates and push notifications without the complexity of a custom backend. Agora's SDK was integrated for video consultations after evaluating three alternatives on call quality and SDK maturity for Flutter. Paystack was the obvious payment choice for the Ghanaian market, with their reliable mobile money and card support.",
+      approach: "Flutter was chosen over separate native apps because it allowed a single codebase to ship on iOS and Android simultaneously — critical for an 8-week timeline. Firebase handled real-time availability updates and push notifications without the complexity of a custom backend. Agora's SDK was integrated for video consultations after evaluating three alternatives on call quality and SDK maturity for Flutter.",
       highlights: [
         "Verified doctor directory with specialty, location, language, and availability filters",
         "Real-time appointment booking with live calendar availability pulled from each doctor's schedule",
@@ -158,17 +233,19 @@ const PROJECTS = [
         "Paystack payment integration supporting card and mobile money for the Ghanaian market",
         "Patient dashboard with appointment history, upcoming bookings, and downloadable consultation notes",
         "Push notifications for booking confirmations, reminders 24 hours before appointments, and follow-up prompts",
-        "Doctor admin: manage availability slots, view patient history, and update profile and credentials",
       ],
       tech: ["Flutter 3", "Dart", "Firebase (Auth, Firestore, FCM)", "Agora SDK", "Paystack", "Cloud Functions", "Google Maps SDK"],
-      outcome: "MediBook launched with 40 verified doctors across 8 specialties. Average booking time on the app is under 3 minutes. The video consultation feature has been used by patients from 6 regions outside Accra who previously had no access to specialist care. The team is now expanding to a second country in West Africa.",
+      outcome: "MediBook launched with 40 verified doctors across 8 specialties. Average booking time on the app is under 3 minutes. The video consultation feature has been used by patients from 6 regions outside Accra who previously had no access to specialist care.",
       metrics: [
         { label: "Doctors at launch", value: "40+" },
         { label: "Avg booking time",  value: "<3 min" },
-        { label: "Platforms",         value: "iOS + Android" },
+        { label: "Platforms",         value: "iOS+Android" },
         { label: "Time to ship",      value: "8 wks" },
       ],
       gallery: ["/images/a13.png", "/images/a14.png", "/images/a14.png"],
+      before: "/images/a14.png",
+      after:  "/images/a13.png",
+      videoUrl: "",
     },
   },
   {
@@ -180,29 +257,44 @@ const PROJECTS = [
       { img:"/images/a14.png", a:"#C7D2FE", b:"#4F46E5" },
     ],
     details: {
+      liveUrl: "#",
       timeline: "3 weeks",
       tagline: "An AI support agent that knows your product better than most support reps — trained on your own docs and live in one script tag.",
-      overview: "NexusBot started as a solution to a very specific pain: the client's support team was spending 70% of their time answering the same 20 questions. Average first response time was over four hours. The knowledge base existed — it was just sitting in a documentation site nobody read.\n\nWe built a GPT-4 retrieval-augmented generation pipeline trained exclusively on the client's product documentation, FAQs, and historical support tickets. NexusBot handles tier-1 queries autonomously, detects when it's uncertain, and escalates to a human agent with the full conversation context attached — so customers never have to repeat themselves.",
+      quote: {
+        text: "78% of tickets resolved without a human. We redeployed two support agents to proactive customer success work on day 30.",
+        author: "Sarah L.", role: "VP Support, NexusBot Client",
+      },
+      milestones: [
+        { marker: "Day 0",   event: "Knowledge base audit & chunking strategy" },
+        { marker: "Day 3",   event: "RAG pipeline built & tested" },
+        { marker: "Day 8",   event: "Confidence scoring layer tuned" },
+        { marker: "Day 10",  event: "One-line embed script shipped" },
+        { marker: "Day 21",  event: "Live on client's site" },
+        { marker: "Month 1", event: "78% deflection · response time <2s" },
+      ],
+      overview: "NexusBot started as a solution to a very specific pain: the client's support team was spending 70% of their time answering the same 20 questions. Average first response time was over four hours. The knowledge base existed — it was just sitting in a documentation site nobody read.\n\nWe built a GPT-4 retrieval-augmented generation pipeline trained exclusively on the client's product documentation, FAQs, and historical support tickets. NexusBot handles tier-1 queries autonomously, detects when it's uncertain, and escalates to a human agent with the full conversation context attached.",
       problem: "The support team had 3 agents fielding 200+ tickets per week. 78% of those tickets were variations of the same questions covered in the documentation. Response times were averaging 4 hours despite the answers being readily available. Training new support agents took two weeks and still resulted in inconsistent answers for edge-case queries.",
-      approach: "The architecture is a classic RAG pipeline: documentation is chunked, embedded using OpenAI's embedding model, and stored in Pinecone vector storage. Each incoming query is embedded and matched against the knowledge base before being passed to GPT-4 with the retrieved context. A confidence scoring layer determines whether the bot should answer directly, ask a clarifying question, or escalate — with the escalation threshold tuned over the first week of production monitoring.\n\nThe embed script was a deliberate product decision: any customer success or operations person should be able to install NexusBot without involving engineering. The script tag handles widget injection, session management, and the connection to the backend API.",
+      approach: "The architecture is a classic RAG pipeline: documentation is chunked, embedded using OpenAI's embedding model, and stored in Pinecone vector storage. Each incoming query is embedded and matched against the knowledge base before being passed to GPT-4 with the retrieved context. A confidence scoring layer determines whether the bot should answer directly, ask a clarifying question, or escalate.\n\nThe embed script was a deliberate product decision: any customer success or operations person should be able to install NexusBot without involving engineering.",
       highlights: [
         "GPT-4 RAG pipeline retrieves relevant documentation chunks before every response — answers are grounded, not hallucinated",
         "Confidence-based escalation: when the model is uncertain, it hands off to a human agent with full conversation history attached",
         "One-line embed script deploys NexusBot on any website without engineering involvement",
         "Admin dashboard for reviewing conversations, flagging incorrect answers, and triggering knowledge base retraining",
         "Multi-language support: auto-detects the customer's query language and responds in kind",
-        "Support analytics: ticket deflection rate, most common queries, escalation triggers, and average resolution time",
         "Webhooks to push escalated conversations directly into the client's existing helpdesk (Intercom, Zendesk)",
       ],
       tech: ["GPT-4 (OpenAI)", "LangChain", "Pinecone", "FastAPI", "Next.js 14", "Python 3.11", "Vercel", "Resend"],
-      outcome: "In the first month of deployment, NexusBot resolved 78% of incoming tickets without human intervention. Average response time dropped from 4 hours to under 2 seconds. The client reduced their support team's ticket volume by 55%, allowing them to redeploy two agents to proactive customer success work. The knowledge base has since been expanded to cover the full product suite.",
+      outcome: "In the first month of deployment, NexusBot resolved 78% of incoming tickets without human intervention. Average response time dropped from 4 hours to under 2 seconds. The client reduced their support team's ticket volume by 55%, allowing them to redeploy two agents to proactive customer success work.",
       metrics: [
-        { label: "Tickets resolved",   value: "78%" },
-        { label: "Avg response time",  value: "<2s" },
-        { label: "Support cost cut",   value: "55%" },
-        { label: "Time to ship",       value: "3 wks" },
+        { label: "Tickets resolved",  value: "78%" },
+        { label: "Avg response time", value: "<2s" },
+        { label: "Support cost cut",  value: "55%" },
+        { label: "Time to ship",      value: "3 wks" },
       ],
       gallery: ["/images/a14.png", "/images/a14.png", "/images/a14.png"],
+      before: "/images/a14.png",
+      after:  "/images/a14.png",
+      videoUrl: "",
     },
   },
 ];
@@ -221,6 +313,124 @@ function SectionLabel({ children, color }: { children: React.ReactNode; color: s
     <div className="flex items-center gap-3 mb-4">
       <div className="w-1 h-5 rounded-full shrink-0" style={{ background: color }} />
       <p className="font-display font-black text-base text-txt">{children}</p>
+    </div>
+  );
+}
+
+/* ─── Quote Card ─────────────────────────────────────────────────────────────── */
+function QuoteCard({ quote, color }: { quote: { text: string; author: string; role: string }; color: string }) {
+  const initials = quote.author.split(" ").map(w => w[0]).join("").slice(0, 2);
+  return (
+    <div className="rounded-2xl p-5 flex gap-4 items-start" style={{ background: `${color}08`, border: `2px solid ${color}20` }}>
+      <div className="text-4xl font-black leading-none select-none mt-1" style={{ color: `${color}40`, fontFamily: "Georgia, serif" }}>"</div>
+      <div className="flex-1 min-w-0">
+        <p className="text-sm text-txt leading-relaxed font-medium italic">"{quote.text}"</p>
+        <div className="flex items-center gap-3 mt-4">
+          <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-[11px] font-black text-white"
+            style={{ background: color }}>
+            {initials}
+          </div>
+          <div>
+            <p className="text-[13px] font-black text-txt leading-tight">{quote.author}</p>
+            <p className="text-[11px] text-txt-2 mt-0.5">{quote.role}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Results Timeline ───────────────────────────────────────────────────────── */
+function ResultsTimeline({ milestones, color }: { milestones: { marker: string; event: string }[]; color: string }) {
+  return (
+    <div className="overflow-x-auto pb-2 -mx-1 px-1">
+      <div className="flex items-start gap-0 min-w-max">
+        {milestones.map((m, i) => (
+          <div key={i} className="flex items-start">
+            <div className="flex flex-col items-center">
+              {/* Dot */}
+              <div className="w-3 h-3 rounded-full border-2 shrink-0 mt-4"
+                style={{ background: i === milestones.length - 1 ? color : "#fff", borderColor: color }} />
+              {/* Content below dot */}
+              <div className="mt-2 w-28 pr-2">
+                <p className="text-[10px] font-black uppercase tracking-wider" style={{ color }}>{m.marker}</p>
+                <p className="text-[11px] text-txt-2 leading-snug mt-0.5">{m.event}</p>
+              </div>
+            </div>
+            {/* Connector line */}
+            {i < milestones.length - 1 && (
+              <div className="h-[2px] w-6 mt-[18px] shrink-0 rounded-full" style={{ background: `${color}35` }} />
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ─── Before / After ─────────────────────────────────────────────────────────── */
+function BeforeAfter({ before, after, color }: { before: string; after: string; color: string }) {
+  const [view, setView] = useState<"before" | "after">("after");
+  return (
+    <div>
+      <div className="flex gap-2 mb-3">
+        {(["before", "after"] as const).map(v => (
+          <button key={v} onClick={() => setView(v)}
+            className="px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all duration-200 border-2"
+            style={view === v
+              ? { background: color, color: "#fff", borderColor: color }
+              : { background: "transparent", color: "#888", borderColor: "#ddd" }}>
+            {v}
+          </button>
+        ))}
+      </div>
+      <div className="relative w-full rounded-2xl overflow-hidden" style={{ aspectRatio: "16/8" }}>
+        <AnimatePresence mode="wait">
+          <motion.img key={view} src={imgSrc(view === "before" ? before : after)} alt={view}
+            className="absolute inset-0 w-full h-full object-cover object-top"
+            initial={{ opacity: 0, x: view === "after" ? 24 : -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }} />
+        </AnimatePresence>
+        <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-white"
+          style={{ background: view === "after" ? color : "#6b7280" }}>
+          {view === "after" ? "After" : "Before"}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Video Section ──────────────────────────────────────────────────────────── */
+function VideoSection({ url, color }: { url: string; color: string }) {
+  const [aspectRatio, setAspectRatio] = useState<number | null>(null);
+
+  function handleMetadata(e: React.SyntheticEvent<HTMLVideoElement>) {
+    const v = e.currentTarget;
+    setAspectRatio(v.videoWidth / v.videoHeight);
+  }
+
+  const isPortrait = aspectRatio !== null && aspectRatio < 1;
+
+  return (
+    <div>
+      <SectionLabel color={color}>Walkthrough Video</SectionLabel>
+      <div className={`rounded-2xl overflow-hidden ${isPortrait ? "mx-auto" : "w-full"}`}
+        style={{
+          border: `2px solid ${color}25`,
+          maxWidth: isPortrait ? 200 : "100%",
+        }}>
+        <video
+          src={url}
+          controls
+          playsInline
+          preload="metadata"
+          onLoadedMetadata={handleMetadata}
+          className="w-full block"
+          style={{ background: "#000" }}
+        />
+      </div>
     </div>
   );
 }
@@ -283,9 +493,7 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
                   className="absolute inset-0 w-full h-full object-cover object-top" />
               </motion.div>
             </AnimatePresence>
-            {/* Gradient overlay */}
             <div className="absolute inset-0" style={{ background: `linear-gradient(to top,${c}25 0%,transparent 55%)` }} />
-            {/* Thumbnails */}
             <div className="absolute bottom-3 right-4 flex gap-2">
               {d.gallery.map((img, i) => (
                 <button key={i} onClick={() => setActiveImg(i)}
@@ -299,6 +507,9 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
 
           <div className="px-6 sm:px-8 py-7 flex flex-col gap-8">
 
+            {/* Client quote */}
+            <QuoteCard quote={d.quote} color={c} />
+
             {/* Tagline + metrics */}
             <div>
               <p className="text-base font-bold text-txt leading-snug mb-5">{d.tagline}</p>
@@ -310,6 +521,12 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Results timeline */}
+            <div>
+              <SectionLabel color={c}>How It Unfolded</SectionLabel>
+              <ResultsTimeline milestones={d.milestones} color={c} />
             </div>
 
             {/* Overview */}
@@ -334,6 +551,12 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
               ))}
             </div>
 
+            {/* Before & After */}
+            <div>
+              <SectionLabel color={c}>Before &amp; After</SectionLabel>
+              <BeforeAfter before={d.before} after={d.after} color={c} />
+            </div>
+
             {/* What we built */}
             <div>
               <SectionLabel color={c}>What We Built</SectionLabel>
@@ -347,6 +570,11 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
                 ))}
               </ul>
             </div>
+
+            {/* Video walkthrough */}
+            {d.videoUrl && (
+              <VideoSection url={d.videoUrl} color={c} />
+            )}
 
             {/* Tech stack */}
             <div>
@@ -366,6 +594,7 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
               <SectionLabel color={c}>The Outcome</SectionLabel>
               <p className="text-sm text-txt-2 leading-relaxed">{d.outcome}</p>
             </div>
+
 
           </div>
         </div>
@@ -510,7 +739,7 @@ export default function FeaturedWork() {
                   transition={{ duration: IMG_MS/1000, ease:"linear" }} />
               </div>
 
-              {/* Info strip — project name + desc on left, button on right */}
+              {/* Info strip */}
               <AnimatePresence mode="wait">
                 <motion.div key={pi}
                   className="mt-5 flex items-end justify-between gap-6"
