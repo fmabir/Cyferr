@@ -181,16 +181,20 @@ function ServiceCard({ s, delay }: { s: ServiceItem; delay: number }) {
           boxShadow: `4px 6px 0px ${s.accent}40`,
         }}>
 
-        {/* Full-card background — smooth zoom on hover */}
-        <div
+        {/* Full-card background — one-time zoom on scroll-in + hover zoom */}
+        <motion.div
           className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110"
           style={{ background: bg }}
+          initial={{ scale: 1 }}
+          whileInView={{ scale: [1, 1.08, 1] }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 4, ease: "easeInOut", delay: delay * 0.5 }}
         >
           {slide.src
             ? <img src={slide.src} alt={s.title} className="w-full h-full object-cover" />
             : <div className="w-full h-full" />
           }
-        </div>
+        </motion.div>
 
         {/* Subtle gradient — bottom only */}
         <div className="absolute inset-0 pointer-events-none"
