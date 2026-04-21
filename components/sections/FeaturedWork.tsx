@@ -13,9 +13,9 @@ const PROJECTS = [ // prettier-ignore
     id: 1, name: "GreenBite", type: "Restaurant Website", color: "#22C55E",
     desc: "A farm-to-table restaurant was haemorrhaging its busiest nights — phone calls going unanswered mid-service, a 2019 static website, and a menu four months out of date. Rebuilt in 11 days. Monthly covers tripled within 30 days of launch.",
     slides: [
-      { img:"/images/a1.png", a:"#DCFCE7", b:"#16A34A" },
-      { img:"/images/a2.png", a:"#4ADE80", b:"#166534" },
-      { img:"/images/a3.png", a:"#BBF7D0", b:"#15803D" },
+      { img:"/images/gb-homepage.png",        a:"#DCFCE7", b:"#16A34A", pos:"top center" },
+      { img:"/images/gb-homepage-mobile.png", a:"#4ADE80", b:"#166534", pos:"center" },
+      { img:"/images/gb-seo.png",             a:"#BBF7D0", b:"#15803D", pos:"center" },
     ],
     details: {
       timeline: "11 days",
@@ -36,11 +36,11 @@ const PROJECTS = [ // prettier-ignore
         { name: "Launch & Indexing",  desc: "Deployed to Vercel on a custom domain. Sitemap submitted to Search Console. Schema.org markup validated for Restaurant, Menu, and LocalBusiness. Indexed and appearing in search within 36 hours of go-live." },
       ],
       features: [
-        { img: "/images/a1.png", title: "Homepage & Brand Experience",     desc: "The homepage opens with a full-bleed hero of seasonal food photography and a single above-the-fold CTA: Reserve a Table. Every section below — the provenance story, rotating menu preview, chef profile, and location map — is ordered around the decision a diner makes in the first few seconds on a phone screen. Under 1.5 seconds on mobile." },
-        { img: "/images/a2.png", title: "Live Reservation System",         desc: "Guests select date, party size, and time slot on-site. The engine checks real-time availability, holds the slot for 8 minutes while the form is completed, then commits the booking and instantly notifies both the guest by email and the kitchen via the admin dashboard. No phone calls. No clipboard. No missed bookings during service." },
-        { img: "/images/a3.png", title: "Staff Content Management",        desc: "Sanity Studio configured with a non-technical interface accessible from any device. Menu items, seasonal specials, opening hours, gallery photos, and event announcements are all editable without a developer. The owner updated her first seasonal menu 9 minutes after the handover call ended — on her phone, from the kitchen floor, unprompted." },
-        { img: "/images/a1.png", title: "Local SEO Architecture",          desc: "Every URL, heading, meta description, image alt text, and internal link was designed around 12 high-intent local search terms before a line of code was written. Schema.org markup for Restaurant, Menu, and LocalBusiness types implemented throughout. The site tells search engines exactly what the restaurant is, what it serves, and where it is — on every page, consistently." },
-        { img: "/images/a2.png", title: "Admin Reservations Dashboard",    desc: "Staff see every upcoming booking in a single clean view — guest name, party size, time slot, special requests, and table preference. No-shows are automatically flagged after 15 minutes with no action required. Weekly cover totals are summarised for the kitchen so prep quantities can be planned before service, without anyone manually counting." },
+        { img: "/images/gb-homepage.png",    title: "Homepage & Brand Experience",     desc: "The homepage opens with a full-bleed hero of seasonal food photography and a single above-the-fold CTA: Reserve a Table. Every section below — the provenance story, rotating menu preview, chef profile, and location map — is ordered around the decision a diner makes in the first few seconds on a phone screen. Under 1.5 seconds on mobile." },
+        { img: "/images/gb-reservation.png", title: "Live Reservation System",         desc: "Guests select date, party size, and time slot on-site. The engine checks real-time availability, holds the slot for 8 minutes while the form is completed, then commits the booking and instantly notifies both the guest by email and the kitchen via the admin dashboard. No phone calls. No clipboard. No missed bookings during service." },
+        { img: "/images/gb-cms.png",         title: "Staff Content Management",        desc: "Sanity Studio configured with a non-technical interface accessible from any device. Menu items, seasonal specials, opening hours, gallery photos, and event announcements are all editable without a developer. The owner updated her first seasonal menu 9 minutes after the handover call ended — on her phone, from the kitchen floor, unprompted." },
+        { img: "/images/gb-seo.png",         title: "Local SEO Architecture",          desc: "Every URL, heading, meta description, image alt text, and internal link was designed around 12 high-intent local search terms before a line of code was written. Schema.org markup for Restaurant, Menu, and LocalBusiness types implemented throughout. The site tells search engines exactly what the restaurant is, what it serves, and where it is — on every page, consistently." },
+        { img: "/images/gb-admin.png",       title: "Admin Reservations Dashboard",    desc: "Staff see every upcoming booking in a single clean view — guest name, party size, time slot, special requests, and table preference. No-shows are automatically flagged after 15 minutes with no action required. Weekly cover totals are summarised for the kitchen so prep quantities can be planned before service, without anyone manually counting." },
       ],
       overview: "GreenBite had been running for six years on reputation and word of mouth. The dining room filled mid-week without much effort, but weekends were a recurring problem. During Friday and Saturday service, the person running front-of-house was also the person answering reservation calls — calls that were still getting missed. A competitor two streets away had launched online booking eight months earlier and was visibly pulling the Friday night trade.\n\nThe website was a static page from 2019 with a PDF menu linked from the footer. Every menu change meant emailing the old web agency, waiting two or three days, and paying an update fee. By the time we were brought in, the online menu was four months out of date. The head chef had stopped asking for updates.\n\nWe were given one clear brief: make the site work as hard as the restaurant does. We started the same day with a keyword audit rather than design work — the search terms we identified shaped every URL and heading before a wireframe existed. The reservation system was built from scratch rather than bolted in from an off-the-shelf widget, because the client needed full control over time slots, party size caps, and the confirmation flow. We delivered in 11 days.",
       problem: "Staff were being pulled off the floor mid-service to answer phone calls that were still getting missed. The old web agency retainer was a fixed monthly cost for a site that was functionally untouched. The online menu was four months stale. And the site had almost no organic presence — a local search for the restaurant's food type and neighbourhood returned three competitors before GreenBite appeared at all.",
@@ -64,9 +64,9 @@ const PROJECTS = [ // prettier-ignore
     id: 2, name: "LuxStay", type: "Hotel Booking Platform", color: "#F97316",
     desc: "A 14-room boutique hotel was handing 30% of every booking to Booking.com — with no access to a single guest's email address to show for it. Built a fully owned direct-booking platform in 3 weeks. Recovered the entire build cost in saved commission within six weeks.",
     slides: [
-      { img:"/images/a4.png", a:"#FED7AA", b:"#EA580C" },
-      { img:"/images/a4.png", a:"#FB923C", b:"#C2410C" },
-      { img:"/images/a4.png", a:"#FFEDD5", b:"#F97316" },
+      { img:"/images/ls-hero.png",      a:"#FED7AA", b:"#EA580C", pos:"top center", bg:"#F8F8F8" },
+      { img:"/images/ls-homepage.png",  a:"#FB923C", b:"#C2410C", pos:"top center" },
+      { img:"/images/ls-rooms.png",     a:"#FFEDD5", b:"#F97316", pos:"center" },
     ],
     details: {
       timeline: "3 weeks",
@@ -87,11 +87,11 @@ const PROJECTS = [ // prettier-ignore
         { name: "Reminder Sent",    desc: "Automated balance-due and pre-arrival email fires 48 hours before check-in via Resend. No manual follow-up. No missed payments. No chasing guests." },
       ],
       features: [
-        { img: "/images/a4.png", title: "Room Detail Pages",               desc: "Each room type has its own SEO-optimised page: photography, full amenities list, seasonal pricing, and a direct 'Check Availability' CTA. Designed to convert a browsing guest into a direct booking without touching an OTA. Every page is structured for search — title, meta, and schema markup implemented throughout." },
-        { img: "/images/a4.png", title: "Live Availability Calendar",      desc: "Room availability is managed entirely from the hotel's custom admin panel — no third-party booking engine, no monthly SaaS subscription. Staff set blackout dates, adjust pricing by season, and manage room allocation in real time. The calendar syncs instantly across every view on the site." },
-        { img: "/images/a4.png", title: "Stripe Deposit & Auto Reminders", desc: "Guests pay a configurable deposit at booking time. The balance-due reminder fires automatically 48 hours before check-in, formatted to match the hotel's brand. No manual follow-up required. No missed payments. The entire post-booking communication runs itself." },
-        { img: "/images/a4.png", title: "Owned Guest Database",            desc: "Every booking captures guest name, email, stay history, and room preference. The hotel now runs seasonal promotions, loyalty offers, and re-engagement campaigns directly to past guests — a capability Booking.com made structurally impossible by withholding guest contact data." },
-        { img: "/images/a4.png", title: "Revenue & Occupancy Dashboard",   desc: "The admin panel shows the owner a live view of upcoming bookings, monthly revenue by room type, and occupancy rate by week. For the first time in the property's history, every pricing and availability decision is backed by actual data rather than gut feel and a paper diary." },
+        { img: "/images/ls-homepage.png",  title: "Homepage & Direct Booking",       desc: "The homepage is built around one goal: converting a browsing guest into a direct booking without an OTA in the way. Full-bleed hero, room previews, live availability widget, trust signals, and a single above-the-fold CTA. SEO-structured from the ground up — ranking for the hotel's name, location, and room categories from day one." },
+        { img: "/images/ls-rooms.png",    title: "Room Detail Pages",               desc: "Each room type has its own SEO-optimised page: photography, full amenities list, seasonal pricing, and a direct 'Check Availability' CTA. Designed to convert a browsing guest into a direct booking without touching an OTA. Every page is structured for search — title, meta, and schema markup implemented throughout." },
+        { img: "/images/ls-calender.png", title: "Live Availability Calendar",      desc: "Room availability is managed entirely from the hotel's custom admin panel — no third-party booking engine, no monthly SaaS subscription. Staff set blackout dates, adjust pricing by season, and manage room allocation in real time. The calendar syncs instantly across every view on the site." },
+        { img: "/images/ls-checkout.png",  title: "Stripe Deposit & Auto Reminders", desc: "Guests pay a configurable deposit at booking time. The balance-due reminder fires automatically 48 hours before check-in, formatted to match the hotel's brand. No manual follow-up required. No missed payments. The entire post-booking communication runs itself." },
+        { img: "/images/ls-revenue.png",   title: "Revenue & Occupancy Dashboard",   desc: "The admin panel shows the owner a live view of upcoming bookings, monthly revenue by room type, and occupancy rate by week. For the first time in the property's history, every pricing and availability decision is backed by actual data rather than gut feel and a paper diary." },
       ],
       overview: "LuxStay is a 14-room boutique hotel that had built its entire reservations operation on top of Booking.com and Airbnb. It worked — until the owner ran the numbers. Every booking was costing 30% in OTA commission. In a strong summer week, that was thousands handed to a platform. Worse, the hotel had zero access to guest contact details. By contract, the OTAs owned that relationship. There was no email list, no repeat-guest programme, and no way to know who had actually stayed.\n\nWe replaced that dependency with a fully owned booking infrastructure: a custom Next.js site with live room availability, Stripe deposit checkout, automated email sequences, and an admin panel the front desk team uses every day.\n\nThe scope was deliberately tight. Three weeks is not enough time to build everything — so we built only what mattered: one availability model, one checkout flow, one confirmation template. We resisted every feature request that didn't directly affect booking conversion. The result went live on day 21.",
       problem: "The hotel was paying Booking.com 30% per reservation with no alternative. In peak season that translated to thousands per week handed to an OTA. They had no guest email list, no way to send an early-bird promotion, and no visibility into which room types were actually driving revenue. Their website was a static page with a phone number and a Booking.com iframe — which, by design, sent every browsing guest straight back to the OTA to complete the booking.",
@@ -103,11 +103,11 @@ const PROJECTS = [ // prettier-ignore
         { marker: "Day 21", event: "Launched on custom domain — first direct booking same day" },
         { marker: "Week 8", event: "Direct bookings doubled · OTA commission at zero" },
       ],
-      beforeGallery: ["/images/a4.png", "/images/a4.png", "/images/a4.png"],
-      afterGallery:  ["/images/a4.png", "/images/a4.png", "/images/a4.png"],
-      tech: ["Next.js 14", "Stripe", "Resend", "Prisma", "PostgreSQL", "Tailwind CSS", "Vercel"],
+      beforeGallery: ["/images/ls-before.png"],
+      afterGallery:  ["/images/ls-homepage.png"],
+      tech: ["Next.js 14", "Stripe", "Resend", "Prisma", "PostgreSQL", "Tailwind CSS", "Vercel", "Google Analytics 4"],
       outcome: "In the first two months post-launch, direct bookings doubled compared to the same period the prior year. The hotel recovered the full platform build cost in saved OTA commission within six weeks. The owner now runs seasonal promotions directly to a growing list of past guests and has full revenue and occupancy visibility for the first time in the property's history. The Booking.com widget was taken off the old site on launch day and has not been restored.",
-      gallery: ["/images/a4.png", "/images/a4.png", "/images/a4.png"],
+      gallery: ["/images/ls-hero.png"],
       videoUrl: "/videos/luxstay.mp4",
     },
   },
@@ -156,7 +156,7 @@ const PROJECTS = [ // prettier-ignore
       ],
       beforeGallery: ["/images/a8.png", "/images/a8.png", "/images/a8.png"],
       afterGallery:  ["/images/a7.png", "/images/a9.png", "/images/a7.png"],
-      tech: ["Next.js 14", "Socket.io", "Resend", "Prisma", "PostgreSQL", "Cloudinary", "Tailwind CSS", "Vercel"],
+      tech: ["Next.js 14", "Socket.io", "Resend", "Prisma", "PostgreSQL", "Cloudinary", "Tailwind CSS", "Vercel", "Railway"],
       outcome: "Within the first month, manual status reporting dropped to zero across the entire team — not as a policy, but because the portal made it unnecessary. Both clients who had churned citing lack of visibility were re-engaged after seeing a live demo of the portal. New hire onboarding dropped from three days to half a day. The agency's senior PM described the first Monday after launch as 'the first time I started the week without writing emails'.",
       gallery: ["/images/a7.png", "/images/a8.png", "/images/a9.png"],
     },
@@ -306,7 +306,7 @@ const PROJECTS = [ // prettier-ignore
       ],
       beforeGallery: ["/images/a14.png", "/images/a14.png", "/images/a14.png"],
       afterGallery:  ["/images/a14.png", "/images/a14.png", "/images/a14.png"],
-      tech: ["GPT-4 (OpenAI)", "LangChain", "Pinecone", "FastAPI", "Next.js 14", "Python 3.11", "Vercel", "Resend"],
+      tech: ["GPT-4 (OpenAI)", "LangChain", "Pinecone", "FastAPI", "Next.js 14", "Python 3.11", "Vercel", "Intercom", "Zendesk"],
       outcome: "In the first full month of deployment, NexusBot resolved 78% of incoming support tickets without any human involvement. Average first response time dropped from over 4 hours to under 2 seconds. The overall support team ticket load fell by 55%. Both agents the head of support had wanted to redeploy to strategic account work were redeployed within 30 days of launch. The knowledge base now updates automatically each night — no maintenance required.",
       gallery: ["/images/a14.png", "/images/a14.png", "/images/a14.png"],
     },
@@ -316,7 +316,7 @@ const PROJECTS = [ // prettier-ignore
 /* ─── Helpers ────────────────────────────────────────────────────────────────── */
 const IMG_V = 2;
 function imgSrc(s: string) { return `${s}?v=${IMG_V}`; }
-type Slide = { img?: string; a?: string; b?: string };
+type Slide = { img?: string; a?: string; b?: string; pos?: string; bg?: string };
 function slideBg(s: Slide) { return s.a ? `linear-gradient(140deg,${s.a},${s.b})` : "transparent"; }
 
 const N_SLIDES = 3;
@@ -374,7 +374,7 @@ function FeatureShowcase({ features, color }: { features: Feature[]; color: stri
         <AnimatePresence mode="wait">
           <motion.img key={active}
             src={imgSrc(f.img)} alt={f.title}
-            className="absolute inset-0 w-full h-full object-cover object-top"
+            className="absolute inset-0 w-full h-full object-contain"
             initial={{ opacity: 0, scale: 1.03 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
@@ -494,7 +494,13 @@ function BeforeAfterGallery({
   const [idx, setIdx] = useState(0);
   const [dir, setDir] = useState<1 | -1>(1);
 
+  const [paused, setPaused] = useState(false);
   useEffect(() => { setIdx(0); }, [tab]);
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(() => setTab(prev => prev === "before" ? "after" : "before"), 3000);
+    return () => clearInterval(t);
+  }, [paused]);
 
   const images = tab === "before" ? beforeGallery : afterGallery;
   const isBefore = tab === "before";
@@ -506,18 +512,19 @@ function BeforeAfterGallery({
   }
 
   const imgVariants = {
-    enter: (d: number) => ({ x: d * 40, opacity: 0 }),
-    show:  { x: 0, opacity: 1 },
-    exit:  (d: number) => ({ x: d * -30, opacity: 0 }),
+    enter: { opacity: 0, scale: 1.06, filter: "blur(6px)" },
+    show:  { opacity: 1, scale: 1,    filter: "blur(0px)" },
+    exit:  { opacity: 0, scale: 0.96, filter: "blur(6px)" },
   };
 
+  /* ── Tabbed slider layout ── */
   return (
     <div>
       {/* Tabs + counter */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex gap-2">
           {(["before", "after"] as const).map(t => (
-            <button key={t} onClick={() => setTab(t)}
+            <button key={t} onClick={() => { setTab(t); setPaused(true); }}
               className="px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border-2 transition-all duration-200"
               style={{
                 borderColor: tab === t ? (t === "before" ? "#9ca3af" : color) : "#F0DDB0",
@@ -528,7 +535,6 @@ function BeforeAfterGallery({
             </button>
           ))}
         </div>
-        <span className="text-[11px] font-bold text-txt-2">{idx + 1} / {images.length}</span>
       </div>
 
       {/* Image + side arrows */}
@@ -539,13 +545,11 @@ function BeforeAfterGallery({
             src={imgSrc(images[idx])} alt=""
             className="absolute inset-0 w-full h-full object-cover object-top"
             style={{ filter: isBefore ? "grayscale(65%) brightness(0.88)" : "none" }}
-            custom={dir}
             variants={imgVariants}
             initial="enter" animate="show" exit="exit"
-            transition={{ duration: 0.22, ease: "easeOut" }} />
+            transition={{ duration: 0.5, ease: "easeInOut" }} />
         </AnimatePresence>
 
-        {/* Label badge */}
         <div className="absolute top-3 left-3 pointer-events-none">
           <span className="text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full"
             style={{ background: isBefore ? "rgba(0,0,0,0.45)" : `${color}CC`, color: "#fff" }}>
@@ -553,7 +557,6 @@ function BeforeAfterGallery({
           </span>
         </div>
 
-        {/* Prev arrow */}
         {images.length > 1 && (
           <button onClick={() => go(-1)}
             className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-150 hover:scale-110"
@@ -564,7 +567,6 @@ function BeforeAfterGallery({
           </button>
         )}
 
-        {/* Next arrow */}
         {images.length > 1 && (
           <button onClick={() => go(1)}
             className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-150 hover:scale-110"
@@ -576,7 +578,6 @@ function BeforeAfterGallery({
         )}
       </div>
 
-      {/* Dot indicators */}
       <div className="flex justify-center gap-2 mt-3">
         {images.map((_, i) => (
           <button key={i} onClick={() => { setDir(i > idx ? 1 : -1); setIdx(i); }}
@@ -743,14 +744,14 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
         <div className="flex-1 overflow-y-auto">
 
           {/* Hero — identity overlaid on image */}
-          <div className="relative w-full" style={{ aspectRatio: "16/8" }}>
+          <div className="relative w-full" style={{ aspectRatio: d.gallery.length === 1 ? "unset" : "16/8", height: d.gallery.length === 1 ? 340 : "unset" }}>
             <AnimatePresence mode="wait">
-              <motion.div key={activeImg} className="absolute inset-0"
-                style={{ background: slideBg(project.slides[activeImg]) }}
+              <motion.div key={activeImg} className={d.gallery.length === 1 ? "w-full h-full" : "absolute inset-0"}
+                style={{ background: project.slides[activeImg]?.bg ?? slideBg(project.slides[activeImg]) }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}>
                 <img src={imgSrc(d.gallery[activeImg])} alt={project.name}
-                  className="absolute inset-0 w-full h-full object-cover object-top" />
+                  className={d.gallery.length === 1 ? "w-full h-full object-contain" : "absolute inset-0 w-full h-full object-cover object-top"} />
               </motion.div>
             </AnimatePresence>
             <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 55%, transparent 100%)" }} />
@@ -759,15 +760,17 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
                 <p className="text-[9px] font-black uppercase tracking-[0.22em] mb-2" style={{ color: c }}>{project.type}</p>
                 <h3 className="font-display font-black text-3xl sm:text-[32px] text-white leading-none tracking-tight">{project.name}</h3>
               </div>
-              <div className="flex gap-1.5 shrink-0">
-                {d.gallery.map((img, i) => (
-                  <button key={i} onClick={() => setActiveImg(i)}
-                    className="w-11 h-8 rounded-xl overflow-hidden border-2 transition-all duration-200"
-                    style={{ borderColor: i === activeImg ? c : "rgba(255,255,255,0.18)", opacity: i === activeImg ? 1 : 0.4 }}>
-                    <img src={imgSrc(img)} alt="" className="w-full h-full object-cover object-top" />
-                  </button>
-                ))}
-              </div>
+              {d.gallery.length > 1 && (
+                <div className="flex gap-1.5 shrink-0">
+                  {d.gallery.map((img, i) => (
+                    <button key={i} onClick={() => setActiveImg(i)}
+                      className="w-11 h-8 rounded-xl overflow-hidden border-2 transition-all duration-200"
+                      style={{ borderColor: i === activeImg ? c : "rgba(255,255,255,0.18)", opacity: i === activeImg ? 1 : 0.4 }}>
+                      <img src={imgSrc(img)} alt="" className="w-full h-full object-cover object-top" />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -974,7 +977,7 @@ export default function FeaturedWork() {
                     <motion.div key={`L-${pi}-${si}`} className="absolute inset-0"
                       initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
                       transition={{ duration:0.5 }} style={{ background: slideBg(left) }}>
-                      {left.img && <img src={imgSrc(left.img)} alt="" className="absolute inset-0 w-full h-full object-cover object-top" />}
+                      {left.img && <img src={imgSrc(left.img)} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: left.pos ?? "center" }} />}
                     </motion.div>
                   </AnimatePresence>
                   <div className="absolute inset-y-0 right-0 w-16 pointer-events-none"
@@ -988,7 +991,7 @@ export default function FeaturedWork() {
                       variants={slideVariants} initial="enter" animate="show" exit="exit"
                       transition={{ duration:0.5, ease:[0.25,0.46,0.45,0.94] }}
                       style={{ background: slideBg(ctr) }}>
-                      {ctr.img && <img src={imgSrc(ctr.img)} alt={p.name} className="absolute inset-0 w-full h-full object-cover object-top" />}
+                      {ctr.img && <img src={imgSrc(ctr.img)} alt={p.name} className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: ctr.pos ?? "center" }} />}
                     </motion.div>
                   </AnimatePresence>
                 </div>
@@ -998,7 +1001,7 @@ export default function FeaturedWork() {
                     <motion.div key={`R-${pi}-${si}`} className="absolute inset-0"
                       initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
                       transition={{ duration:0.5 }} style={{ background: slideBg(right) }}>
-                      {right.img && <img src={imgSrc(right.img)} alt="" className="absolute inset-0 w-full h-full object-cover object-top" />}
+                      {right.img && <img src={imgSrc(right.img)} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: right.pos ?? "center" }} />}
                     </motion.div>
                   </AnimatePresence>
                   <div className="absolute inset-y-0 left-0 w-16 pointer-events-none"
