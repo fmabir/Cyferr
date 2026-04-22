@@ -19,7 +19,7 @@ const PROJECTS = [ // prettier-ignore
     ],
     details: {
       timeline: "11 days",
-      tagline: "From missed calls every Friday night to a fully automated dining experience — live in 11 days, on page one of Google in 30.",
+      tagline: "SEO before wireframes. Ranking before launch.",
       quote: { text: "We haven't missed a reservation since launch. The kitchen knows who's coming before we open the doors.", author: "Maria K.", role: "Owner, GreenBite" },
       metrics: [
         { label: "Days to ship",    value: "11" },
@@ -70,7 +70,7 @@ const PROJECTS = [ // prettier-ignore
     ],
     details: {
       timeline: "3 weeks",
-      tagline: "Killed a 30% OTA commission with a fully owned direct-booking platform — the hotel recovered the entire build cost in saved commission within six weeks.",
+      tagline: "The goal wasn't a better website. It was making Booking.com irrelevant.",
       quote: { text: "We went from paying 30% per booking to keeping everything. Six weeks in, the platform had already paid for itself.", author: "James O.", role: "Owner, LuxStay" },
       metrics: [
         { label: "OTA commission",  value: "→ 0%" },
@@ -121,7 +121,7 @@ const PROJECTS = [ // prettier-ignore
     ],
     details: {
       timeline: "5 weeks",
-      tagline: "One custom platform replaced Notion, Slack threads, and three spreadsheets — and re-engaged two clients who had already churned.",
+      tagline: "Two days of discovery. Five weeks to ship. Zero rewrites.",
       quote: { text: "The first Monday after launch, nobody wrote a status email. That had never happened before. The client portal alone re-engaged two accounts we'd lost.", author: "Priya M.", role: "Managing Director" },
       metrics: [
         { label: "Hours saved / wk",  value: "6+" },
@@ -171,7 +171,7 @@ const PROJECTS = [ // prettier-ignore
     ],
     details: {
       timeline: "4 weeks",
-      tagline: "200+ SKUs off Daraz, 0% platform commission, and full ownership of every customer relationship — built and launched in 4 weeks.",
+      tagline: "Three years of sales. Zero customers owned. We fixed that.",
       quote: { text: "We built three years of sales on a platform that owned all our customers. Now we own them. The repeat rate tells the whole story.", author: "Rafi H.", role: "Founder" },
       metrics: [
         { label: "Platform commission", value: "→ 0%" },
@@ -221,7 +221,7 @@ const PROJECTS = [ // prettier-ignore
     ],
     details: {
       timeline: "8 weeks",
-      tagline: "Specialist healthcare, from search to booked appointment in under 3 minutes — now accessible to patients in 6 regions who had no previous path to a verified doctor.",
+      tagline: "Every technical call made around one question: what does this patient actually need?",
       quote: { text: "Patients from regions where specialist care was a full day's travel away are now booking in under 3 minutes. That's what the product is actually for.", author: "Dr. Kwame A.", role: "Co-founder, MediBook" },
       metrics: [
         { label: "Doctors at launch", value: "40+" },
@@ -271,7 +271,7 @@ const PROJECTS = [ // prettier-ignore
     ],
     details: {
       timeline: "3 weeks",
-      tagline: "An AI agent trained on your own documentation — deployed with a single script tag, resolving 78% of support tickets without a human, with answers in under 2 seconds.",
+      tagline: "Grounded AI or no AI. Their docs, not the model's imagination.",
       quote: { text: "78% of tickets handled without a human, and our two best agents are now entirely focused on strategic accounts. That was the goal from day one.", author: "Sarah L.", role: "Head of Support Operations" },
       metrics: [
         { label: "Tickets deflected", value: "78%" },
@@ -687,6 +687,68 @@ function VideoSection({ url, color }: { url: string; color: string }) {
   );
 }
 
+/* ─── Modal Founder Video ────────────────────────────────────────────────────── */
+function ModalVideo({ url, color }: { url: string; color: string }) {
+  const [muted, setMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [current, setCurrent] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const ref = useRef<HTMLVideoElement>(null);
+
+  function toggleMute() {
+    if (!ref.current) return;
+    ref.current.muted = !muted;
+    setMuted(!muted);
+  }
+
+  function fmt(s: number) {
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return `${m}:${sec.toString().padStart(2, "0")}`;
+  }
+
+  function onTime() {
+    if (!ref.current) return;
+    const c = ref.current.currentTime;
+    const d = ref.current.duration || 1;
+    setCurrent(c);
+    setProgress((c / d) * 100);
+  }
+
+  function onMeta() {
+    if (ref.current) setDuration(ref.current.duration);
+  }
+
+  return (
+    <div className="relative overflow-hidden rounded-xl">
+      <video ref={ref} src={url} autoPlay muted loop playsInline className="w-full h-auto block"
+        onTimeUpdate={onTime} onLoadedMetadata={onMeta} />
+
+      {/* Time left, mute right — just above the progress bar */}
+      <div className="absolute bottom-2 left-0 right-0 px-2 flex items-center justify-between z-10">
+        <span className="text-[9px] tabular-nums px-1.5 py-0.5 rounded"
+          style={{ color: "rgba(255,255,255,0.8)", background: "rgba(0,0,0,0.38)", backdropFilter: "blur(6px)" }}>
+          {fmt(current)} / {fmt(duration)}
+        </span>
+        <button onClick={toggleMute}
+          className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
+          style={{ background: "rgba(0,0,0,0.38)", backdropFilter: "blur(4px)" }}>
+          {muted ? (
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          ) : (
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          )}
+        </button>
+      </div>
+
+      {/* Progress bar — pinned to very bottom edge */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 z-10" style={{ background: "rgba(255,255,255,0.15)" }}>
+        <div className="h-full" style={{ width: `${progress}%`, background: color }} />
+      </div>
+    </div>
+  );
+}
+
 /* ─── Case Study Modal ───────────────────────────────────────────────────────── */
 function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onClose: () => void }) {
   const [activeImg, setActiveImg] = useState(0);
@@ -819,6 +881,37 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
               </div>
             </div>
 
+            {/* Before & After — full width */}
+            <div>
+              <SHead label="Before & After" color={c} />
+              <BeforeAfterGallery beforeGallery={d.beforeGallery} afterGallery={d.afterGallery} color={c} />
+            </div>
+
+            {/* Founder Insight */}
+            {d.videoUrl && (
+              <div>
+                <SHead label="Founder Insight" color={c} />
+                <div className="flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl overflow-hidden"
+                  style={{ border: `1.5px solid ${c}20` }}>
+                  {/* Video */}
+                  <div className="sm:w-60 shrink-0">
+                    <ModalVideo url={d.videoUrl} color={c} />
+                  </div>
+                  {/* Divider */}
+                  <div className="hidden sm:block w-px shrink-0 self-stretch" style={{ background: `${c}18` }} />
+                  {/* Text */}
+                  <div className="flex flex-col justify-center px-5 py-5 gap-2.5">
+                    <p className="font-display font-black text-txt text-[15px] leading-snug">
+                      Hear it from the founder
+                    </p>
+                    <p className="text-txt-2 text-[12px] leading-relaxed">
+                      The real challenge, what we built, and what changed — briefly explained.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Overview */}
             <div>
               <SHead label="Overview" color={c} />
@@ -850,15 +943,6 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
               <SHead label="Project Timeline" color={c} />
               <ResultsTimeline milestones={d.milestones} color={c} />
             </div>
-
-            {/* Before & After */}
-            <div>
-              <SHead label="Before &amp; After" color={c} />
-              <BeforeAfterGallery beforeGallery={d.beforeGallery} afterGallery={d.afterGallery} color={c} />
-            </div>
-
-            {/* Video */}
-            {d.videoUrl && <VideoSection url={d.videoUrl} color={c} />}
 
             {/* Tech stack */}
             <div>

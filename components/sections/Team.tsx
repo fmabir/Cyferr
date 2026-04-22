@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState, useRef } from "react";
 
 const team = [
   {
@@ -24,6 +25,36 @@ const team = [
   },
 ];
 
+function FoundersVideo() {
+  const [muted, setMuted] = useState(true);
+  const ref = useRef<HTMLVideoElement>(null);
+
+  function toggleMute() {
+    if (!ref.current) return;
+    ref.current.muted = !muted;
+    setMuted(!muted);
+  }
+
+  return (
+    <div className="relative rounded-3xl overflow-hidden border border-border"
+      style={{ boxShadow: "0 4px 32px rgba(0,0,0,0.08)" }}>
+      <video ref={ref} src="/videos/founders-intro.mp4"
+        autoPlay muted loop playsInline className="w-full h-auto block" />
+
+      {/* Sound toggle */}
+      <button onClick={toggleMute}
+        className="absolute bottom-4 right-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all hover:scale-105"
+        style={{ background: "rgba(0,0,0,0.45)", color: "#fff", backdropFilter: "blur(8px)" }}>
+        {muted ? (
+          <><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>Tap for sound</>
+        ) : (
+          <><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>Sound on</>
+        )}
+      </button>
+    </div>
+  );
+}
+
 export default function Team() {
   return (
     <section id="team" className="py-14 lg:py-24 px-6 lg:px-10 bg-surface">
@@ -41,6 +72,15 @@ export default function Team() {
           <p className="text-txt-2 mt-4 max-w-md mx-auto leading-relaxed text-sm">
             Every project is owned end-to-end by the founders — from first brief to final deployment, with no middlemen in between.
           </p>
+        </motion.div>
+
+        {/* Intro video */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6 }}
+          className="mb-14 max-w-3xl mx-auto w-full"
+        >
+          <FoundersVideo />
         </motion.div>
 
         <div className="flex flex-col max-w-2xl mx-auto">
