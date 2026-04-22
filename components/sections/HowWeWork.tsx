@@ -239,8 +239,8 @@ function HexCard({ step, idx }: { step: typeof steps[0]; idx: number }) {
 
 export default function HowWeWork() {
   return (
-    <section className="py-14 lg:py-24 bg-surface px-6 lg:px-10 overflow-hidden">
-      <div className="mx-auto max-w-7xl">
+    <section className="py-14 lg:py-24 bg-surface px-8 lg:px-16 overflow-hidden">
+      <div className="mx-auto max-w-[1440px]">
 
         {/* Header */}
         <motion.div
@@ -281,7 +281,6 @@ export default function HowWeWork() {
               strokeWidth="2"
               strokeDasharray="10 6"
             />
-            {/* Chevron arrows at connection midpoints */}
             {[
               { x: 175, y: 93, r: -15 },
               { x: 425, y: 87, r: 15  },
@@ -302,7 +301,6 @@ export default function HowWeWork() {
           </svg>
 
           <div className="relative flex justify-center items-start gap-4 z-10">
-            {/* Standing man beside step 1 */}
             <img
               src="/images/v3.png"
               alt=""

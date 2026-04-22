@@ -8,7 +8,7 @@ export default function Contact() {
       {/* Top wave */}
       <div className="absolute top-0 inset-x-0">
         <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full block rotate-180">
-          <path d="M0,40 C240,10 480,55 720,35 C960,15 1200,50 1440,30 L1440,60 L0,60 Z" fill="#FFFBF0"/>
+          <path d="M0,40 C240,10 480,55 720,35 C960,15 1200,50 1440,30 L1440,60 L0,60 Z" fill="#FFFFFF"/>
         </svg>
       </div>
 
@@ -85,7 +85,7 @@ export default function Contact() {
               <li key={item.step} className="flex flex-col items-center text-center gap-2">
                 <span
                   className="w-9 h-9 rounded-full border-2 border-amber flex items-center justify-center font-display font-black text-xs text-amber shrink-0"
-                  style={{ background: "#FFF3D9" }}
+                  style={{ background: "rgba(245,166,35,0.12)" }}
                 >
                   {item.step}
                 </span>
@@ -102,7 +102,7 @@ export default function Contact() {
       {/* Bottom wave */}
       <div className="absolute bottom-0 inset-x-0">
         <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full block">
-          <path d="M0,30 C360,55 720,5 1080,40 C1260,58 1380,20 1440,35 L1440,60 L0,60 Z" fill="#1A0F00"/>
+          <path d="M0,30 C360,55 720,5 1080,40 C1260,58 1380,20 1440,35 L1440,60 L0,60 Z" fill="#0A0A0A"/>
         </svg>
       </div>
     </section>

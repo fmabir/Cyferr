@@ -80,13 +80,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="relative py-14 lg:py-24 px-6 lg:px-10 overflow-hidden bg-bg-2">
-      {/* Top wave */}
-      <div className="absolute top-0 inset-x-0">
-        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full block" style={{ transform: "rotate(180deg)" }}>
-          <path d="M0,30 C360,55 720,5 1080,40 C1260,58 1380,20 1440,35 L1440,60 L0,60 Z" fill="#FFFFFF"/>
-        </svg>
-      </div>
+    <section className="relative py-14 lg:py-24 px-6 lg:px-10 overflow-hidden bg-bg-2 border-t border-border">
 
       <div className="mx-auto max-w-7xl pt-8">
         <motion.div
@@ -109,8 +103,8 @@ export default function StatsSection() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" as const }}
               whileHover={{ y: -6, rotate: i % 2 === 0 ? 1 : -1 }}
-              className="flex flex-col items-center text-center rounded-2xl border-2 bg-surface p-5"
-              style={{ borderColor: `${s.color}55`, boxShadow: `3px 5px 0px ${s.color}33` }}
+              className="flex flex-col items-center text-center rounded-2xl border bg-white p-5"
+              style={{ borderColor: "#E5E7EB", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
             >
               {/* Emoji in coloured circle */}
               <div
@@ -133,12 +127,6 @@ export default function StatsSection() {
         </div>
       </div>
 
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 inset-x-0">
-        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full block">
-          <path d="M0,40 C240,10 480,55 720,35 C960,15 1200,50 1440,30 L1440,60 L0,60 Z" fill="#FFFFFF"/>
-        </svg>
-      </div>
     </section>
   );
 }

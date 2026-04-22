@@ -430,8 +430,8 @@ function FeatureShowcase({ features, color }: { features: Feature[]; color: stri
 function ScrollBtn({ dir, color, onClick }: { dir: "left" | "right"; color: string; onClick: () => void }) {
   return (
     <button onClick={onClick}
-      className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-150 hover:scale-110 border-2"
-      style={{ borderColor: `${color}30`, background: `${color}10`, color }}>
+      className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-150 hover:opacity-80 border-2"
+      style={{ borderColor: `${color}40`, background: `${color}10`, color }}>
       <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
         {dir === "left"
           ? <path d="M8 2L4 6.5L8 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -810,12 +810,12 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
                 </div>
               </div>
               <div className="inline-flex items-center gap-1.5 mt-4 px-2.5 py-1 rounded-full"
-                style={{ background: "#FFF3D9", border: "1.5px solid #F0DDB0" }}>
+                style={{ background: "#F3F4F6", border: "1px solid #E5E7EB" }}>
                 <svg width="9" height="9" viewBox="0 0 20 20" fill="none">
-                  <rect x="3" y="9" width="14" height="10" rx="2" stroke="#B08040" strokeWidth="2"/>
-                  <path d="M7 9V6a3 3 0 016 0v3" stroke="#B08040" strokeWidth="2" strokeLinecap="round"/>
+                  <rect x="3" y="9" width="14" height="10" rx="2" stroke="#9CA3AF" strokeWidth="2"/>
+                  <path d="M7 9V6a3 3 0 016 0v3" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
-                <span className="text-[9px] font-bold leading-none" style={{ color: "#B08040" }}>Client and project names anonymised by mutual agreement</span>
+                <span className="text-[9px] font-bold leading-none" style={{ color: "#6B7280" }}>Client and project names anonymised by mutual agreement</span>
               </div>
             </div>
 
@@ -934,10 +934,10 @@ export default function FeaturedWork() {
               Work That <span className="gradient-text">Speaks for Itself</span>
             </h2>
             <div className="inline-flex items-center gap-1.5 mt-4 px-3 py-1.5 rounded-full"
-              style={{ background: "#FFF3D9", border: "1.5px solid #F0DDB0" }}>
+              style={{ background: "#F3F4F6", border: "1px solid #E5E7EB" }}>
               <svg width="11" height="11" viewBox="0 0 20 20" fill="none">
-                <rect x="3" y="9" width="14" height="10" rx="2" stroke="#B08040" strokeWidth="2"/>
-                <path d="M7 9V6a3 3 0 016 0v3" stroke="#B08040" strokeWidth="2" strokeLinecap="round"/>
+                <rect x="3" y="9" width="14" height="10" rx="2" stroke="#9CA3AF" strokeWidth="2"/>
+                <path d="M7 9V6a3 3 0 016 0v3" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round"/>
               </svg>
               <span className="text-[10px] font-bold text-txt-3 leading-none">Client and project names anonymised by mutual agreement</span>
             </div>
@@ -981,7 +981,7 @@ export default function FeaturedWork() {
                     </motion.div>
                   </AnimatePresence>
                   <div className="absolute inset-y-0 right-0 w-16 pointer-events-none"
-                    style={{ background:"linear-gradient(to right,transparent,#FFFBF0)" }} />
+                    style={{ background:"linear-gradient(to right,transparent,#F8F9FA)" }} />
                   <div className="absolute inset-0 bg-bg/50 pointer-events-none" />
                 </div>
                 <div className="absolute inset-0 lg:inset-auto lg:top-0 lg:left-[18%] lg:w-[64%] lg:h-full overflow-hidden rounded-2xl z-10"
@@ -1005,7 +1005,7 @@ export default function FeaturedWork() {
                     </motion.div>
                   </AnimatePresence>
                   <div className="absolute inset-y-0 left-0 w-16 pointer-events-none"
-                    style={{ background:"linear-gradient(to left,transparent,#FFFBF0)" }} />
+                    style={{ background:"linear-gradient(to left,transparent,#F8F9FA)" }} />
                   <div className="absolute inset-0 bg-bg/50 pointer-events-none" />
                 </div>
               </div>
@@ -1036,7 +1036,7 @@ export default function FeaturedWork() {
                     <p className="text-sm text-txt-2 mt-1 leading-relaxed max-w-md">{p.desc}</p>
                   </div>
                   <button onClick={() => setOpenId(p.id)}
-                    className="btn-cartoon shrink-0 px-5 py-2.5 text-sm rounded-xl whitespace-nowrap">
+                    className="btn-primary shrink-0 px-5 py-2.5 text-sm rounded-xl whitespace-nowrap">
                     Case Study →
                   </button>
                 </motion.div>

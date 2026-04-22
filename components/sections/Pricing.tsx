@@ -1,18 +1,18 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, Check, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, Check, ChevronLeft, ChevronRight, Zap, Globe, Shield, RefreshCw, FileText, MessageSquare } from "lucide-react";
 
 const plans = [
   {
     name: "Starter",
-    emoji: "🌱",
     tagline: "Perfect for small businesses",
     from: "$800",
     period: "one-time",
     color: "#10B981",
-    bg: "#F0FFF4",
-    border: "#22C55E",
+    darkColor: "#059669",
+    bg: "linear-gradient(135deg, #F0FFF8 0%, #DCFCE7 100%)",
+    accentBg: "#DCFCE7",
     popular: false,
     services: ["Business website", "Landing page", "Portfolio site", "Blog / CMS"],
     features: [
@@ -24,16 +24,23 @@ const plans = [
       "1 month free support",
     ],
     cta: "Get Started",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+        <path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+        <path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+      </svg>
+    ),
   },
   {
     name: "Growth",
-    emoji: "🚀",
     tagline: "For growing businesses",
     from: "$2,500",
     period: "one-time",
     color: "#F5A623",
-    bg: "#FFF3D9",
-    border: "#F5A623",
+    darkColor: "#D4891A",
+    bg: "linear-gradient(135deg, #FFFBF0 0%, #FEF3C7 100%)",
+    accentBg: "#FEF3C7",
     popular: true,
     services: ["Web application", "Mobile app", "E-commerce store", "SaaS platform"],
     features: [
@@ -44,17 +51,22 @@ const plans = [
       "3 rounds of revision",
       "3 months free support",
     ],
-    cta: "Most Popular →",
+    cta: "Start a Project",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"/>
+      </svg>
+    ),
   },
   {
     name: "Enterprise",
-    emoji: "🤖",
     tagline: "Complex & AI-powered builds",
     from: "$6,000",
     period: "custom",
     color: "#6366F1",
-    bg: "#F0F4FF",
-    border: "#6366F1",
+    darkColor: "#4F46E5",
+    bg: "linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%)",
+    accentBg: "#EDE9FE",
     popular: false,
     services: ["AI automation", "AI chatbot", "Desktop app", "Multi-platform system"],
     features: [
@@ -66,6 +78,12 @@ const plans = [
       "6 months free support",
     ],
     cta: "Let's Talk",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
+        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    ),
   },
 ];
 
@@ -81,6 +99,151 @@ const faqs = [
   { q: "How do we communicate during the project?", a: "Primarily through a shared Slack channel or WhatsApp group. You'll get regular updates, design previews for feedback, and a staging link to review before launch. No surprises." },
   { q: "What if I'm not happy with the result?", a: "Every plan includes revision rounds, and we don't consider a project done until you're satisfied. We've never had a client leave without a finished product they were happy with." },
 ];
+
+const guarantees = [
+  { Icon: Shield,      text: "NDA on request"            },
+  { Icon: FileText,    text: "Fixed-scope contract"       },
+  { Icon: RefreshCw,   text: "Revision rounds included"   },
+  { Icon: MessageSquare, text: "24h response guarantee"   },
+  { Icon: Globe,       text: "Remote-first, async-friendly" },
+  { Icon: Zap,         text: "On-time delivery"           },
+];
+
+function PlanCard({ p, i }: { p: typeof plans[0]; i: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.15 });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.55, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -8, transition: { duration: 0.25 } }}
+      className="relative flex flex-col rounded-3xl overflow-hidden"
+      style={{
+        background: p.popular ? p.bg : "#FFFFFF",
+        boxShadow: p.popular
+          ? `0 0 0 2px ${p.color}, 0 20px 60px ${p.color}28`
+          : "0 1px 3px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.06)",
+      }}
+    >
+      {/* Popular banner */}
+      {p.popular && (
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0.8 }}
+          animate={inView ? { opacity: 1, scaleX: 1 } : {}}
+          transition={{ duration: 0.4, delay: i * 0.12 + 0.3 }}
+          className="text-center text-[10px] font-black uppercase tracking-[0.2em] py-2"
+          style={{ background: p.color, color: "#fff" }}
+        >
+          Most Popular
+        </motion.div>
+      )}
+
+      <div className={`flex flex-col flex-1 p-7 ${p.popular ? "pt-6" : ""}`}>
+
+        {/* Header row */}
+        <div className="flex items-start justify-between mb-6">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, x: -12 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.4, delay: i * 0.12 + 0.15 }}
+            >
+              <p className="font-display font-black text-2xl text-txt leading-none">{p.name}</p>
+              <p className="text-xs text-txt-3 font-semibold mt-1">{p.tagline}</p>
+            </motion.div>
+          </div>
+          {/* Icon circle */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7, rotate: -15 }}
+            animate={inView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
+            transition={{ duration: 0.45, delay: i * 0.12 + 0.2, type: "spring", stiffness: 180 }}
+            className="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0"
+            style={{ background: p.accentBg, color: p.color }}
+          >
+            {p.icon}
+          </motion.div>
+        </div>
+
+        {/* Price */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4, delay: i * 0.12 + 0.22 }}
+          className="mb-6 pb-6 border-b border-border"
+        >
+          <p className="text-[10px] font-black uppercase tracking-widest text-txt-3 mb-1.5">Starting from</p>
+          <div className="flex items-end gap-1">
+            <span className="font-display font-black leading-none" style={{ fontSize: 42, color: p.color }}>{p.from}</span>
+          </div>
+          <p className="text-[11px] text-txt-3 mt-1.5 font-semibold">
+            {p.period === "custom" ? "Custom quote · scoped to your project" : "Fixed price · no surprise invoices"}
+          </p>
+        </motion.div>
+
+        {/* Best for tags */}
+        <div className="mb-5">
+          <p className="text-[10px] font-black uppercase tracking-widest text-txt-3 mb-2.5">Best for</p>
+          <div className="flex flex-wrap gap-1.5">
+            {p.services.map((s, si) => (
+              <motion.span
+                key={s}
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.3, delay: i * 0.12 + 0.3 + si * 0.05 }}
+                className="text-[11px] font-bold px-2.5 py-1 rounded-lg"
+                style={{ background: p.accentBg, color: p.color }}
+              >
+                {s}
+              </motion.span>
+            ))}
+          </div>
+        </div>
+
+        {/* Features */}
+        <ul className="flex flex-col gap-2.5 mb-8 flex-1">
+          {p.features.map((f, fi) => (
+            <motion.li
+              key={f}
+              initial={{ opacity: 0, x: -10 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.35, delay: i * 0.12 + 0.35 + fi * 0.06 }}
+              className="flex items-center gap-3 text-sm text-txt-2 font-semibold"
+            >
+              <span
+                className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
+                style={{ background: p.accentBg }}
+              >
+                <Check size={10} strokeWidth={3} style={{ color: p.color }} />
+              </span>
+              {f}
+            </motion.li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <motion.a
+          href="#contact"
+          initial={{ opacity: 0, y: 10 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4, delay: i * 0.12 + 0.55 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="w-full flex items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-black transition-all"
+          style={
+            p.popular
+              ? { background: p.color, color: "#fff", boxShadow: `0 4px 20px ${p.color}50` }
+              : { background: p.accentBg, color: p.color, border: `1.5px solid ${p.color}40` }
+          }
+        >
+          {p.cta} <ArrowRight size={14} />
+        </motion.a>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Pricing() {
   const faqRef = useRef<HTMLDivElement>(null);
@@ -109,8 +272,8 @@ export default function Pricing() {
   }
 
   return (
-    <section id="pricing" className="py-14 lg:py-24 bg-bg px-6 lg:px-10">
-      <div className="mx-auto max-w-7xl">
+    <section id="pricing" className="py-14 lg:py-24 bg-bg-2 border-t border-border px-8 lg:px-16">
+      <div className="mx-auto max-w-[1440px]">
 
         {/* Header */}
         <motion.div
@@ -129,122 +292,44 @@ export default function Pricing() {
 
         {/* Plans */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-          {plans.map((p, i) => (
-            <motion.div
-              key={p.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" as const }}
-              whileHover={{ y: -6 }}
-              className="relative flex flex-col rounded-2xl border-2 overflow-hidden"
-              style={{
-                borderColor: p.popular ? p.border : "#F0DDB0",
-                boxShadow: p.popular ? `5px 7px 0px ${p.border}` : "4px 6px 0px #F0DDB0",
-                background: p.popular ? p.bg : "#FFFFFF",
-              }}
-            >
-              {p.popular && (
-                <div
-                  className="absolute top-0 inset-x-0 text-center text-[10px] font-black uppercase tracking-widest py-1.5"
-                  style={{ background: p.color, color: "#1A0F00" }}
-                >
-                  ⭐ Most Popular
-                </div>
-              )}
-
-              <div className={`p-7 ${p.popular ? "pt-10" : ""}`}>
-                {/* Plan header */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div
-                    className="w-12 h-12 rounded-xl border-2 flex items-center justify-center text-2xl"
-                    style={{ background: p.bg, borderColor: `${p.color}55` }}
-                  >
-                    {p.emoji}
-                  </div>
-                  <div>
-                    <p className="font-display font-black text-lg text-txt leading-none">{p.name}</p>
-                    <p className="text-xs text-txt-3 font-semibold mt-0.5">{p.tagline}</p>
-                  </div>
-                </div>
-
-                {/* Price */}
-                <div className="mb-5">
-                  <div className="flex items-end gap-1.5">
-                    <span className="text-xs font-bold text-txt-3 mb-1.5">Starting from</span>
-                    <span className="font-display font-black text-4xl leading-none" style={{ color: p.color }}>{p.from}</span>
-                  </div>
-                  <p className="text-xs text-txt-3 mt-1 font-semibold capitalize">{p.period === "custom" ? "Custom quote available" : "Fixed price, no surprises"}</p>
-                </div>
-
-                {/* Best for */}
-                <div className="mb-5 rounded-xl border-2 border-border bg-bg p-3">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-txt-3 mb-2">Best for</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {p.services.map((s) => (
-                      <span key={s} className="text-[11px] font-bold text-txt-2 bg-surface border border-border rounded-lg px-2 py-0.5">{s}</span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Features */}
-                <ul className="flex flex-col gap-2.5 mb-7">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2.5 text-sm text-txt-2 font-semibold">
-                      <span
-                        className="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0"
-                        style={{ borderColor: p.color, color: p.color }}
-                      >
-                        <Check size={11} strokeWidth={3} />
-                      </span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <a
-                  href="#contact"
-                  className="w-full flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-black border-2 transition-all hover:-translate-y-0.5"
-                  style={
-                    p.popular
-                      ? { background: p.color, borderColor: "#D4891A", color: "#1A0F00", boxShadow: `2px 3px 0px #D4891A` }
-                      : { background: "transparent", borderColor: p.color, color: p.color }
-                  }
-                >
-                  {p.cta} <ArrowRight size={14} />
-                </a>
-              </div>
-            </motion.div>
-          ))}
+          {plans.map((p, i) => <PlanCard key={p.name} p={p} i={i} />)}
         </div>
 
         {/* Guarantee strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-10 rounded-2xl border-2 border-border bg-surface p-6 flex flex-wrap items-center justify-center gap-6 text-center"
-          style={{ boxShadow: "4px 6px 0px #F0DDB0" }}
+          className="mt-10 rounded-2xl bg-white border border-border p-6"
+          style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}
         >
-          {[
-            { icon: "🔒", text: "NDA on request" },
-            { icon: "📄", text: "Fixed-scope contract" },
-            { icon: "🔁", text: "Revision rounds included" },
-            { icon: "💬", text: "24h response guarantee" },
-            { icon: "🌍", text: "Remote-first, async-friendly" },
-          ].map((b) => (
-            <div key={b.text} className="flex items-center gap-2">
-              <span className="text-base">{b.icon}</span>
-              <span className="text-xs font-black text-txt-2">{b.text}</span>
-            </div>
-          ))}
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+            {guarantees.map(({ Icon, text }, i) => (
+              <motion.div
+                key={text}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: i * 0.07 }}
+                className="flex items-center gap-2"
+              >
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "#FFF7E6" }}>
+                  <Icon size={13} style={{ color: "#F5A623" }} strokeWidth={2.5} />
+                </div>
+                <span className="text-xs font-black text-txt-2">{text}</span>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* FAQs */}
         <div className="mt-16">
-          <h3 className="font-display font-black text-2xl text-txt text-center mb-8">
+          <motion.h3
+            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5 }}
+            className="font-display font-black text-2xl text-txt text-center mb-8"
+          >
             Common Questions
-          </h3>
+          </motion.h3>
 
           <div
             ref={faqRef}
@@ -254,11 +339,18 @@ export default function Pricing() {
             {faqs.map((f, i) => (
               <motion.div
                 key={i}
-                whileHover={{ y: -4, boxShadow: "3px 8px 0px #F0DDB0" }}
-                className="snap-start shrink-0 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] rounded-2xl border-2 border-border bg-surface p-6 cursor-default"
-                style={{ boxShadow: "3px 4px 0px #F0DDB0" }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: (i % cpp) * 0.08 }}
+                whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(245,166,35,0.12)" }}
+                className="snap-start shrink-0 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] rounded-2xl bg-white border border-border p-6 cursor-default"
+                style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}
               >
-                <p className="font-black text-sm text-txt mb-2">{f.q}</p>
+                <div className="w-6 h-6 rounded-lg flex items-center justify-center mb-3" style={{ background: "#FFF7E6" }}>
+                  <span className="font-black text-[11px]" style={{ color: "#F5A623" }}>Q</span>
+                </div>
+                <p className="font-black text-sm text-txt mb-2.5">{f.q}</p>
                 <p className="text-sm text-txt-2 leading-relaxed">{f.a}</p>
               </motion.div>
             ))}
@@ -269,15 +361,16 @@ export default function Pricing() {
             <div className="flex gap-2">
               {Array.from({ length: faqPages }).map((_, i) => (
                 <button key={i} onClick={() => goToFaqPage(i)}
-                  className={`h-2 rounded-full transition-all duration-300 border-2 border-amber ${i === faqPage ? "w-8 bg-amber" : "w-2 bg-transparent hover:bg-amber/30"}`} />
+                  className="h-2 rounded-full transition-all duration-300"
+                  style={{ width: i === faqPage ? 24 : 8, background: i === faqPage ? "#F5A623" : "#E5E7EB" }} />
               ))}
             </div>
             <div className="flex gap-2">
               {[ChevronLeft, ChevronRight].map((Icon, d) => (
                 <button key={d}
                   onClick={() => goToFaqPage(faqPage + (d === 0 ? -1 : 1))}
-                  className="w-10 h-10 rounded-full border-2 border-border flex items-center justify-center text-txt-2 hover:border-amber hover:text-amber transition-all"
-                  style={{ boxShadow: "2px 3px 0px #F0DDB0" }}
+                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-txt-2 hover:border-amber hover:text-amber transition-all"
+                  style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}
                   aria-label={d === 0 ? "Previous" : "Next"}
                 >
                   <Icon size={16} />

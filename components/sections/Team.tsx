@@ -26,8 +26,8 @@ const team = [
 
 export default function Team() {
   return (
-    <section id="team" className="py-14 lg:py-24 px-6 lg:px-10 bg-surface">
-      <div className="mx-auto max-w-7xl">
+    <section id="team" className="py-14 lg:py-24 px-8 lg:px-16 bg-white border-t border-border">
+      <div className="mx-auto max-w-[1440px]">
 
         <motion.div
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}

@@ -154,12 +154,8 @@ function ServiceCard({ s, delay }: { s: ServiceItem; delay: number }) {
       style={{ paddingTop: "20px" }}
     >
       {/* Title badge — straddles the top edge of the card */}
-      <div className="absolute top-0 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-xl"
-        style={{
-          background: s.stripBg,
-          border: `2px solid ${s.accent}50`,
-          boxShadow: `3px 4px 0 ${s.accent}35`,
-        }}>
+      <div className="absolute top-0 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white"
+        style={{ border: "1px solid #E5E7EB", boxShadow: "0 2px 8px rgba(0,0,0,0.08)" }}>
         <div className="w-5 h-5 rounded-md shrink-0 flex items-center justify-center"
           style={{ background: s.accent }}>
           <s.icon size={11} color="#fff" strokeWidth={2.5} />
@@ -174,11 +170,11 @@ function ServiceCard({ s, delay }: { s: ServiceItem; delay: number }) {
       </div>
 
       {/* Card body */}
-      <div className="relative overflow-hidden rounded-3xl"
+      <div className="relative overflow-hidden rounded-2xl"
         style={{
           height: 210,
-          border: `2px solid ${s.accent}35`,
-          boxShadow: `4px 6px 0px ${s.accent}40`,
+          border: `1px solid #E5E7EB`,
+          boxShadow: `0 2px 14px rgba(0,0,0,0.08)`,
         }}>
 
         {/* Full-card background — one-time zoom on scroll-in + hover zoom */}
@@ -220,60 +216,9 @@ const headingWords2 = ["One", "Lean", "Team."];
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-14 lg:py-24 bg-surface px-6 lg:px-10">
+    <section id="services" className="relative py-16 lg:py-24 bg-white px-8 lg:px-16 border-t border-border">
 
-      {/* Sitting boy on top border */}
-      <img
-        src="/images/v4.png"
-        alt=""
-        aria-hidden
-        className="absolute hidden lg:block pointer-events-none select-none z-10"
-        style={{ bottom: "calc(100% + 180px)", right: "6%", height: 190, width: "auto" }}
-      />
-
-      {/* Floating hex decorations */}
-      <motion.div
-        animate={{ y: [0, -18, 0], rotate: [0, 8, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-12 right-8 opacity-20 hidden lg:block pointer-events-none"
-      >
-        <svg viewBox="0 0 80 92" fill="none" width="80">
-          <path d="M40 4L74 22V58L40 76L6 58V22L40 4Z" fill="#F5A623" stroke="#F5A623" strokeWidth="2"/>
-        </svg>
-      </motion.div>
-      <motion.div
-        animate={{ y: [0, 14, 0], rotate: [0, -6, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-        className="absolute bottom-16 left-6 opacity-15 hidden lg:block pointer-events-none"
-      >
-        <svg viewBox="0 0 60 69" fill="none" width="60">
-          <path d="M30 3L55 17V45L30 59L5 45V17L30 3Z" fill="#F5A623" stroke="#F5A623" strokeWidth="2"/>
-        </svg>
-      </motion.div>
-
-      {/* Sparkle stars */}
-      {([
-        { top: "8%",  left: "5%",   size: 14, delay: 0   },
-        { top: "20%", right: "4%",  size: 10, delay: 0.8 },
-        { top: "70%", right: "7%",  size: 12, delay: 1.6 },
-        { top: "85%", left: "12%",  size: 8,  delay: 0.4 },
-      ] as { top: string; left?: string; right?: string; size: number; delay: number }[]).map((s, i) => (
-        <motion.div key={i}
-          animate={{ opacity: [1, 0.3, 1], scale: [1, 0.6, 1], rotate: [0, 45, 0] }}
-          transition={{ duration: 2.5 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: s.delay }}
-          className="absolute hidden lg:block pointer-events-none"
-          style={{ top: s.top, left: s.left, right: s.right }}
-        >
-          <svg viewBox="0 0 20 20" fill="none" width={s.size}>
-            <line x1="10" y1="0"  x2="10" y2="20" stroke="#F5A623" strokeWidth="2.5" strokeLinecap="round"/>
-            <line x1="0"  y1="10" x2="20" y2="10" stroke="#F5A623" strokeWidth="2.5" strokeLinecap="round"/>
-            <line x1="3"  y1="3"  x2="17" y2="17" stroke="#F5A623" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-            <line x1="17" y1="3"  x2="3"  y2="17" stroke="#F5A623" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-          </svg>
-        </motion.div>
-      ))}
-
-      <div className="mx-auto max-w-7xl relative z-10">
+      <div className="mx-auto max-w-[1440px] relative z-10">
 
         {/* Section header */}
         <div className="mb-10 lg:mb-14 text-center">

@@ -44,28 +44,7 @@ export default function Testimonials() {
   const cardClass = "shrink-0 snap-start w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]";
 
   return (
-    <section className="relative py-24 bg-bg px-6 lg:px-10 overflow-hidden">
-      {/* Floating sparkles */}
-      {[
-        { top: "10%", left: "3%",  size: 12, delay: 0 },
-        { top: "25%", right: "5%", size: 16, delay: 1 },
-        { top: "60%", left: "6%",  size: 10, delay: 1.8 },
-        { top: "75%", right: "3%", size: 14, delay: 0.5 },
-        { top: "45%", left: "1%",  size: 8,  delay: 2.4 },
-      ].map((s, i) => (
-        <motion.div key={i}
-          animate={{ opacity: [0.6, 0.15, 0.6], scale: [1, 0.5, 1], rotate: [0, 45, 0] }}
-          transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: s.delay }}
-          className="absolute hidden lg:block pointer-events-none"
-          style={{ top: s.top, left: (s as { left?: string }).left, right: (s as { right?: string }).right }}>
-          <svg viewBox="0 0 20 20" fill="none" width={s.size}>
-            <line x1="10" y1="0"  x2="10" y2="20" stroke="#F5A623" strokeWidth="2.5" strokeLinecap="round"/>
-            <line x1="0"  y1="10" x2="20" y2="10" stroke="#F5A623" strokeWidth="2.5" strokeLinecap="round"/>
-            <line x1="3"  y1="3"  x2="17" y2="17" stroke="#F5A623" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-            <line x1="17" y1="3"  x2="3"  y2="17" stroke="#F5A623" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-          </svg>
-        </motion.div>
-      ))}
+    <section className="relative py-24 bg-bg-2 border-t border-border px-6 lg:px-10 overflow-hidden">
 
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="mb-14 text-center">
@@ -96,8 +75,8 @@ export default function Testimonials() {
               { icon: "🌍", label: "5+",      sub: "Countries" },
             ].map((b) => (
               <div key={b.label}
-                className="flex items-center gap-2 bg-surface border-2 border-border rounded-xl px-4 py-2"
-                style={{ boxShadow: "2px 3px 0px #F0DDB0" }}>
+                className="flex items-center gap-2 bg-white border border-border rounded-xl px-4 py-2"
+                style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
                 <span className="text-base">{b.icon}</span>
                 <div className="text-left">
                   <p className="text-xs font-black text-txt leading-none">{b.label}</p>
@@ -117,8 +96,8 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <motion.div key={i}
               whileHover={{ y: -4 }}
-              className={`${cardClass} rounded-3xl border-2 border-border bg-surface p-6 lg:p-7 relative`}
-              style={{ boxShadow: "5px 7px 0px #F0DDB0" }}
+              className={`${cardClass} rounded-2xl border border-border bg-white p-6 lg:p-7 relative`}
+              style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
             >
               <div className="font-display font-black text-7xl text-amber/15 leading-none absolute top-3 left-5 select-none" aria-hidden>&ldquo;</div>
               <div className="flex gap-1 mb-4 relative z-10">
@@ -153,8 +132,8 @@ export default function Testimonials() {
             {[ChevronLeft, ChevronRight].map((Icon, d) => (
               <button key={d}
                 onClick={() => goToPage(page + (d === 0 ? -1 : 1))}
-                className="w-10 h-10 rounded-full border-2 border-border flex items-center justify-center text-txt-2 hover:border-amber hover:text-amber transition-all"
-                style={{ boxShadow: "2px 3px 0px #F0DDB0" }}>
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-txt-2 hover:border-amber hover:text-amber transition-all"
+                style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
                 <Icon size={16} />
               </button>
             ))}

@@ -12,10 +12,10 @@ const links = [
 ];
 
 export default function Navbar() {
-  const [scrolled,  setScrolled]  = useState(false);
-  const [menuOpen,  setMenuOpen]  = useState(false);
-  const [lastY,     setLastY]     = useState(0);
-  const [visible,   setVisible]   = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [lastY,    setLastY]    = useState(0);
+  const [visible,  setVisible]  = useState(true);
 
   useEffect(() => {
     const onScroll = () => {
@@ -31,28 +31,24 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 border-b-2 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           visible ? "translate-y-0" : "-translate-y-full"
-        } ${
-          scrolled
-            ? "border-border shadow-lg shadow-amber/10"
-            : "border-border/60"
-        }`}
+        } ${scrolled ? "border-b border-gray-100 shadow-sm" : ""}`}
         style={{
           background: scrolled
-            ? "rgba(255,243,217,0.97)"
-            : "rgba(255,243,217,0.88)",
+            ? "rgba(255,243,220,0.97)"
+            : "rgba(255,247,232,0.90)",
           backdropFilter: "blur(16px)",
         }}
       >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+        <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-8 py-4 lg:px-16">
 
           {/* Logo */}
           <a href="/" className="flex items-center gap-2.5 group">
             <div className="relative w-9 h-9 flex items-center justify-center">
               <svg viewBox="0 0 40 46" fill="none" className="w-full h-full transition-transform duration-300 group-hover:rotate-[20deg]">
                 <path d="M20 2L37 11.5V30.5L20 40L3 30.5V11.5L20 2Z"
-                  fill="rgba(245,166,35,0.2)" stroke="#F5A623" strokeWidth="2.5"/>
+                  fill="rgba(245,166,35,0.12)" stroke="#F5A623" strokeWidth="2.5"/>
                 <text x="20" y="27" textAnchor="middle" fontSize="16" fontWeight="900"
                   fill="#F5A623" fontFamily="system-ui">H</text>
               </svg>
@@ -68,10 +64,7 @@ export default function Navbar() {
               <li key={l.label}>
                 <a
                   href={l.href}
-                  className="px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200"
-                  style={{ color: "#6B4E1A" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = "#D4891A"; e.currentTarget.style.background = "rgba(245,166,35,0.12)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = "#6B4E1A"; e.currentTarget.style.background = "transparent"; }}
+                  className="px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 text-txt-2 hover:text-txt hover:bg-bg-2"
                 >
                   {l.label}
                 </a>
@@ -81,17 +74,14 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <a href="#contact" className="btn-cartoon px-5 py-2.5 text-sm">
+            <a href="#contact" className="btn-primary px-5 py-2.5 text-sm">
               Start a Project →
             </a>
           </div>
 
           {/* Hamburger */}
           <button
-            className="md:hidden p-2 rounded-xl transition-colors"
-            style={{ color: "#6B4E1A" }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = "#D4891A"; e.currentTarget.style.background = "rgba(245,166,35,0.12)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = "#6B4E1A"; e.currentTarget.style.background = "transparent"; }}
+            className="md:hidden p-2 rounded-lg transition-colors text-txt-2 hover:text-txt hover:bg-bg-2"
             onClick={() => setMenuOpen((v) => !v)}
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -107,26 +97,22 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: "easeOut" as const }}
-            className="fixed inset-x-0 top-[69px] z-40 md:hidden border-b-2"
-            style={{ background: "rgba(255,243,217,0.98)", backdropFilter: "blur(16px)", borderColor: "#F0DDB0" }}
+            className="fixed inset-x-0 top-[69px] z-40 md:hidden border-b border-border bg-white"
           >
             <ul className="flex flex-col gap-1 p-4">
               {links.map((l, i) => (
                 <motion.li key={l.label}
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05, duration: 0.2, ease: "easeOut" as const }}
+                  transition={{ delay: i * 0.05, duration: 0.2 }}
                 >
                   <a
                     href={l.href}
                     onClick={() => setMenuOpen(false)}
-                    className="flex items-center justify-between px-4 py-3.5 rounded-2xl text-base font-bold transition-all group"
-                    style={{ color: "#6B4E1A" }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = "#D4891A"; e.currentTarget.style.background = "rgba(245,166,35,0.12)"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = "#6B4E1A"; e.currentTarget.style.background = "transparent"; }}
+                    className="flex items-center justify-between px-4 py-3.5 rounded-lg text-base font-semibold text-txt-2 hover:text-txt hover:bg-bg-2 transition-all"
                   >
                     {l.label}
-                    <span style={{ color: "#B08040" }}>→</span>
+                    <span className="text-txt-3">→</span>
                   </a>
                 </motion.li>
               ))}
@@ -135,7 +121,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setMenuOpen(false)}
-                className="btn-cartoon w-full py-4 text-base justify-center block text-center"
+                className="btn-primary w-full py-4 text-base justify-center block text-center"
               >
                 Start a Project →
               </a>

@@ -24,13 +24,12 @@ const row2 = [
 
 function Pill({ name, color, bg, category }: { name: string; color: string; bg: string; category: string }) {
   return (
-    <span className="inline-flex items-center gap-2.5 shrink-0 px-4 py-2.5 rounded-2xl border-2 select-none cursor-default"
-      style={{ background: bg, borderColor: `${color}44`, boxShadow: `2px 3px 0px ${color}22` }}>
-      {/* Coloured dot */}
+    <span className="inline-flex items-center gap-2.5 shrink-0 px-4 py-2.5 rounded-xl border select-none cursor-default bg-white"
+      style={{ borderColor: "#E5E7EB", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
       <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: color }} />
-      <span className="font-black text-sm whitespace-nowrap" style={{ color: "#1A0F00" }}>{name}</span>
-      <span className="text-[10px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded-lg"
-        style={{ background: `${color}22`, color }}>
+      <span className="font-black text-sm whitespace-nowrap text-txt">{name}</span>
+      <span className="text-[10px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded-md"
+        style={{ background: `${color}15`, color }}>
         {category}
       </span>
     </span>
@@ -52,9 +51,9 @@ function Strip({ items, reverse }: { items: typeof row1; reverse?: boolean }) {
 
 export default function TechStack() {
   return (
-    <section className="py-20 border-y-2 border-border bg-bg-2 relative">
+    <section className="py-20 border-y border-border bg-bg-2 relative">
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 mb-10 text-center">
+      <div className="mx-auto max-w-[1440px] px-8 lg:px-16 mb-10 text-center">
         <span className="section-pill mb-4">Tech Stack</span>
         <h2 className="font-display font-black text-4xl lg:text-5xl tracking-tight text-txt mt-4">
           Technologies We <span className="gradient-text">Work With</span>

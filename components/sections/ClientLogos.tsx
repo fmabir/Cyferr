@@ -26,8 +26,8 @@ function ClientStrip({ items }: { items: typeof clients }) {
       {doubled.map((c, i) => (
         <span
           key={i}
-          className="inline-flex items-center gap-2 shrink-0 px-4 py-2 rounded-xl border-2 bg-surface font-bold text-sm text-txt cursor-default select-none"
-          style={{ borderColor: `${c.color}55`, boxShadow: `2px 3px 0px ${c.color}22` }}
+          className="inline-flex items-center gap-2 shrink-0 px-4 py-2 rounded-xl border bg-white font-bold text-sm text-txt cursor-default select-none"
+          style={{ borderColor: "#E5E7EB", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}
         >
           {/* Coloured dot */}
           <span className="w-2 h-2 rounded-full shrink-0" style={{ background: c.color }} />
@@ -55,7 +55,7 @@ function PartnerStrip({ items }: { items: string[] }) {
       {doubled.map((p, i) => (
         <span
           key={i}
-          className="inline-flex items-center shrink-0 px-4 py-2 rounded-xl border-2 border-border bg-bg font-black text-xs text-txt-3 uppercase tracking-widest cursor-default select-none hover:border-amber hover:text-amber transition-colors duration-200"
+          className="inline-flex items-center shrink-0 px-4 py-2 rounded-xl border border-border bg-white font-black text-xs text-txt-3 uppercase tracking-widest cursor-default select-none hover:border-amber hover:text-amber transition-colors duration-200"
         >
           {p}
         </span>
@@ -66,9 +66,9 @@ function PartnerStrip({ items }: { items: string[] }) {
 
 export default function ClientLogos() {
   return (
-    <section className="py-16 border-y-2 border-border bg-surface overflow-hidden">
+    <section className="py-16 border-y border-border bg-bg-2 overflow-hidden">
       {/* Header row */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 mb-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div className="mx-auto max-w-[1440px] px-8 lg:px-16 mb-8 flex flex-col sm:flex-row items-center justify-between gap-2">
         <p className="text-xs font-black uppercase tracking-widest text-txt-3">
           🏆 Trusted by Growing Companies
         </p>

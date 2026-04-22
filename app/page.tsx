@@ -6,12 +6,12 @@ import BannerDivider  from "@/components/sections/BannerDivider";
 import HowWeWork      from "@/components/sections/HowWeWork";
 import WhyHiveTech  from "@/components/sections/WhyHiveTech";
 import FeaturedWork from "@/components/sections/FeaturedWork";
-import StatsSection from "@/components/sections/StatsSection";
+import WorkProof   from "@/components/sections/WorkProof";
 import TechStack    from "@/components/sections/TechStack";
-import Testimonials from "@/components/sections/Testimonials";
 import Team        from "@/components/sections/Team";
 import Pricing      from "@/components/sections/Pricing";
 import CTABanner    from "@/components/sections/CTABanner";
+
 
 export default function HomePage() {
   return (
@@ -22,13 +22,12 @@ export default function HomePage() {
         <Services />
         <BannerDivider src="/images/vector2.png" />
         <FeaturedWork />
+        <Pricing />
+        <WorkProof />
         <WhyHiveTech />
         <HowWeWork />
-        <StatsSection />
         <TechStack />
-        <Testimonials />
         <Team />
-        <Pricing />
         <CTABanner />
       </main>
       <Footer />
