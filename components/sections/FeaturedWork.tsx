@@ -349,32 +349,13 @@ function FeatureShowcase({ features, color }: { features: Feature[]; color: stri
 
   return (
     <div>
-      {/* Selector tabs */}
-      <div className="flex gap-2 mb-4">
-        {features.map((feat, i) => (
-          <button key={i} onClick={() => setActive(i)}
-            className="flex-1 flex flex-col items-start gap-1 px-3 py-3 rounded-xl border-2 text-left transition-all duration-200"
-            style={{
-              borderColor: i === active ? color : "#F0DDB0",
-              background:  i === active ? `${color}10` : "transparent",
-              boxShadow:   i === active ? `2px 3px 0 ${color}30` : "none",
-            }}>
-            <span className="text-[9px] font-black tabular-nums leading-none"
-              style={{ color: i === active ? color : "#B08040" }}>
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <span className="text-[11px] font-black text-txt leading-snug">{feat.title}</span>
-          </button>
-        ))}
-      </div>
-
       {/* Large image */}
       <div className="relative rounded-2xl overflow-hidden"
         style={{ aspectRatio: "16/9", border: `1.5px solid ${color}20` }}>
         <AnimatePresence mode="wait">
           <motion.img key={active}
             src={imgSrc(f.img)} alt={f.title}
-            className="absolute inset-0 w-full h-full object-contain"
+            className="absolute inset-[3px] w-[calc(100%-6px)] h-[calc(100%-6px)] object-contain"
             initial={{ opacity: 0, scale: 1.03 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
@@ -720,30 +701,55 @@ function ModalVideo({ url, color }: { url: string; color: string }) {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-xl">
-      <video ref={ref} src={url} autoPlay muted loop playsInline className="w-full h-auto block"
-        onTimeUpdate={onTime} onLoadedMetadata={onMeta} />
+    <div className="relative p-2 pb-3 pr-3">
+      {/* Offset accent cards for depth */}
+      <div className="absolute inset-0 rounded-2xl" style={{ background: `${color}20`, transform: "rotate(2.5deg) translate(5px, 5px)" }} />
+      <div className="absolute inset-0 rounded-2xl" style={{ background: `${color}12`, transform: "rotate(-1deg) translate(2px, 3px)" }} />
 
-      {/* Time left, mute right — just above the progress bar */}
-      <div className="absolute bottom-2 left-0 right-0 px-2 flex items-center justify-between z-10">
-        <span className="text-[9px] tabular-nums px-1.5 py-0.5 rounded"
-          style={{ color: "rgba(255,255,255,0.8)", background: "rgba(0,0,0,0.38)", backdropFilter: "blur(6px)" }}>
-          {fmt(current)} / {fmt(duration)}
-        </span>
-        <button onClick={toggleMute}
-          className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
-          style={{ background: "rgba(0,0,0,0.38)", backdropFilter: "blur(4px)" }}>
-          {muted ? (
-            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-          ) : (
-            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-          )}
-        </button>
-      </div>
+      {/* Video */}
+      <div className="relative overflow-hidden rounded-xl">
+        <video ref={ref} src={url} autoPlay muted loop playsInline className="w-full h-auto block"
+          onTimeUpdate={onTime} onLoadedMetadata={onMeta} />
 
-      {/* Progress bar — pinned to very bottom edge */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 z-10" style={{ background: "rgba(255,255,255,0.15)" }}>
-        <div className="h-full" style={{ width: `${progress}%`, background: color }} />
+        {/* Controls */}
+        <div className="absolute bottom-2 left-0 right-0 px-2 flex items-center justify-between z-10">
+          <span className="text-[9px] tabular-nums px-1.5 py-0.5 rounded"
+            style={{ color: "rgba(255,255,255,0.8)", background: "rgba(0,0,0,0.38)", backdropFilter: "blur(6px)" }}>
+            {fmt(current)} / {fmt(duration)}
+          </span>
+          <div className="flex items-center gap-1">
+            <button onClick={() => { if (ref.current) ref.current.currentTime = Math.max(0, ref.current.currentTime - 5); }}
+              className="w-6 h-6 rounded-full flex items-center justify-center"
+              style={{ background: "rgba(0,0,0,0.38)", backdropFilter: "blur(4px)" }}>
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4"/>
+              </svg>
+            </button>
+            <button onClick={() => { if (ref.current) ref.current.currentTime = Math.min(ref.current.duration, ref.current.currentTime + 5); }}
+              className="w-6 h-6 rounded-full flex items-center justify-center"
+              style={{ background: "rgba(0,0,0,0.38)", backdropFilter: "blur(4px)" }}>
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.49-4"/>
+              </svg>
+            </button>
+            <button onClick={toggleMute}
+              className="w-6 h-6 rounded-full flex items-center justify-center"
+              style={{ background: "rgba(0,0,0,0.38)", backdropFilter: "blur(4px)" }}>
+              {muted ? (
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+              ) : (
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Progress bar */}
+        <div ref={barRef} className="absolute bottom-0 left-0 right-0 h-1 z-10 cursor-pointer"
+          style={{ background: "rgba(255,255,255,0.15)" }}
+          onMouseDown={onBarMouseDown}>
+          <div className="h-full" style={{ width: `${progress}%`, background: color }} />
+        </div>
       </div>
     </div>
   );
@@ -808,7 +814,7 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
           {/* Hero — identity overlaid on image */}
           <div className="relative w-full" style={{ aspectRatio: d.gallery.length === 1 ? "unset" : "16/8", height: d.gallery.length === 1 ? 340 : "unset" }}>
             <AnimatePresence mode="wait">
-              <motion.div key={activeImg} className={d.gallery.length === 1 ? "w-full h-full" : "absolute inset-0"}
+              <motion.div key={activeImg} className={d.gallery.length === 1 ? "w-full h-full p-6" : "absolute inset-0"}
                 style={{ background: project.slides[activeImg]?.bg ?? slideBg(project.slides[activeImg]) }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}>
@@ -894,11 +900,17 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
                 <div className="flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl overflow-hidden"
                   style={{ border: `1.5px solid ${c}20` }}>
                   {/* Video */}
-                  <div className="sm:w-60 shrink-0">
+                  <div className="sm:w-60 shrink-0 p-[3px]">
                     <ModalVideo url={d.videoUrl} color={c} />
                   </div>
-                  {/* Divider */}
-                  <div className="hidden sm:block w-px shrink-0 self-stretch" style={{ background: `${c}18` }} />
+                  {/* Separator */}
+                  <div className="hidden sm:flex flex-col items-center justify-center gap-1.5 shrink-0 px-1">
+                    <div className="w-px flex-1" style={{ background: `linear-gradient(to bottom, transparent, ${c}30)` }} />
+                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: `${c}60` }} />
+                    <div className="w-2 h-2 rounded-full" style={{ background: c }} />
+                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: `${c}60` }} />
+                    <div className="w-px flex-1" style={{ background: `linear-gradient(to top, transparent, ${c}30)` }} />
+                  </div>
                   {/* Text */}
                   <div className="flex flex-col justify-center px-5 py-5 gap-2.5">
                     <p className="font-display font-black text-txt text-[15px] leading-snug">
@@ -920,6 +932,12 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
               ))}
             </div>
 
+            {/* Problem */}
+            <div className="rounded-2xl p-5 sm:p-6" style={{ background: `${c}07`, border: `1.5px solid ${c}18` }}>
+              <SHead label="The Problem" color={c} />
+              <p className="text-[13px] sm:text-sm text-txt-2 leading-[1.8]">{d.problem}</p>
+            </div>
+
             {/* Product flow */}
             <div>
               <SHead label="How It Works — Full Flow" color={c} />
@@ -930,12 +948,6 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
             <div>
               <SHead label="What We Built" color={c} />
               <FeatureShowcase features={d.features} color={c} />
-            </div>
-
-            {/* Problem */}
-            <div className="rounded-2xl p-5 sm:p-6" style={{ background: `${c}07`, border: `1.5px solid ${c}18` }}>
-              <SHead label="The Problem" color={c} />
-              <p className="text-[13px] sm:text-sm text-txt-2 leading-[1.8]">{d.problem}</p>
             </div>
 
             {/* Timeline */}
@@ -960,7 +972,6 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
             {/* Outcome */}
             <div className="border-t-2 border-border pt-8">
               <SHead label="The Outcome" color={c} />
-              {/* Metrics recap row */}
               <div className="flex flex-wrap gap-x-8 gap-y-3 mb-6">
                 {d.metrics.map(m => (
                   <div key={m.label} className="flex items-baseline gap-2">
