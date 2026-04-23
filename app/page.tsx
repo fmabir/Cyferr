@@ -1,7 +1,6 @@
 import Navbar       from "@/components/layout/Navbar";
 import Footer       from "@/components/layout/Footer";
 import Hero         from "@/components/sections/Hero";
-import Services       from "@/components/sections/Services";
 import BannerDivider  from "@/components/sections/BannerDivider";
 import HowWeWork      from "@/components/sections/HowWeWork";
 import WhyHiveTech  from "@/components/sections/WhyHiveTech";
@@ -11,6 +10,7 @@ import TechStack    from "@/components/sections/TechStack";
 import Team        from "@/components/sections/Team";
 import Pricing      from "@/components/sections/Pricing";
 import CTABanner    from "@/components/sections/CTABanner";
+import WhatWeBuild  from "@/components/sections/WhatWeBuild";
 
 
 export default function HomePage() {
@@ -19,7 +19,7 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
+        <WhatWeBuild />
         <BannerDivider src="/images/vector2.png" />
         <FeaturedWork />
         <Pricing />
