@@ -1145,11 +1145,42 @@ export default function FeaturedWork() {
 
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
 
-            {/* ── Project list ── */}
-            <div className="w-full lg:w-56 shrink-0 flex flex-row lg:flex-col gap-1.5 overflow-x-auto pb-1 lg:pb-0">
+            {/* ── Mobile project nav — card style ── */}
+            <div className="lg:hidden w-full overflow-x-auto pb-2 flex gap-2" style={{ scrollbarWidth: "none" }}>
               {PROJECTS.map((proj, i) => (
                 <button key={proj.id} onClick={() => jumpTo(i)}
-                  className="flex items-center gap-2.5 px-3.5 py-3 rounded-xl border-2 text-left transition-all duration-200 shrink-0 lg:shrink lg:w-full"
+                  className="shrink-0 flex flex-col items-center gap-1.5 rounded-xl border transition-all duration-200"
+                  style={{
+                    minWidth: 76,
+                    padding: "10px 10px 8px",
+                    borderColor: i === pi ? proj.color : "#E5E7EB",
+                    background:  i === pi ? `${proj.color}0D` : "#FFFFFF",
+                    boxShadow:   i === pi
+                      ? `0 2px 12px ${proj.color}30, 0 0 0 1px ${proj.color}40`
+                      : "0 1px 3px rgba(0,0,0,0.07)",
+                  }}>
+                  {/* Colour indicator bar */}
+                  <div className="w-8 h-1 rounded-full transition-all"
+                    style={{ background: i === pi ? proj.color : "#E5E7EB" }} />
+                  {/* Name */}
+                  <p className="font-black text-[11px] leading-tight text-center mt-1"
+                    style={{ color: i === pi ? proj.color : "#4B5563" }}>
+                    {proj.name}
+                  </p>
+                  {/* Type badge */}
+                  <p className="text-[8px] font-semibold leading-tight text-center"
+                    style={{ color: i === pi ? `${proj.color}99` : "#9CA3AF" }}>
+                    {proj.type}
+                  </p>
+                </button>
+              ))}
+            </div>
+
+            {/* ── Desktop project list — unchanged ── */}
+            <div className="hidden lg:flex lg:flex-col w-56 shrink-0 gap-1.5">
+              {PROJECTS.map((proj, i) => (
+                <button key={proj.id} onClick={() => jumpTo(i)}
+                  className="flex items-center gap-2.5 px-3.5 py-3 rounded-xl border-2 text-left transition-all duration-200 w-full"
                   style={{
                     borderColor: i === pi ? proj.color    : "#F0DDB0",
                     background:  i === pi ? `${proj.color}10` : "transparent",
@@ -1162,7 +1193,7 @@ export default function FeaturedWork() {
                       style={{ color: i === pi ? proj.color : "#6B4E1A" }}>
                       {proj.name}
                     </p>
-                    <p className="text-[10px] text-txt-2 truncate hidden lg:block mt-0.5">{proj.type}</p>
+                    <p className="text-[10px] text-txt-2 truncate mt-0.5">{proj.type}</p>
                   </div>
                 </button>
               ))}
