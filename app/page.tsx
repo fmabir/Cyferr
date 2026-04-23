@@ -20,7 +20,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <WhatWeBuild />
-        <BannerDivider src="/images/vector2.png" />
+        <BannerDivider src="/images/v33.png" />
         <FeaturedWork />
         <Pricing />
         <WorkProof />

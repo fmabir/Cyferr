@@ -7,6 +7,8 @@ const abir = {
   role: "Co-Founder & CEO",
   quote: "Every project we take on, I treat like it's my own startup. If it doesn't work for you, it doesn't work for us.",
   image: "/images/ab.PNG",
+  linkedin: "https://www.linkedin.com/in/f-m-abir-hossain-371a09342/",
+  email: "fmabir2015@gmail.com",
 };
 
 const safwan = {
@@ -14,6 +16,8 @@ const safwan = {
   role: "Co-Founder & CTO",
   quote: "We build quietly with purpose and precision, so when the product reaches you, it speaks clearly on its own.",
   image: "/images/sa.PNG",
+  linkedin: "https://www.linkedin.com/in/safwan-ul-islam-a70b4439a",
+  email: "safwanislam0000@gmail.com",
 };
 
 function FoundersVideo() {
@@ -78,6 +82,18 @@ export default function Team() {
               <p className="text-[10px] sm:text-[14px] lg:text-[16px] text-[#444] leading-relaxed italic">&ldquo;{abir.quote}&rdquo;</p>
               <p className="mt-1 sm:mt-3 font-semibold text-[10px] sm:text-[13px] lg:text-[14px] text-[#0A0A0A]">{abir.name}</p>
               <p className="text-[8px] sm:text-[10px] lg:text-[11px] font-medium uppercase tracking-widest mt-0.5" style={{ color: "#F5A623" }}>{abir.role}</p>
+              <div className="flex items-center gap-2 mt-1.5 sm:mt-2">
+                <a href={abir.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                  className="flex items-center justify-center rounded-full transition-opacity hover:opacity-70"
+                  style={{ width: 20, height: 20, background: "#0A66C2" }}>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href={`mailto:${abir.email}`} aria-label="Email"
+                  className="flex items-center justify-center rounded-full transition-opacity hover:opacity-70"
+                  style={{ width: 20, height: 20, background: "#F5A623" }}>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -102,6 +118,18 @@ export default function Team() {
               <p className="text-[10px] sm:text-[14px] lg:text-[16px] text-[#444] leading-relaxed italic">&ldquo;{safwan.quote}&rdquo;</p>
               <p className="mt-1 sm:mt-3 font-semibold text-[10px] sm:text-[13px] lg:text-[14px] text-[#0A0A0A]">{safwan.name}</p>
               <p className="text-[8px] sm:text-[10px] lg:text-[11px] font-medium uppercase tracking-widest mt-0.5" style={{ color: "#6366F1" }}>{safwan.role}</p>
+              <div className="flex items-center gap-2 mt-1.5 sm:mt-2">
+                <a href={safwan.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                  className="flex items-center justify-center rounded-full transition-opacity hover:opacity-70"
+                  style={{ width: 20, height: 20, background: "#0A66C2" }}>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href={`mailto:${safwan.email}`} aria-label="Email"
+                  className="flex items-center justify-center rounded-full transition-opacity hover:opacity-70"
+                  style={{ width: 20, height: 20, background: "#6366F1" }}>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
+              </div>
             </div>
             <img src={safwan.image} alt={safwan.name} className="w-full rounded-xl lg:rounded-2xl object-cover" />
           </motion.div>
