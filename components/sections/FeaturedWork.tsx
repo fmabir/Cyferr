@@ -56,7 +56,7 @@ const PROJECTS = [ // prettier-ignore
       afterGallery:  ["/images/a1.png", "/images/a3.png", "/images/a1.png"],
       tech: ["Next.js 14", "Sanity CMS", "Resend", "Twilio", "Tailwind CSS", "Vercel", "Google Analytics 4"],
       outcome: "Monthly reservation volume in the first full month after launch was three times the same month the prior year. The head chef updates the seasonal menu herself now — the last invoice from the old web agency was settled the day before we went live. The front-of-house team has not answered a single reservation call during service since go-live. Every target keyword is on the first page of results within 30 days of the sitemap being submitted.",
-      gallery: ["/images/a1.png", "/images/a2.png", "/images/a3.png"],
+      gallery: ["/images/gb-homepage.png"],
       videoUrl: "/videos/greenbite.mp4",
     },
   },
@@ -158,7 +158,7 @@ const PROJECTS = [ // prettier-ignore
       afterGallery:  ["/images/a7.png", "/images/a9.png", "/images/a7.png"],
       tech: ["Next.js 14", "Socket.io", "Resend", "Prisma", "PostgreSQL", "Cloudinary", "Tailwind CSS", "Vercel", "Railway"],
       outcome: "Within the first month, manual status reporting dropped to zero across the entire team — not as a policy, but because the portal made it unnecessary. Both clients who had churned citing lack of visibility were re-engaged after seeing a live demo of the portal. New hire onboarding dropped from three days to half a day. The agency's senior PM described the first Monday after launch as 'the first time I started the week without writing emails'.",
-      gallery: ["/images/a7.png", "/images/a8.png", "/images/a9.png"],
+      gallery: ["/images/a7.png"],
     },
   },
   {
@@ -171,7 +171,7 @@ const PROJECTS = [ // prettier-ignore
     ],
     details: {
       timeline: "4 weeks",
-      tagline: "Three years of sales. Zero customers owned. We fixed that.",
+      tagline: "Three years on someone else's platform. Four weeks to own it all.",
       quote: { text: "We built three years of sales on a platform that owned all our customers. Now we own them. The repeat rate tells the whole story.", author: "Rafi H.", role: "Founder" },
       metrics: [
         { label: "Platform commission", value: "→ 0%" },
@@ -184,15 +184,15 @@ const PROJECTS = [ // prettier-ignore
         { name: "Product Detail",    desc: "Views a variant selector, real-time stock level, photography, and full product description. Stock updates live from the admin panel — out-of-stock variants are automatically disabled." },
         { name: "Adds to Cart",      desc: "Cart persists across sessions. Applying a coupon code triggers the discount engine — percentage, flat-rate, or minimum-order rules all configurable by the owner without a developer." },
         { name: "Checks Out",        desc: "Two-step checkout: delivery address, then payment. Stripe for card payments, bKash for mobile money — both available in a single flow, both confirmed within seconds." },
-        { name: "Order Confirmed",   desc: "SMS and email confirmation fire within 5 seconds of the order being placed. The order appears instantly in the admin dashboard, ready for fulfilment." },
+        { name: "Order Confirmed",   desc: "Email and SMS confirmation fire within 5 seconds of the order being placed via Resend and Twilio. The order appears instantly in the admin dashboard, ready for fulfilment." },
         { name: "Admin Fulfils",     desc: "Staff pick, pack, and mark orders shipped from the admin panel. The customer receives an automatic tracking notification. No manual emails, no spreadsheet updates." },
       ],
       features: [
-        { img: "/images/a13.png", title: "Storefront & Product Catalogue",     desc: "A fast, mobile-first storefront with category navigation, variant selectors (size, colour, and any custom attribute), real-time stock indicators, and sub-1-second page loads. Every product page is SEO-structured — title, description, and image alt text indexed from day one. The entire 200+ SKU catalogue was migrated from Daraz via bulk CSV import on launch day." },
-        { img: "/images/a13.png", title: "Dual-Payment Checkout",               desc: "Stripe for card payments and bKash for Bangladeshi mobile money — both in a single, two-step checkout flow. The bKash integration required direct merchant API work: sandbox testing, callback signature verification, and handling three distinct payment failure states that the official documentation significantly understates. All edge cases were caught and resolved during a two-day QA sprint before go-live." },
-        { img: "/images/a13.png", title: "Product & Inventory Admin",           desc: "The founder adds products, configures variants, adjusts stock levels, and fulfils orders entirely from the custom admin panel — no developer required for any routine operation. Stock levels update in real time across the storefront. An out-of-stock variant cannot be added to cart. Bulk CSV import handled the initial 200+ SKU migration in under an hour." },
-        { img: "/images/a13.png", title: "Coupon & Promotions Engine",          desc: "Time-limited discount codes, percentage or flat-rate offers, minimum order value thresholds, and single-use influencer codes — all configurable from the admin panel. The founder ran a launch promotion on day one of go-live without any developer involvement. It generated 47 orders in the first 24 hours." },
-        { img: "/images/a13.png", title: "Customer Accounts & Order History",   desc: "Customers create accounts, view their full order history, save delivery addresses, and re-order previous purchases in two taps. Every account builds a purchase history that feeds directly into the owner's marketing — the monthly email campaigns powered by this data now drive more than 60% of all repeat orders." },
+        { img: "/images/se-homepage.png", title: "Storefront & Product Catalogue",     desc: "A fast, mobile-first storefront with category navigation, variant selectors (size, colour, and any custom attribute), real-time stock indicators, and sub-1-second page loads. Every product page is SEO-structured — title, description, and image alt text indexed from day one. The entire 200+ SKU catalogue was migrated from Daraz via bulk CSV import on launch day." },
+        { img: "/images/se-checkout.png",   title: "Dual-Payment Checkout",               desc: "Stripe for card payments and bKash for Bangladeshi mobile money — both in a single, two-step checkout flow. The bKash integration required direct merchant API work: sandbox testing, callback signature verification, and handling three distinct payment failure states that the official documentation significantly understates. All edge cases were caught and resolved during a two-day QA sprint before go-live." },
+        { img: "/images/se-admin.png",      title: "Product & Inventory Admin",           desc: "The founder adds products, configures variants, adjusts stock levels, and fulfils orders entirely from the custom admin panel — no developer required for any routine operation. Stock levels update in real time across the storefront. An out-of-stock variant cannot be added to cart. Bulk CSV import handled the initial 200+ SKU migration in under an hour." },
+        { img: "/images/se-promotions.png", title: "Coupon & Promotions Engine",          desc: "Time-limited discount codes, percentage or flat-rate offers, minimum order value thresholds, and single-use influencer codes — all configurable from the admin panel. The founder ran a launch promotion on day one of go-live without any developer involvement. It generated 47 orders in the first 24 hours." },
+        { img: "/images/se-accounts.png",   title: "Customer Accounts & Order History",   desc: "Customers create accounts, view their full order history, save delivery addresses, and re-order previous purchases in two taps. Every account builds a purchase history that feeds directly into the owner's marketing — the monthly email campaigns powered by this data now drive more than 60% of all repeat orders." },
       ],
       overview: "The client had been selling exclusively on Daraz for three years. The volume was there. The margin wasn't. Every sale cost 15% in platform commission, and in return the business received no customer contact data — not a single email address from three years of transactions. There was no email list, no way to run a promotion outside of Daraz's paid ad system, and no visibility into which products were actually driving profit.\n\nWhen a new competitor entered the category, undercut on price, and used Daraz's promoted listings to take the top search positions, the business had no direct channel to respond. No customer list to email. No brand presence off the platform. No data on who their best customers were or what they bought repeatedly.\n\nWe built a fully owned e-commerce operation in four weeks: a storefront, dual payment checkout, inventory and order management, a promotions engine, and customer accounts — with all 200+ SKUs migrated from Daraz on launch day. The bKash integration was the most technically demanding piece of the project. The merchant API documentation is sparse, the sandbox environment diverges from production in ways that aren't documented, and the payment failure states require custom handling that isn't covered in any official guide. We resolved all of it in a two-day QA sprint before going live.",
       problem: "The 15% Daraz commission was the visible cost. The structural damage was deeper: three years of sales volume built on a platform that owned every customer relationship. No email list. No repeat-purchase capability. No ability to know which products were selling to whom, or why. When a competitor outspent them on Daraz ads and took the top listings, the business had no owned channel to fall back on and no customer base to speak to directly.",
@@ -204,11 +204,11 @@ const PROJECTS = [ // prettier-ignore
         { marker: "Day 28",  event: "Live — full catalogue migrated, launch promotion active" },
         { marker: "Month 3", event: "Platform commission → 0% · repeat purchase rate +60%" },
       ],
-      beforeGallery: ["/images/a13.png", "/images/a13.png", "/images/a13.png"],
-      afterGallery:  ["/images/a13.png", "/images/a13.png", "/images/a13.png"],
-      tech: ["Next.js 14", "Stripe", "bKash Merchant API", "Prisma", "PostgreSQL", "Cloudinary", "Resend", "Vercel"],
-      outcome: "The full 200+ SKU catalogue was live on the owned storefront within 28 days of kickoff. In the first quarter, the business retained the equivalent of six months of Daraz commission fees. Repeat purchase rate rose 60% compared to the Daraz period — directly attributable to owning the customer email list and running monthly re-engagement promotions for the first time. The founder called it 'the most valuable thing we've ever invested in'.",
-      gallery: ["/images/a13.png", "/images/a13.png", "/images/a13.png"],
+      beforeGallery: ["/images/se-before.png"],
+      afterGallery:  ["/images/se-homepage.png"],
+      tech: ["Next.js 14", "Stripe", "bKash Merchant API", "Prisma", "PostgreSQL", "Cloudinary", "Resend", "Twilio", "Vercel"],
+      outcome: "The full 200+ SKU catalogue was live on the owned storefront within 28 days of kickoff. In the first quarter, the business retained the equivalent of six months of Daraz commission fees. Repeat purchase rate rose 60% compared to the Daraz period — directly attributable to owning the customer email list and running monthly re-engagement campaigns for the first time. The Daraz store remains active as a secondary discovery channel, but no longer controls the business's relationship with its own customers.",
+      gallery: ["/images/se-hero.png"],
     },
   },
   {
@@ -258,7 +258,7 @@ const PROJECTS = [ // prettier-ignore
       afterGallery:  ["/images/a13.png", "/images/a14.png", "/images/a13.png"],
       tech: ["Flutter 3", "Dart", "Firebase Auth", "Firestore", "FCM", "Agora SDK", "Paystack", "Cloud Functions", "Google Maps SDK"],
       outcome: "MediBook launched with 40 verified doctors across 8 medical specialties. Average time from opening the app to a confirmed, paid booking is under 3 minutes. The video consultation feature is being used by patients in 6 regions — patients who previously had no digital pathway to a verified specialist without physically travelling. The founding team entered a seed funding process using the launch adoption figures as their primary proof of product-market fit.",
-      gallery: ["/images/a13.png", "/images/a14.png", "/images/a14.png"],
+      gallery: ["/images/a13.png"],
     },
   },
   {
@@ -308,7 +308,7 @@ const PROJECTS = [ // prettier-ignore
       afterGallery:  ["/images/a14.png", "/images/a14.png", "/images/a14.png"],
       tech: ["GPT-4 (OpenAI)", "LangChain", "Pinecone", "FastAPI", "Next.js 14", "Python 3.11", "Vercel", "Intercom", "Zendesk"],
       outcome: "In the first full month of deployment, NexusBot resolved 78% of incoming support tickets without any human involvement. Average first response time dropped from over 4 hours to under 2 seconds. The overall support team ticket load fell by 55%. Both agents the head of support had wanted to redeploy to strategic account work were redeployed within 30 days of launch. The knowledge base now updates automatically each night — no maintenance required.",
-      gallery: ["/images/a14.png", "/images/a14.png", "/images/a14.png"],
+      gallery: ["/images/a14.png"],
     },
   },
 ];
@@ -675,6 +675,21 @@ function ModalVideo({ url, color }: { url: string; color: string }) {
   const [current, setCurrent] = useState(0);
   const [duration, setDuration] = useState(0);
   const ref = useRef<HTMLVideoElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+
+  function scrubAt(clientX: number) {
+    if (!ref.current || !barRef.current) return;
+    const rect = barRef.current.getBoundingClientRect();
+    ref.current.currentTime = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width)) * ref.current.duration;
+  }
+
+  function onBarMouseDown(e: React.MouseEvent<HTMLDivElement>) {
+    scrubAt(e.clientX);
+    const onMove = (ev: MouseEvent) => scrubAt(ev.clientX);
+    const onUp = () => { document.removeEventListener("mousemove", onMove); document.removeEventListener("mouseup", onUp); };
+    document.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseup", onUp);
+  }
 
   function toggleMute() {
     if (!ref.current) return;
