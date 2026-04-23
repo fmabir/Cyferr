@@ -13,20 +13,20 @@ const stats = [
 
 const quotes = [
   {
-    text: "Best agency decision we've made. Delivered our fintech dashboard in 6 weeks — on budget, pixel-perfect.",
-    name: "Sarah M.", role: "CEO", country: "🇬🇧 UK", initial: "SM", color: "#F5A623",
+    text: "Honestly didn't expect this level of quality at this price. They built our inventory system in under 5 weeks and it's been running without a single issue since day one.",
+    name: "Rafi Ahmed", role: "Founder, StockBD", country: "🇧🇩 Bangladesh", initial: "RA", color: "#F5A623",
   },
   {
-    text: "Quality on par with top-tier US agencies at a fraction of the cost. Rock-solid since launch.",
-    name: "Kwame A.", role: "Product Manager", country: "🇬🇭 Ghana", initial: "KA", color: "#6366F1",
+    text: "My e-commerce site was done in 3 weeks. Sales went up almost immediately after launch. These guys actually care about what they're building.",
+    name: "Tanzila Hoque", role: "Owner, Shades & Co.", country: "🇧🇩 Bangladesh", initial: "TH", color: "#6366F1",
   },
   {
-    text: "The AI automation saved our team real hours every week. ROI was obvious within the first month.",
-    name: "Lena H.", role: "Operations Director", country: "🇩🇪 Germany", initial: "LH", color: "#10B981",
+    text: "We needed a custom CRM fast. HiveTech had a working prototype in the first week. The communication throughout was clear and they never missed a deadline.",
+    name: "Imran Khan", role: "MD, LogiTrack BD", country: "🇧🇩 Bangladesh", initial: "IK", color: "#10B981",
   },
   {
-    text: "They flagged things we hadn't thought of, suggested smarter approaches, and hit every milestone.",
-    name: "Daniel R.", role: "CTO", country: "🇺🇸 USA", initial: "DR", color: "#3B82F6",
+    text: "Found them online, wasn't sure what to expect. Ended up being one of the best vendor decisions I've made. Solid work, great communication across time zones.",
+    name: "James T.", role: "Product Lead", country: "🇦🇺 Australia", initial: "JT", color: "#3B82F6",
   },
 ];
 
