@@ -13,9 +13,9 @@ const PROJECTS = [ // prettier-ignore
     id: 1, name: "GreenBite", type: "Restaurant Website", color: "#22C55E",
     desc: "A farm-to-table restaurant was haemorrhaging its busiest nights — phone calls going unanswered mid-service, a 2019 static website, and a menu four months out of date. Rebuilt in 11 days. Monthly covers tripled within 30 days of launch.",
     slides: [
-      { img:"/images/gb-homepage.png",        a:"#DCFCE7", b:"#16A34A", pos:"top center" },
-      { img:"/images/gb-homepage-mobile.png", a:"#4ADE80", b:"#166534", pos:"center" },
-      { img:"/images/gb-seo.png",             a:"#BBF7D0", b:"#15803D", pos:"center" },
+      { img:"/images/gb-hero.png",        a:"#DCFCE7", b:"#16A34A", pos:"top center" },
+      { img:"/images/gb-homepage.png",    a:"#4ADE80", b:"#166534", pos:"top center" },
+      { img:"/images/gb-reservation.png", a:"#BBF7D0", b:"#15803D", pos:"center" },
     ],
     details: {
       timeline: "11 days",
@@ -52,11 +52,18 @@ const PROJECTS = [ // prettier-ignore
         { marker: "Day 11", event: "Live on custom domain, sitemap submitted to Search Console" },
         { marker: "Day 30", event: "Page one for all 12 keyword targets · monthly covers 3×" },
       ],
-      beforeGallery: ["/images/a2.png", "/images/a2.png", "/images/a2.png"],
-      afterGallery:  ["/images/a1.png", "/images/a3.png", "/images/a1.png"],
+      beforeGallery: ["/images/gb-before.png"],
+      afterGallery:  ["/images/gb-homepage.png"],
+      beforeBullets: [
+        "No website or online presence",
+        "Reservations taken by phone only — calls missed mid-service",
+        "Paper booking book managed by hand during service",
+        "Menu changes required emailing an agency and waiting days",
+        "Zero local search visibility — competitors ranked above them",
+      ],
       tech: ["Next.js 14", "Sanity CMS", "Resend", "Twilio", "Tailwind CSS", "Vercel", "Google Analytics 4"],
       outcome: "Monthly reservation volume in the first full month after launch was three times the same month the prior year. The head chef updates the seasonal menu herself now — the last invoice from the old web agency was settled the day before we went live. The front-of-house team has not answered a single reservation call during service since go-live. Every target keyword is on the first page of results within 30 days of the sitemap being submitted.",
-      gallery: ["/images/gb-homepage.png"],
+      gallery: ["/images/gb-hero.png"],
       videoUrl: "/videos/greenbite.mp4",
     },
   },
@@ -105,6 +112,12 @@ const PROJECTS = [ // prettier-ignore
       ],
       beforeGallery: ["/images/ls-before.png"],
       afterGallery:  ["/images/ls-homepage.png"],
+      beforeBullets: [
+        "100% dependent on Booking.com and Airbnb — no owned channel",
+        "30% commission handed to OTAs on every single booking",
+        "Zero access to guest contact details — OTAs owned the relationship",
+        "No email list, no repeat-guest programme, no direct promotions",
+      ],
       tech: ["Next.js 14", "Stripe", "Resend", "Prisma", "PostgreSQL", "Tailwind CSS", "Vercel", "Google Analytics 4"],
       outcome: "In the first two months post-launch, direct bookings doubled compared to the same period the prior year. The hotel recovered the full platform build cost in saved OTA commission within six weeks. The owner now runs seasonal promotions directly to a growing list of past guests and has full revenue and occupancy visibility for the first time in the property's history. The Booking.com widget was taken off the old site on launch day and has not been restored.",
       gallery: ["/images/ls-hero.png"],
@@ -115,9 +128,9 @@ const PROJECTS = [ // prettier-ignore
     id: 3, name: "TaskFlow", type: "SaaS Web App", color: "#3B82F6",
     desc: "A 12-person creative agency was running live projects across Notion, Slack, three spreadsheets, and a shared Google Drive — and losing clients because nobody could see what was happening. Custom project management platform with a white-labelled client portal, shipped in 5 weeks. Zero manual status reports on day one.",
     slides: [
-      { img:"/images/a7.png", a:"#DBEAFE", b:"#1D4ED8" },
-      { img:"/images/a8.png", a:"#93C5FD", b:"#1E40AF" },
-      { img:"/images/a9.png", a:"#BFDBFE", b:"#2563EB" },
+      { img:"/images/tf-hero.png",     a:"#DBEAFE", b:"#1D4ED8", pos:"top center" },
+      { img:"/images/tf-homepage.png", a:"#93C5FD", b:"#1E40AF", pos:"top center" },
+      { img:"/images/tf-portal.png",   a:"#BFDBFE", b:"#2563EB", pos:"top center" },
     ],
     details: {
       timeline: "5 weeks",
@@ -138,11 +151,11 @@ const PROJECTS = [ // prettier-ignore
         { name: "Digest Sent",        desc: "Every Monday at 8am, an automated status digest is emailed to all stakeholders — aggregated from live task data. No human writes it. No one forgets to send it on a heavy week." },
       ],
       features: [
-        { img: "/images/a7.png", title: "Real-Time Task Board",             desc: "Task creation, assignment, status updates, and comments all propagate instantly via WebSockets. No page refresh, no 'did you see my update?' messages. When multiple people are working the same account simultaneously, they see the same state — always. The board was designed around how this specific agency works, not around a generic PM framework." },
-        { img: "/images/a8.png", title: "White-Labelled Client Portal",     desc: "A separately branded, read-only view the agency sends to each client — their logo, their colours, their project. Clients see live progress, milestone status, and uploaded deliverables. None of the internal discussion, billable hours, or team notes are ever visible. Two previously churned clients re-engaged after seeing a demo of the portal during the sales call." },
-        { img: "/images/a9.png", title: "Automated Weekly Digest",          desc: "A scheduled function aggregates task completion data every Sunday night and emails a formatted status report to all stakeholders at 8am Monday. The format was designed by the agency's most senior PM to match exactly what she had been writing manually every Friday afternoon — word for word, minus the 90 minutes it took her to produce it." },
-        { img: "/images/a7.png", title: "File Deliverables & Version History", desc: "Files attach directly to the tasks they belong to — designs, copy docs, exported assets. Every upload is versioned so the team can roll back without hunting through email chains. Clients download final deliverables from the portal without needing a shared Drive folder, a WeTransfer link, or a follow-up Slack message." },
-        { img: "/images/a8.png", title: "Team Workload View",               desc: "A capacity overview showing every team member's active tasks, due dates, and estimated hours for the week. The MD reviews it every Monday morning to spot overloaded team members before they become a delivery risk. She described it as the most useful thing we built — something that was simply not possible when work was scattered across four separate tools." },
+        { img: "/images/tf-homepage.png", title: "Dashboard & Live Task Board",       desc: "The main dashboard gives every team member a single view of all active projects, task statuses, and upcoming deadlines the moment they log in. Task creation, assignment, status updates, and comments all propagate instantly via WebSockets — no page refresh, no 'did you see my update?' messages. Designed around how this specific agency works, not a generic PM framework." },
+        { img: "/images/tf-portal.png", title: "White-Labelled Client Portal",     desc: "A separately branded, read-only view the agency sends to each client — their logo, their colours, their project. Clients see live progress, milestone status, and uploaded deliverables. None of the internal discussion, billable hours, or team notes are ever visible. Two previously churned clients re-engaged after seeing a demo of the portal during the sales call." },
+        { img: "/images/tf-digest.png", title: "Automated Weekly Digest",          desc: "A scheduled function aggregates task completion data every Sunday night and emails a formatted status report to all stakeholders at 8am Monday. The format was designed by the agency's most senior PM to match exactly what she had been writing manually every Friday afternoon — word for word, minus the 90 minutes it took her to produce it." },
+        { img: "/images/tf-files.png", title: "File Deliverables & Version History", desc: "Files attach directly to the tasks they belong to — designs, copy docs, exported assets. Every upload is versioned so the team can roll back without hunting through email chains. Clients download final deliverables from the portal without needing a shared Drive folder, a WeTransfer link, or a follow-up Slack message." },
+        { img: "/images/tf-workload.png", title: "Team Workload View",               desc: "A capacity overview showing every team member's active tasks, due dates, and estimated hours for the week. The MD reviews it every Monday morning to spot overloaded team members before they become a delivery risk. She described it as the most useful thing we built — something that was simply not possible when work was scattered across four separate tools." },
       ],
       overview: "A 12-person creative agency was drowning in tool fragmentation. Client projects lived in Notion, conversations happened in Slack threads that quickly became unsearchable, timelines were tracked in three different spreadsheets, and client updates were written manually every Friday afternoon by whoever had time. No one had a single view of what was happening across all live accounts simultaneously — and clients had zero visibility unless someone wrote them an email.\n\nThe agency had trialled Asana and Monday.com. Both were rejected within weeks: too generic, too much configuration required before they became useful, and neither offered the feature the agency needed most — a clean, white-labelled client-facing view that showed progress without exposing internal discussion or pricing.\n\nWe spent two days in discovery sessions with the full team — PMs, designers, and the MD — mapping the exact lifecycle of a project from brief to final delivery. Every step was documented, every tool involved identified. The custom build decision came down to one non-negotiable requirement: a client portal that looked and felt like the agency's own product, not a third-party tool they were renting access to.",
       problem: "Project managers were spending more than 6 hours every week writing manual status emails to clients — often on Friday afternoons, often incomplete. New hires took three full days to get up to speed because context was scattered across Notion, Slack, email threads, and whoever's memory happened to hold the relevant detail. Two clients had churned in the previous quarter citing 'lack of visibility' in their exit interviews. Both had stopped receiving timely updates during a period of heavy delivery.",
@@ -154,20 +167,28 @@ const PROJECTS = [ // prettier-ignore
         { marker: "Day 35",  event: "Full agency team migrated to production" },
         { marker: "Month 1", event: "Zero manual status reports · new hire onboarding −80%" },
       ],
-      beforeGallery: ["/images/a8.png", "/images/a8.png", "/images/a8.png"],
-      afterGallery:  ["/images/a7.png", "/images/a9.png", "/images/a7.png"],
+      beforeGallery: ["/images/tf-before.png"],
+      afterGallery:  ["/images/tf-homepage.png"],
+      beforeBullets: [
+        "Projects scattered across Notion, Slack, and three spreadsheets",
+        "No single view of what was happening across live accounts",
+        "Clients had zero visibility unless someone wrote them an email",
+        "Manual status reports written every Friday afternoon — 90 minutes each",
+        "New hire onboarding took three full days",
+      ],
       tech: ["Next.js 14", "Socket.io", "Resend", "Prisma", "PostgreSQL", "Cloudinary", "Tailwind CSS", "Vercel", "Railway"],
       outcome: "Within the first month, manual status reporting dropped to zero across the entire team — not as a policy, but because the portal made it unnecessary. Both clients who had churned citing lack of visibility were re-engaged after seeing a live demo of the portal. New hire onboarding dropped from three days to half a day. The agency's senior PM described the first Monday after launch as 'the first time I started the week without writing emails'.",
-      gallery: ["/images/a7.png"],
+      gallery: ["/images/tf-hero.png"],
+      videoUrl: "/videos/taskflow.mp4",
     },
   },
   {
     id: 4, name: "ShopEase", type: "E-commerce Platform", color: "#A855F7",
-    desc: "A fashion brand had been selling 200+ SKUs on Daraz for three years — paying 15% commission per sale and owning none of their customers. Built a fully owned storefront with bKash + Stripe checkout, custom inventory admin, and a promotions engine in 4 weeks. Repeat purchase rate up 60%.",
+    desc: "A multi-category retail brand had been selling 200+ SKUs on Daraz for three years — paying 15% commission per sale and owning none of their customers. Built a fully owned storefront with bKash + Stripe checkout, custom inventory admin, and a promotions engine in 4 weeks. Repeat purchase rate up 60%.",
     slides: [
-      { img:"/images/a13.png", a:"#EDE9FE", b:"#7C3AED" },
-      { img:"/images/a13.png", a:"#C084FC", b:"#6D28D9" },
-      { img:"/images/a13.png", a:"#F3E8FF", b:"#9333EA" },
+      { img:"/images/se-hero.png",     a:"#EDE9FE", b:"#7C3AED", pos:"top center" },
+      { img:"/images/se-homepage.png", a:"#C084FC", b:"#6D28D9", pos:"top center" },
+      { img:"/images/se-checkout.png", a:"#F3E8FF", b:"#9333EA", pos:"top center" },
     ],
     details: {
       timeline: "4 weeks",
@@ -180,7 +201,7 @@ const PROJECTS = [ // prettier-ignore
         { label: "Repeat rate",         value: "+60%" },
       ],
       flow: [
-        { name: "Customer Browses",  desc: "Lands on the storefront and filters by category, size, or colour. Sub-1-second page loads even on a 4G connection — designed for a mobile-first customer base." },
+        { name: "Customer Browses",  desc: "Lands on the storefront and filters by category or product type. Sub-1-second page loads even on a 4G connection — designed for a mobile-first customer base." },
         { name: "Product Detail",    desc: "Views a variant selector, real-time stock level, photography, and full product description. Stock updates live from the admin panel — out-of-stock variants are automatically disabled." },
         { name: "Adds to Cart",      desc: "Cart persists across sessions. Applying a coupon code triggers the discount engine — percentage, flat-rate, or minimum-order rules all configurable by the owner without a developer." },
         { name: "Checks Out",        desc: "Two-step checkout: delivery address, then payment. Stripe for card payments, bKash for mobile money — both available in a single flow, both confirmed within seconds." },
@@ -206,18 +227,26 @@ const PROJECTS = [ // prettier-ignore
       ],
       beforeGallery: ["/images/se-before.png"],
       afterGallery:  ["/images/se-homepage.png"],
+      beforeBullets: [
+        "Selling exclusively on Daraz — no owned storefront",
+        "15% platform commission on every sale, for three years",
+        "Zero customer contact data — not a single email address owned",
+        "No way to run a promotion outside Daraz's paid ad system",
+        "No visibility into which products were actually driving profit",
+      ],
       tech: ["Next.js 14", "Stripe", "bKash Merchant API", "Prisma", "PostgreSQL", "Cloudinary", "Resend", "Twilio", "Vercel"],
       outcome: "The full 200+ SKU catalogue was live on the owned storefront within 28 days of kickoff. In the first quarter, the business retained the equivalent of six months of Daraz commission fees. Repeat purchase rate rose 60% compared to the Daraz period — directly attributable to owning the customer email list and running monthly re-engagement campaigns for the first time. The Daraz store remains active as a secondary discovery channel, but no longer controls the business's relationship with its own customers.",
       gallery: ["/images/se-hero.png"],
+      videoUrl: "/videos/shopease.mp4",
     },
   },
   {
     id: 5, name: "MediBook", type: "Healthcare App", color: "#0D9488",
     desc: "Booking a verified specialist in Ghana could take days of phone calls, referrals, and physical visits — and for patients outside the major cities, it often meant a full day of travel. Built a cross-platform Flutter app with live availability, video consultations, and Paystack mobile money in 8 weeks. 40+ doctors live at launch.",
     slides: [
-      { img:"/images/a13.png", a:"#CCFBF1", b:"#0F766E" },
-      { img:"/images/a14.png", a:"#5EEAD4", b:"#0D9488" },
-      { img:"/images/a14.png", a:"#99F6E4", b:"#115E59" },
+      { img:"/images/mb-hero.png",     a:"#CCFBF1", b:"#0F766E", pos:"top center" },
+      { img:"/images/mb-homepage.png", a:"#5EEAD4", b:"#0D9488", pos:"center", fit:"contain" },
+      { img:"/images/mb-booking.png",  a:"#99F6E4", b:"#115E59", pos:"center", fit:"contain" },
     ],
     details: {
       timeline: "8 weeks",
@@ -238,11 +267,11 @@ const PROJECTS = [ // prettier-ignore
         { name: "Joins Consultation", desc: "Agora-powered video call with a waiting room UI, session recording consent screen, and in-call doctor notes. Automatic reconnection on drop. No third-party app required." },
       ],
       features: [
-        { img: "/images/a13.png", title: "Verified Doctor Directory",       desc: "40 doctors across 8 specialties were verified before launch — credentials, medical registration numbers, and practice locations all manually reviewed by the MediBook team. Patients filter by specialty, availability, language spoken, consultation type, and fee range. Search results rank by next available slot rather than by any paid placement." },
-        { img: "/images/a14.png", title: "Real-Time Appointment Booking",   desc: "Patients select an available slot on the doctor's live calendar — the slot is held for 5 minutes while payment is processed. Confirmation lands via push notification and email the moment the booking is committed. A reminder push fires 24 hours before the appointment and again 1 hour before. No phone call required at any step." },
-        { img: "/images/a14.png", title: "In-App Video Consultations",      desc: "Agora SDK powers the video consultations after evaluation against Daily.co and Twilio on Flutter SDK stability and call quality at low bandwidth. The waiting room UI, consent flow, automatic reconnection logic, and post-call notes interface were all built custom. Patients from 6 regions outside Accra have used this feature to access specialists they could not previously reach without travelling." },
-        { img: "/images/a14.png", title: "Paystack Mobile Money Payments",  desc: "Card and mobile money payments are both natively integrated via Paystack — chosen specifically because mobile money is the primary transaction method for the target patient base in Ghana. Payment confirmation appears in under 4 seconds. Doctors receive weekly automated settlements via the platform dashboard with a full transaction breakdown per appointment." },
-        { img: "/images/a13.png", title: "Patient Records & Appointment History", desc: "Patients access their full appointment history, upcoming bookings, and downloadable post-consultation notes from a single screen. Every past interaction is stored — enabling genuine continuity of care across multiple visits without a patient needing to re-explain their history to each new practitioner." },
+        { img: "/images/mb-homepage.png", title: "Homepage & Doctor Discovery",      desc: "The homepage opens on a searchable directory of 40 verified doctors across 8 specialties. Patients filter by specialty, availability, language spoken, consultation type, and fee range — all from one screen. Search results rank by next available slot, not by paid placement. Credentials and medical registration numbers were manually reviewed by the MediBook team before launch." },
+        { img: "/images/mb-booking.png", title: "Real-Time Appointment Booking",   desc: "Patients select an available slot on the doctor's live calendar — the slot is held for 5 minutes while payment is processed. Confirmation lands via push notification and email the moment the booking is committed. A reminder push fires 24 hours before the appointment and again 1 hour before. No phone call required at any step." },
+        { img: "/images/mb-video.png", title: "In-App Video Consultations",      desc: "Agora SDK powers the video consultations after evaluation against Daily.co and Twilio on Flutter SDK stability and call quality at low bandwidth. The waiting room UI, consent flow, automatic reconnection logic, and post-call notes interface were all built custom. Patients from 6 regions outside Accra have used this feature to access specialists they could not previously reach without travelling." },
+        { img: "/images/mb-payments.png", title: "Paystack Mobile Money Payments",  desc: "Card and mobile money payments are both natively integrated via Paystack — chosen specifically because mobile money is the primary transaction method for the target patient base in Ghana. Payment confirmation appears in under 4 seconds. Doctors receive weekly automated settlements via the platform dashboard with a full transaction breakdown per appointment." },
+        { img: "/images/mb-records.png", title: "Patient Records & Appointment History", desc: "Patients access their full appointment history, upcoming bookings, and downloadable post-consultation notes from a single screen. Every past interaction is stored — enabling genuine continuity of care across multiple visits without a patient needing to re-explain their history to each new practitioner." },
       ],
       overview: "MediBook was built to fix a structural gap in access to specialist healthcare. In Ghana's major cities, finding a verified doctor involves navigating informal referral networks, calling multiple clinics, and hoping for availability. Outside those cities, the barrier is significantly higher — a patient in a secondary region needing a cardiologist or dermatologist might face a full day of travel with no guarantee the specialist is available when they arrive.\n\nWe built a cross-platform Flutter app covering the complete patient journey: discover a verified doctor, check live appointment availability, book and pay, attend an in-person or video consultation, and access past records and consultation notes.\n\nFlutter was chosen over separate native iOS and Android builds because an 8-week timeline cannot support two codebases at once. A single codebase shipping to both platforms simultaneously was non-negotiable. Firebase handled real-time availability syncing and push notifications without requiring a custom notification infrastructure from scratch. Agora was selected for video consultations after evaluating three SDK options — Agora's Flutter plugin was the most stable of the three at the time of evaluation, and its performance on variable mobile connections was demonstrably better in testing.",
       problem: "No reliable, public directory of verified Ghanaian doctors existed in digital form. Patients relied on personal referrals or walked into clinics hoping the right specialist was available. Doctors managed their appointment books via paper calendars and phone calls — a system that produced regular double-bookings and high no-show rates. For patients outside the two major cities, seeing a specialist meant a day of travel with no certainty of outcome.",
@@ -254,20 +283,28 @@ const PROJECTS = [ // prettier-ignore
         { marker: "Day 49", event: "40 doctors onboarded, credentialed, and verified" },
         { marker: "Day 56", event: "Public launch across 6 regions" },
       ],
-      beforeGallery: ["/images/a14.png", "/images/a14.png", "/images/a14.png"],
-      afterGallery:  ["/images/a13.png", "/images/a14.png", "/images/a13.png"],
+      beforeGallery: ["/images/mb-before.png"],
+      afterGallery:  ["/images/mb-homepage.png"],
+      beforeBullets: [
+        "No app or digital booking system — all done by phone or in person",
+        "Finding a verified specialist required informal referral networks",
+        "Patients outside major cities faced a full day of travel with no guarantee of availability",
+        "No way to verify doctor credentials digitally before visiting",
+        "Video consultations were simply not possible",
+      ],
       tech: ["Flutter 3", "Dart", "Firebase Auth", "Firestore", "FCM", "Agora SDK", "Paystack", "Cloud Functions", "Google Maps SDK"],
       outcome: "MediBook launched with 40 verified doctors across 8 medical specialties. Average time from opening the app to a confirmed, paid booking is under 3 minutes. The video consultation feature is being used by patients in 6 regions — patients who previously had no digital pathway to a verified specialist without physically travelling. The founding team entered a seed funding process using the launch adoption figures as their primary proof of product-market fit.",
-      gallery: ["/images/a13.png"],
+      gallery: ["/images/mb-hero.png"],
+      videoUrl: "/videos/medibook.mp4",
     },
   },
   {
     id: 6, name: "NexusBot", type: "AI Support Agent", color: "#6366F1",
     desc: "A SaaS company's support team was fielding 200+ tickets a week with 3 agents — 78% of them variations of the same 20 questions. Built a GPT-4 RAG agent trained on their own product documentation. Live in 3 weeks. 78% of tickets now resolved with zero human involvement, response time under 2 seconds.",
     slides: [
-      { img:"/images/a14.png", a:"#E0E7FF", b:"#4338CA" },
-      { img:"/images/a14.png", a:"#A5B4FC", b:"#3730A3" },
-      { img:"/images/a14.png", a:"#C7D2FE", b:"#4F46E5" },
+      { img:"/images/nb-hero.png",        a:"#E0E7FF", b:"#4338CA", pos:"top center", fit:"contain" },
+      { img:"/images/nb-homepage.png",   a:"#A5B4FC", b:"#3730A3", pos:"top center", fit:"contain" },
+      { img:"/images/nb-escalation.png", a:"#C7D2FE", b:"#4F46E5", pos:"top center", fit:"contain" },
     ],
     details: {
       timeline: "3 weeks",
@@ -288,11 +325,11 @@ const PROJECTS = [ // prettier-ignore
         { name: "Answered or Escalated", desc: "High confidence: the answer is streamed to the customer in under 2 seconds. Low confidence: the conversation is escalated to a human agent with the full thread, the original query, and the retrieved context already attached." },
       ],
       features: [
-        { img: "/images/a14.png", title: "Chat Widget & Streaming UI",          desc: "The customer-facing widget is deliberately minimal — a floating button, a clean chat panel, and streamed response rendering with full markdown support. It opens instantly, requires no login, and is configured to match the client's brand colours and tone. Perceived response latency is under 1 second even before the first token streams back from the model." },
-        { img: "/images/a14.png", title: "Grounded RAG Pipeline",               desc: "Every response is generated from retrieved chunks of the client's own documentation — not from GPT-4's general knowledge. The knowledge base is re-indexed nightly, so updated documentation is reflected in bot responses without any manual intervention. The admin dashboard shows which specific doc chunks informed each response — answers are fully traceable, not opaque." },
-        { img: "/images/a14.png", title: "Confidence-Based Escalation",         desc: "A custom confidence scoring layer evaluates each response before it is sent. If retrieval confidence falls below threshold, the bot does not guess — it escalates to a human agent with the full conversation history, the original query, and the retrieved context already packaged. Support agents only receive tickets that genuinely require human judgement, with all context pre-gathered." },
-        { img: "/images/a14.png", title: "One-Line Embed & Admin Dashboard",    desc: "NexusBot deploys on any site or app with a single script tag — no engineering involvement, no build pipeline changes. The client's non-technical customer success team installed it in 4 minutes on their first attempt. The admin dashboard lets non-technical staff review flagged conversations, mark incorrect answers for retraining, and trigger a knowledge base rebuild from a single button." },
-        { img: "/images/a14.png", title: "Multi-Language & Helpdesk Webhooks", desc: "The bot auto-detects the customer's query language and responds in kind — English, French, Spanish, and Arabic handled without any configuration. Escalated conversations push directly into the client's existing helpdesk via webhook, appearing as new tickets in Intercom or Zendesk with the full NexusBot conversation thread, retrieved context, and confidence score all pre-attached." },
+        { img: "/images/nb-homepage.png", title: "Homepage & Embedded Chat Widget",     desc: "The homepage demonstrates NexusBot live — visitors interact with the actual bot, see streamed responses, and understand the product in under 30 seconds without a demo call. The embeddable widget itself is deliberately minimal: a floating button, a clean chat panel, and streamed markdown rendering. Perceived response latency is under 1 second even before the first token arrives." },
+        { img: "/images/nb-rag.png", title: "Grounded RAG Pipeline",               desc: "Every response is generated from retrieved chunks of the client's own documentation — not from GPT-4's general knowledge. The knowledge base is re-indexed nightly, so updated documentation is reflected in bot responses without any manual intervention. The admin dashboard shows which specific doc chunks informed each response — answers are fully traceable, not opaque." },
+        { img: "/images/nb-escalation.png", title: "Confidence-Based Escalation",         desc: "A custom confidence scoring layer evaluates each response before it is sent. If retrieval confidence falls below threshold, the bot does not guess — it escalates to a human agent with the full conversation history, the original query, and the retrieved context already packaged. Support agents only receive tickets that genuinely require human judgement, with all context pre-gathered." },
+        { img: "/images/nb-admin.png", title: "One-Line Embed & Admin Dashboard",    desc: "NexusBot deploys on any site or app with a single script tag — no engineering involvement, no build pipeline changes. The client's non-technical customer success team installed it in 4 minutes on their first attempt. The admin dashboard lets non-technical staff review flagged conversations, mark incorrect answers for retraining, and trigger a knowledge base rebuild from a single button." },
+        { img: "/images/nb-multilang.png", title: "Multi-Language & Helpdesk Webhooks", desc: "The bot auto-detects the customer's query language and responds in kind — English, French, Spanish, and Arabic handled without any configuration. Escalated conversations push directly into the client's existing helpdesk via webhook, appearing as new tickets in Intercom or Zendesk with the full NexusBot conversation thread, retrieved context, and confidence score all pre-attached." },
       ],
       overview: "The client runs a B2B SaaS product with a rapidly growing user base and a support team that hadn't scaled with it. Three agents were handling over 200 tickets a week. An analysis of the previous quarter's ticket data revealed that 78% of incoming queries were variations of the same 20 questions — all of them answered somewhere in the product documentation. The documentation existed. Customers just weren't reading it, and agents were answering the same questions on repeat, every day.\n\nAverage first response time was over 4 hours. Two of the three agents were spending the majority of their working week on tier-1 queries that required no human judgement. The head of support wanted to redeploy both of them to strategic account work — but couldn't justify it until tier-1 volume was handled elsewhere.\n\nWe built a GPT-4 retrieval-augmented generation pipeline trained exclusively on the client's own product documentation, help articles, and historical ticket resolutions. The architecture requirement was non-negotiable: every answer had to be grounded in the client's actual documentation, not generated from general model knowledge. We evaluated Pinecone, Weaviate, and pgvector as the vector store — Pinecone was selected for its query latency consistency at the expected volume. The embed-via-script-tag deployment model was a product decision made on day one, because any non-technical person in the organisation needed to be able to ship it independently.",
       problem: "Three support agents, 200+ tickets per week, 4-hour average first response time. 78% of those tickets were questions already answered in the product documentation — the knowledge existed, but it was inaccessible to customers and too slow to retrieve manually at scale. Onboarding a new support agent took two weeks and still produced inconsistent answers for anything beyond the most common questions. The head of support wanted to redeploy two agents entirely to proactive customer success work, but couldn't do it until tier-1 ticket volume was handled another way.",
@@ -304,11 +341,19 @@ const PROJECTS = [ // prettier-ignore
         { marker: "Day 21",  event: "Live on client site — all support channels active" },
         { marker: "Month 1", event: "78% ticket deflection · avg response time <2s · two agents redeployed" },
       ],
-      beforeGallery: ["/images/a14.png", "/images/a14.png", "/images/a14.png"],
-      afterGallery:  ["/images/a14.png", "/images/a14.png", "/images/a14.png"],
+      beforeGallery: [],
+      afterGallery:  ["/images/nb-homepage.png"],
+      beforeBullets: [
+        "3 support agents handling 200+ tickets per week manually",
+        "78% of tickets were variations of the same 20 questions",
+        "Average first response time: over 4 hours",
+        "Agents spending most of their week on tier-1 queries requiring no human judgement",
+        "No way to scale support without hiring more people",
+      ],
       tech: ["GPT-4 (OpenAI)", "LangChain", "Pinecone", "FastAPI", "Next.js 14", "Python 3.11", "Vercel", "Intercom", "Zendesk"],
       outcome: "In the first full month of deployment, NexusBot resolved 78% of incoming support tickets without any human involvement. Average first response time dropped from over 4 hours to under 2 seconds. The overall support team ticket load fell by 55%. Both agents the head of support had wanted to redeploy to strategic account work were redeployed within 30 days of launch. The knowledge base now updates automatically each night — no maintenance required.",
-      gallery: ["/images/a14.png"],
+      gallery: ["/images/nb-hero.png"],
+      videoUrl: "/videos/nexusbot.mp4",
     },
   },
 ];
@@ -469,8 +514,8 @@ function FlowDiagram({ flow, color }: { flow: FlowStep[]; color: string }) {
 
 /* ─── Before / After Gallery ─────────────────────────────────────────────────── */
 function BeforeAfterGallery({
-  beforeGallery, afterGallery, color
-}: { beforeGallery: string[]; afterGallery: string[]; color: string }) {
+  beforeGallery, afterGallery, color, beforeBullets
+}: { beforeGallery: string[]; afterGallery: string[]; color: string; beforeBullets?: string[] }) {
   const [tab, setTab] = useState<"before" | "after">("before");
   const [idx, setIdx] = useState(0);
   const [dir, setDir] = useState<1 | -1>(1);
@@ -483,8 +528,8 @@ function BeforeAfterGallery({
     return () => clearInterval(t);
   }, [paused]);
 
-  const images = tab === "before" ? beforeGallery : afterGallery;
   const isBefore = tab === "before";
+  const images = isBefore ? beforeGallery : afterGallery;
   const dotColor = isBefore ? "#9ca3af" : color;
 
   function go(d: 1 | -1) {
@@ -501,7 +546,7 @@ function BeforeAfterGallery({
   /* ── Tabbed slider layout ── */
   return (
     <div>
-      {/* Tabs + counter */}
+      {/* Tabs */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex gap-2">
           {(["before", "after"] as const).map(t => (
@@ -518,22 +563,65 @@ function BeforeAfterGallery({
         </div>
       </div>
 
-      {/* Image + side arrows */}
+      {/* Container */}
       <div className="relative rounded-2xl overflow-hidden"
         style={{ border: `1.5px solid ${isBefore ? "#e5e7eb" : `${color}30`}`, aspectRatio: "16/9" }}>
-        <AnimatePresence mode="wait" custom={dir}>
-          <motion.img key={`${tab}-${idx}`}
-            src={imgSrc(images[idx])} alt=""
-            className="absolute inset-0 w-full h-full object-cover object-top"
-            style={{ filter: isBefore ? "grayscale(65%) brightness(0.88)" : "none" }}
-            variants={imgVariants}
-            initial="enter" animate="show" exit="exit"
-            transition={{ duration: 0.5, ease: "easeInOut" }} />
+
+        <AnimatePresence mode="wait">
+          {isBefore ? (
+            beforeGallery.length === 0 ? (
+              /* ── Before: text card (no image) ── */
+              <motion.div key="before-card"
+                className="absolute inset-0 flex flex-col justify-center px-10 py-8"
+                style={{ background: "linear-gradient(135deg, #111111 0%, #1c1c1e 100%)" }}
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}>
+                <div className="absolute inset-0 opacity-[0.04]"
+                  style={{ backgroundImage: "repeating-linear-gradient(0deg,#fff 0px,#fff 1px,transparent 1px,transparent 32px),repeating-linear-gradient(90deg,#fff 0px,#fff 1px,transparent 1px,transparent 32px)" }} />
+                <div className="relative flex flex-col gap-5">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-5 h-5 flex items-center justify-center rounded-md" style={{ background: "#ef444420" }}>
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M5 1v4M5 7.5v.5" stroke="#ef4444" strokeWidth="1.5" strokeLinecap="round"/>
+                      </svg>
+                    </span>
+                    <p className="text-[10px] font-black uppercase tracking-[0.15em]" style={{ color: "#6b7280" }}>
+                      Before · No digital presence
+                    </p>
+                  </div>
+                  <ul className="flex flex-col gap-3">
+                    {(beforeBullets ?? []).map((b, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="mt-[5px] shrink-0 w-[5px] h-[5px] rounded-full" style={{ background: "#ef444460" }} />
+                        <span className="text-[12.5px] leading-snug font-medium" style={{ color: "#9ca3af" }}>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ) : (
+              /* ── Before: image ── */
+              <motion.img key="before-img"
+                src={imgSrc(beforeGallery[0])} alt=""
+                className="absolute inset-0 w-full h-full object-cover object-top"
+                style={{ filter: "grayscale(60%) brightness(0.88)" }}
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }} />
+            )
+          ) : (
+            /* ── After: image ── */
+            <motion.img key={`after-${idx}`}
+              src={imgSrc(images[idx])} alt=""
+              className="absolute inset-0 w-full h-full object-cover object-top"
+              variants={imgVariants}
+              initial="enter" animate="show" exit="exit"
+              transition={{ duration: 0.5, ease: "easeInOut" }} />
+          )}
         </AnimatePresence>
 
         <div className="absolute top-3 left-3 pointer-events-none">
           <span className="text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full"
-            style={{ background: isBefore ? "rgba(0,0,0,0.45)" : `${color}CC`, color: "#fff" }}>
+            style={{ background: isBefore ? "rgba(0,0,0,0.55)" : `${color}CC`, color: "#fff" }}>
             {tab}
           </span>
         </div>
@@ -559,13 +647,15 @@ function BeforeAfterGallery({
         )}
       </div>
 
-      <div className="flex justify-center gap-2 mt-3">
-        {images.map((_, i) => (
-          <button key={i} onClick={() => { setDir(i > idx ? 1 : -1); setIdx(i); }}
-            className="rounded-full transition-all duration-200"
-            style={{ width: i === idx ? 18 : 6, height: 6, background: i === idx ? dotColor : `${dotColor}40` }} />
-        ))}
-      </div>
+      {images.length > 1 && (
+        <div className="flex justify-center gap-2 mt-3">
+          {images.map((_, i) => (
+            <button key={i} onClick={() => { setDir(i > idx ? 1 : -1); setIdx(i); }}
+              className="rounded-full transition-all duration-200"
+              style={{ width: i === idx ? 18 : 6, height: 6, background: i === idx ? dotColor : `${dotColor}40` }} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -829,8 +919,8 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
           {/* Hero — identity overlaid on image */}
           <div className="relative w-full" style={{ aspectRatio: d.gallery.length === 1 ? "unset" : "16/8", height: d.gallery.length === 1 ? 340 : "unset" }}>
             <AnimatePresence mode="wait">
-              <motion.div key={activeImg} className={d.gallery.length === 1 ? "w-full h-full p-6" : "absolute inset-0"}
-                style={{ background: project.slides[activeImg]?.bg ?? slideBg(project.slides[activeImg]) }}
+              <motion.div key={activeImg} className={d.gallery.length === 1 ? "w-full h-full p-2" : "absolute inset-0"}
+                style={{ background: d.gallery.length === 1 ? "#fff" : (project.slides[activeImg]?.bg ?? slideBg(project.slides[activeImg])) }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}>
                 <img src={imgSrc(d.gallery[activeImg])} alt={project.name}
@@ -905,7 +995,7 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
             {/* Before & After — full width */}
             <div>
               <SHead label="Before & After" color={c} />
-              <BeforeAfterGallery beforeGallery={d.beforeGallery} afterGallery={d.afterGallery} color={c} />
+              <BeforeAfterGallery beforeGallery={d.beforeGallery} afterGallery={d.afterGallery} color={c} beforeBullets={d.beforeBullets} />
             </div>
 
             {/* Founder Insight */}
@@ -1087,7 +1177,7 @@ export default function FeaturedWork() {
                     <motion.div key={`L-${pi}-${si}`} className="absolute inset-0"
                       initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
                       transition={{ duration:0.5 }} style={{ background: slideBg(left) }}>
-                      {left.img && <img src={imgSrc(left.img)} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: left.pos ?? "center" }} />}
+                      {left.img && <img src={imgSrc(left.img)} alt="" className="absolute inset-0 w-full h-full" style={{ objectFit: (left as any).fit ?? "cover", objectPosition: left.pos ?? "center" }} />}
                     </motion.div>
                   </AnimatePresence>
                   <div className="absolute inset-y-0 right-0 w-16 pointer-events-none"
@@ -1101,7 +1191,7 @@ export default function FeaturedWork() {
                       variants={slideVariants} initial="enter" animate="show" exit="exit"
                       transition={{ duration:0.5, ease:[0.25,0.46,0.45,0.94] }}
                       style={{ background: slideBg(ctr) }}>
-                      {ctr.img && <img src={imgSrc(ctr.img)} alt={p.name} className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: ctr.pos ?? "center" }} />}
+                      {ctr.img && <img src={imgSrc(ctr.img)} alt={p.name} className="absolute inset-0 w-full h-full" style={{ objectFit: (ctr as any).fit ?? "cover", objectPosition: ctr.pos ?? "center" }} />}
                     </motion.div>
                   </AnimatePresence>
                 </div>
@@ -1111,7 +1201,7 @@ export default function FeaturedWork() {
                     <motion.div key={`R-${pi}-${si}`} className="absolute inset-0"
                       initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
                       transition={{ duration:0.5 }} style={{ background: slideBg(right) }}>
-                      {right.img && <img src={imgSrc(right.img)} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: right.pos ?? "center" }} />}
+                      {right.img && <img src={imgSrc(right.img)} alt="" className="absolute inset-0 w-full h-full" style={{ objectFit: (right as any).fit ?? "cover", objectPosition: right.pos ?? "center" }} />}
                     </motion.div>
                   </AnimatePresence>
                   <div className="absolute inset-y-0 left-0 w-16 pointer-events-none"
