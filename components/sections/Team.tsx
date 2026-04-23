@@ -57,7 +57,7 @@ function FoundersVideo() {
 
 export default function Team() {
   return (
-    <section id="team" className="py-14 lg:py-24 px-8 lg:px-16 bg-white border-t border-border">
+    <section id="team" className="py-8 lg:py-14 px-8 lg:px-16 bg-white border-t border-border">
       <div className="mx-auto max-w-[1440px]">
 
         <motion.div

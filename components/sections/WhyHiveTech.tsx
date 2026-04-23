@@ -23,6 +23,7 @@ const reasons = [
 
 /* ── Geometry ───────────────────────── */
 function toRad(d: number) { return d * Math.PI / 180; }
+const r4 = (n: number) => Math.round(n * 1e4) / 1e4;
 
 function buildSegments() {
   const total    = reasons.reduce((a, r) => a + r.pct, 0);
@@ -38,12 +39,12 @@ function buildSegments() {
     const LR     = RING_R + STROKE / 2 + 38;
     return {
       ...r, start, end, arcLen, midDeg,
-      labelX: CX + LR * Math.cos(midRad),
-      labelY: CY + LR * Math.sin(midRad),
-      tickX1: CX + (RING_R + STROKE / 2 + 4)  * Math.cos(midRad),
-      tickY1: CY + (RING_R + STROKE / 2 + 4)  * Math.sin(midRad),
-      tickX2: CX + (RING_R + STROKE / 2 + 20) * Math.cos(midRad),
-      tickY2: CY + (RING_R + STROKE / 2 + 20) * Math.sin(midRad),
+      labelX: r4(CX + LR * Math.cos(midRad)),
+      labelY: r4(CY + LR * Math.sin(midRad)),
+      tickX1: r4(CX + (RING_R + STROKE / 2 + 4)  * Math.cos(midRad)),
+      tickY1: r4(CY + (RING_R + STROKE / 2 + 4)  * Math.sin(midRad)),
+      tickX2: r4(CX + (RING_R + STROKE / 2 + 20) * Math.cos(midRad)),
+      tickY2: r4(CY + (RING_R + STROKE / 2 + 20) * Math.sin(midRad)),
     };
   });
 }
@@ -97,7 +98,7 @@ export default function WhyHiveTech() {
   const display = hovered !== null ? segments[hovered] : seg;
 
   return (
-    <section id="about" className="py-12 lg:py-16 px-8 lg:px-16 bg-bg-2 border-t border-border">
+    <section id="about" className="py-8 lg:py-10 px-8 lg:px-16 bg-bg-2 border-t border-border">
       <div className="mx-auto max-w-[1440px]">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
 

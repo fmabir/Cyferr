@@ -80,7 +80,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="relative py-14 lg:py-24 px-6 lg:px-10 overflow-hidden bg-bg-2 border-t border-border">
+    <section className="relative py-8 lg:py-14 px-6 lg:px-10 overflow-hidden bg-bg-2 border-t border-border">
 
       <div className="mx-auto max-w-7xl pt-8">
         <motion.div

@@ -106,115 +106,75 @@ function CodeEditorIllustration() {
   );
 }
 
-/* ── Slide 2: Animated Bar Chart ────────────────────────────────────────────── */
+/* ── Slide 2: Simple Column Chart ───────────────────────────────────────────── */
 function PriceChartIllustration() {
-  const [animate, setAnimate] = useState(false);
+  const [go, setGo] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setAnimate(true), 300);
+    const t = setTimeout(() => setGo(true), 200);
     return () => clearTimeout(t);
   }, []);
 
-  const bars = [
-    { label: "Big Agency",  price: "$15,000", height: 220, color: "#E5E7EB", textColor: "#9CA3AF", accent: "#D1D5DB" },
-    { label: "HiveTech",    price: "$6,000",  height: 88,  color: "#F5A623", textColor: "#FFFFFF", accent: "#D4891A" },
+  const cols = [
+    { label: "Agency", value: "$15k", height: 180, color: "#E5E7EB" },
+    { label: "HiveTech", value: "$6k", height: 72, color: "#F5A623" },
   ];
 
   return (
-    <div className="relative w-full max-w-[420px]" style={{ height: 340 }}>
-      {/* Savings badge */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.7, y: -10 }}
-        animate={{ opacity: animate ? 1 : 0, scale: animate ? 1 : 0.7, y: animate ? 0 : -10 }}
-        transition={{ delay: 1.1, duration: 0.4, type: "spring", stiffness: 200 }}
-        className="absolute top-2 right-4 z-20 flex flex-col items-center px-4 py-2.5 rounded-2xl border-2"
-        style={{ background: "#FFF7E6", borderColor: "#F5A623", boxShadow: "0 4px 20px rgba(245,166,35,0.25)" }}
-      >
-        <span className="text-[10px] font-black uppercase tracking-wider" style={{ color: "#D4891A" }}>You Save</span>
-        <span className="font-display font-black text-2xl leading-none" style={{ color: "#F5A623" }}>$9,000</span>
-        <span className="text-[10px] font-semibold" style={{ color: "#D4891A" }}>60% less</span>
-      </motion.div>
-
-      {/* Chart area */}
-      <div className="absolute inset-x-6 top-10 bottom-16 flex items-end justify-center gap-10">
-        {/* Grid lines */}
-        {[0, 1, 2, 3].map(i => (
-          <div key={i} className="absolute inset-x-0 border-t border-dashed border-border opacity-50"
-            style={{ bottom: `${(i / 3) * 100}%` }} />
-        ))}
-
-        {bars.map((bar, i) => (
-          <div key={i} className="flex flex-col items-center gap-3 relative z-10">
-            {/* Price label on top */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: animate ? 1 : 0, y: animate ? 0 : 8 }}
-              transition={{ delay: 0.6 + i * 0.3, duration: 0.4 }}
-              className="font-display font-black text-lg"
-              style={{ color: i === 1 ? "#F5A623" : "#9CA3AF" }}
-            >
-              {bar.price}
-            </motion.div>
-
-            {/* Bar */}
-            <div className="relative flex items-end" style={{ height: 220, width: 80 }}>
-              <motion.div
-                initial={{ height: 0 }}
-                animate={{ height: animate ? bar.height : 0 }}
-                transition={{ delay: 0.2 + i * 0.2, duration: 0.7, ease: [0.34, 1.2, 0.64, 1] }}
-                className="w-full rounded-t-2xl relative overflow-hidden"
-                style={{ background: bar.color }}
-              >
-                {i === 1 && (
-                  <motion.div className="absolute inset-0 opacity-30"
-                    style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%)" }} />
-                )}
-                {i === 1 && (
-                  <motion.div
-                    animate={{ y: ["100%", "-100%"] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-x-0 h-1/2 opacity-20"
-                    style={{ background: "linear-gradient(180deg, transparent, rgba(255,255,255,0.6), transparent)" }}
-                  />
-                )}
-              </motion.div>
-            </div>
-
-            {/* Label */}
+    <div className="flex flex-col items-center gap-4 w-full max-w-[320px]">
+      {/* Bars */}
+      <div className="flex items-end justify-center gap-10 w-full" style={{ height: 200 }}>
+        {cols.map((c, i) => (
+          <div key={i} className="relative flex items-end" style={{ height: 180, width: 72 }}>
+            {/* Value label pinned just above bar top */}
             <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: animate ? 1 : 0 }}
-              transition={{ delay: 0.8 + i * 0.2, duration: 0.4 }}
-              className="text-xs font-black text-center leading-tight"
-              style={{ color: i === 1 ? "#F5A623" : "#9CA3AF" }}
+              className="absolute font-black text-base w-full text-center"
+              style={{ color: i === 1 ? "#F5A623" : "#9CA3AF", bottom: c.height + 8 }}
+              initial={{ opacity: 0 }} animate={{ opacity: go ? 1 : 0 }}
+              transition={{ delay: 0.5 + i * 0.15, duration: 0.3 }}
             >
-              {bar.label}
+              {c.value}
             </motion.span>
+            {/* Bar */}
+            <motion.div
+              className="w-full rounded-t-xl"
+              style={{ background: c.color }}
+              initial={{ height: 0 }}
+              animate={{ height: go ? c.height : 0 }}
+              transition={{ delay: 0.1 + i * 0.15, duration: 0.6, ease: [0.34, 1.1, 0.64, 1] }}
+            />
           </div>
         ))}
-
-        {/* Arrow between bars */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: animate ? 1 : 0 }}
-          transition={{ delay: 1.0, duration: 0.4 }}
-          className="absolute flex flex-col items-center gap-1"
-          style={{ left: "50%", transform: "translateX(-50%)", bottom: 92 }}
-        >
-          <svg width="40" height="60" viewBox="0 0 40 60" fill="none">
-            <defs>
-              <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
-                <polygon points="0 0, 8 3, 0 6" fill="#10B981" />
-              </marker>
-            </defs>
-            <line x1="20" y1="4" x2="20" y2="52" stroke="#10B981" strokeWidth="2" strokeDasharray="4 3" markerEnd="url(#arrowhead)" />
-          </svg>
-          <span className="text-[10px] font-black px-2 py-0.5 rounded-full" style={{ background: "#DCFCE7", color: "#10B981" }}>same quality</span>
-        </motion.div>
       </div>
 
-      {/* X-axis */}
-      <div className="absolute bottom-8 inset-x-6 h-px bg-border" />
+      {/* X-axis line */}
+      <div className="w-full h-px bg-border" />
+
+      {/* Labels */}
+      <div className="flex justify-center gap-16 w-full">
+        {cols.map((c, i) => (
+          <motion.span
+            key={i}
+            className="text-xs font-black"
+            style={{ color: i === 1 ? "#F5A623" : "#9CA3AF" }}
+            initial={{ opacity: 0 }} animate={{ opacity: go ? 1 : 0 }}
+            transition={{ delay: 0.7 + i * 0.1, duration: 0.3 }}
+          >
+            {c.label}
+          </motion.span>
+        ))}
+      </div>
+
+      {/* Save badge */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: go ? 1 : 0, scale: go ? 1 : 0.8 }}
+        transition={{ delay: 1.0, duration: 0.35, type: "spring", stiffness: 200 }}
+        className="px-5 py-2 rounded-full font-black text-sm"
+        style={{ background: "#FFF7E6", color: "#D4891A", border: "1.5px solid #F5A623" }}
+      >
+        Save 60% with HiveTech
+      </motion.div>
     </div>
   );
 }
@@ -421,7 +381,7 @@ const slides = [
   },
 ];
 
-const SLIDE_MS = 5000;
+const SLIDE_MS = 8000;
 
 const textVariants = {
   enter: (_dir: number) => ({ opacity: 0, y: 28 }),
@@ -437,29 +397,29 @@ const stats = [
 ];
 
 export default function Hero() {
-  const [idx,    setIdx]    = useState(0);
-  const [dir,    setDir]    = useState(1);
-  const [paused, setPaused] = useState(false);
-
+  const [idx, setIdx] = useState(0);
+  const [dir, setDir] = useState(1);
   const goTo = useCallback((next: number) => {
-    const n = ((next % slides.length) + slides.length) % slides.length;
-    setDir(n >= idx ? 1 : -1);
-    setIdx(n);
-  }, [idx]);
+    setIdx(cur => {
+      const n = ((next % slides.length) + slides.length) % slides.length;
+      setDir(n >= cur ? 1 : -1);
+      return n;
+    });
+  }, []);
 
   useEffect(() => {
-    if (paused) return;
-    const t = setInterval(() => goTo(idx + 1), SLIDE_MS);
-    return () => clearInterval(t);
-  }, [paused, idx, goTo]);
+    const id = setInterval(() => {
+      setDir(1);
+      setIdx(cur => (cur + 1) % slides.length);
+    }, SLIDE_MS);
+    return () => clearInterval(id);
+  }, []);
 
   const s = slides[idx];
 
   return (
     <section
       className="relative min-h-screen flex flex-col bg-white pt-16 overflow-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       {/* Subtle dot grid */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.025]"

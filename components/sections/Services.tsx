@@ -216,7 +216,7 @@ const headingWords2 = ["One", "Lean", "Team."];
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-16 lg:py-24 bg-white px-8 lg:px-16 border-t border-border">
+    <section id="services" className="relative py-10 lg:py-14 bg-white px-8 lg:px-16 border-t border-border">
 
       <div className="mx-auto max-w-[1440px] relative z-10">
 

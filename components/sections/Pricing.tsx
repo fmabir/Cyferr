@@ -272,7 +272,7 @@ export default function Pricing() {
   }
 
   return (
-    <section id="pricing" className="py-14 lg:py-24 bg-bg-2 border-t border-border px-8 lg:px-16">
+    <section id="pricing" className="py-8 lg:py-14 bg-bg-2 border-t border-border px-8 lg:px-16">
       <div className="mx-auto max-w-[1440px]">
 
         {/* Header */}

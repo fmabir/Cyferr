@@ -44,7 +44,7 @@ export default function Testimonials() {
   const cardClass = "shrink-0 snap-start w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]";
 
   return (
-    <section className="relative py-24 bg-bg-2 border-t border-border px-6 lg:px-10 overflow-hidden">
+    <section className="relative py-10 lg:py-14 bg-bg-2 border-t border-border px-6 lg:px-10 overflow-hidden">
 
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="mb-14 text-center">

@@ -11,7 +11,7 @@ export default function CTABanner() {
       <div className="pointer-events-none absolute left-1/4 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full hidden lg:block"
         style={{ background: "radial-gradient(ellipse, rgba(245,166,35,0.15) 0%, transparent 70%)", filter: "blur(60px)" }} aria-hidden />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-8 lg:px-16 py-16 lg:py-24">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-8 lg:px-16 py-10 lg:py-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ── Left: headline ── */}

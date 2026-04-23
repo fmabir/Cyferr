@@ -51,7 +51,7 @@ function Strip({ items, reverse }: { items: typeof row1; reverse?: boolean }) {
 
 export default function TechStack() {
   return (
-    <section className="py-20 border-y border-border bg-bg-2 relative">
+    <section className="py-10 border-y border-border bg-bg-2 relative">
 
       <div className="mx-auto max-w-[1440px] px-8 lg:px-16 mb-10 text-center">
         <span className="section-pill mb-4">Tech Stack</span>

@@ -4,7 +4,7 @@ import { Mail, Phone } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 lg:px-10 bg-bg-2 relative overflow-hidden">
+    <section id="contact" className="py-12 px-6 lg:px-10 bg-bg-2 relative overflow-hidden">
       {/* Top wave */}
       <div className="absolute top-0 inset-x-0">
         <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full block rotate-180">

@@ -1019,7 +1019,7 @@ export default function FeaturedWork() {
 
   return (
     <>
-      <section id="work" className="py-12 lg:py-20 bg-bg overflow-hidden">
+      <section id="work" className="py-8 lg:py-12 bg-bg overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}

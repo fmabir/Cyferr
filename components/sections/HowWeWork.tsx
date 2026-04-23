@@ -239,7 +239,7 @@ function HexCard({ step, idx }: { step: typeof steps[0]; idx: number }) {
 
 export default function HowWeWork() {
   return (
-    <section className="py-14 lg:py-24 bg-surface px-8 lg:px-16 overflow-hidden">
+    <section className="py-8 lg:py-14 bg-surface px-8 lg:px-16 overflow-hidden">
       <div className="mx-auto max-w-[1440px]">
 
         {/* Header */}
