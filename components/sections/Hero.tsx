@@ -553,36 +553,59 @@ export default function Hero() {
                 )}
                 {s.right === "cards" && (
                   <>
-                    {/* Mobile: compact stats grid — avoids fixed-size overflow */}
-                    <div className="lg:hidden grid grid-cols-2 gap-2 w-full max-w-[300px] mx-auto">
-                      {[
-                        { val: "30+",  label: "Projects Delivered", color: "#F5A623" },
-                        { val: "4.9★", label: "Client Rating",      color: "#F5A623" },
-                        { val: "85%",  label: "Repeat Client Rate",  color: "#10B981" },
-                        { val: "100%", label: "On-time Delivery",    color: "#6366F1" },
-                      ].map(st => (
-                        <div key={st.label} className="flex flex-col items-center justify-center rounded-2xl p-4 text-center gap-1"
-                          style={{ background: "#F0F2F6", boxShadow: "inset 3px 3px 8px rgba(0,0,0,0.06), inset -3px -3px 8px rgba(255,255,255,0.9)" }}>
-                          <span className="font-display font-black text-2xl leading-none" style={{ color: st.color }}>{st.val}</span>
-                          <span className="text-[10px] font-semibold text-txt-3 leading-tight">{st.label}</span>
+                    {/* ── Mobile: stats panel — matches site's light neumorphic style ── */}
+                    <div className="lg:hidden w-full max-w-[340px] mx-auto rounded-2xl p-3"
+                      style={{ background: "#F0F2F6", boxShadow: "inset 3px 3px 8px rgba(0,0,0,0.06), inset -3px -3px 8px rgba(255,255,255,0.9), 0 8px 32px rgba(0,0,0,0.08)" }}>
+
+                      {/* Header */}
+                      <div className="flex items-center justify-between mb-3 px-1">
+                        <div className="flex items-center gap-1.5">
+                          <motion.div animate={{ scale:[1,1.2,1], opacity:[0.6,1,0.6] }} transition={{ duration:2, repeat:Infinity }}
+                            className="w-1.5 h-1.5 rounded-full" style={{ background:"#4ADE80" }} />
+                          <span className="text-[9px] font-black uppercase tracking-widest" style={{ color:"#9CA3AF" }}>HiveTech · Stats</span>
                         </div>
-                      ))}
-                      <div className="col-span-2 rounded-2xl p-3 flex items-center justify-between"
-                        style={{ background: "#0A0A0A" }}>
+                        <span className="text-[9px] font-black px-2 py-0.5 rounded-full" style={{ background:"#FFF7E6", color:"#F5A623", border:"1px solid #F5A62330" }}>2025</span>
+                      </div>
+
+                      {/* 2×2 stat cards */}
+                      <div className="grid grid-cols-2 gap-2 mb-2">
                         {[
-                          { icon: "📄", label: "Fixed Price" },
-                          { icon: "⚡", label: "2× Faster"  },
-                          { icon: "🔒", label: "NDA Ready"  },
-                          { icon: "💬", label: "24h Reply"  },
-                        ].map(u => (
-                          <div key={u.label} className="flex flex-col items-center gap-0.5">
-                            <span style={{ fontSize: 14 }}>{u.icon}</span>
-                            <span className="text-[9px] font-black text-white">{u.label}</span>
+                          { val: "30+",  label: "Projects Delivered", color: "#F5A623" },
+                          { val: "4.9★", label: "Client Rating",      color: "#F5A623" },
+                          { val: "85%",  label: "Repeat Client Rate",  color: "#10B981" },
+                          { val: "100%", label: "On-time Delivery",    color: "#6366F1" },
+                        ].map((st, i) => (
+                          <motion.div key={st.label}
+                            initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}
+                            transition={{ duration:0.38, delay:0.08 + i*0.07 }}
+                            className="flex flex-col gap-1 rounded-xl p-3"
+                            style={{ background:"#FFFFFF", boxShadow:"4px 4px 10px rgba(0,0,0,0.07), -3px -3px 8px rgba(255,255,255,0.95)" }}>
+                            <span className="text-[9px] font-semibold uppercase tracking-wide leading-none" style={{ color:"#9CA3AF" }}>{st.label}</span>
+                            <span className="font-display font-black leading-none" style={{ fontSize:26, color:st.color }}>{st.val}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      {/* USP strip */}
+                      <div className="grid grid-cols-4 rounded-xl overflow-hidden"
+                        style={{ background:"#FFFFFF", boxShadow:"4px 4px 10px rgba(0,0,0,0.07), -3px -3px 8px rgba(255,255,255,0.95)" }}>
+                        {[
+                          { icon:"📄", label:"Fixed Price" },
+                          { icon:"⚡", label:"2× Faster"   },
+                          { icon:"🔒", label:"NDA Ready"   },
+                          { icon:"💬", label:"24h Reply"   },
+                        ].map((u, i) => (
+                          <div key={u.label}
+                            className="flex flex-col items-center gap-1 py-2.5 border-r last:border-r-0"
+                            style={{ borderColor:"#F0F0F0" }}>
+                            <span style={{ fontSize:14 }}>{u.icon}</span>
+                            <span className="text-[8px] font-black text-center leading-tight" style={{ color:"#6B7280" }}>{u.label}</span>
                           </div>
                         ))}
                       </div>
+
                     </div>
-                    {/* Desktop: full floating cards illustration */}
+                    {/* ── Desktop: full floating cards illustration — unchanged ── */}
                     <div className="hidden lg:block w-full">
                       <FloatingCardsIllustration />
                     </div>
