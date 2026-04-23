@@ -1170,7 +1170,7 @@ export default function FeaturedWork() {
 
             {/* ── Carousel + info ── */}
             <div className="flex-1 min-w-0 flex flex-col">
-              <div className="relative overflow-hidden rounded-2xl" style={{ height: 400 }}>
+              <div className="relative overflow-hidden rounded-2xl" style={{ height: "clamp(200px, 52vw, 400px)" }}>
                 <div className="absolute hidden lg:block rounded-xl overflow-hidden"
                   style={{ width:"40%", height:"80%", top:"10%", left:"-19%" }}>
                   <AnimatePresence mode="sync">

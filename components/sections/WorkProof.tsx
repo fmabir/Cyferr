@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
@@ -33,6 +33,19 @@ const quotes = [
 export default function WorkProof() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.15 });
+  const swipeRef = useRef<HTMLDivElement>(null);
+  const [activeQuote, setActiveQuote] = useState(0);
+
+  function handleSwipeScroll() {
+    if (!swipeRef.current) return;
+    const idx = Math.round(swipeRef.current.scrollLeft / swipeRef.current.offsetWidth);
+    setActiveQuote(idx);
+  }
+
+  function goToQuote(i: number) {
+    swipeRef.current?.scrollTo({ left: i * swipeRef.current.offsetWidth, behavior: "smooth" });
+    setActiveQuote(i);
+  }
 
   return (
     <section className="py-6 sm:py-10 lg:py-14 bg-bg-2 border-t border-border px-4 sm:px-8 lg:px-16">
@@ -120,7 +133,57 @@ export default function WorkProof() {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Mobile: swipeable one-at-a-time */}
+            <div
+              ref={swipeRef}
+              onScroll={handleSwipeScroll}
+              className="sm:hidden flex overflow-x-auto snap-x snap-mandatory gap-0"
+              style={{ scrollbarWidth: "none" }}
+            >
+              {quotes.map((q, i) => (
+                <div key={i} className="snap-start shrink-0 w-full pr-0">
+                  <div className="flex flex-col gap-2.5 p-4 rounded-2xl cursor-default"
+                    style={{ background: "#F9FAFB", border: "1px solid #F0F0F0" }}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex gap-0.5">
+                        {[1,2,3,4,5].map(s => <span key={s} style={{ color: "#F5A623", fontSize: 11 }}>★</span>)}
+                      </div>
+                      <span className="font-black text-4xl leading-none select-none" style={{ color: q.color, opacity: 0.1 }}>&ldquo;</span>
+                    </div>
+                    <p className="text-sm leading-relaxed font-medium text-txt flex-1">&ldquo;{q.text}&rdquo;</p>
+                    <div className="flex items-center gap-2.5 pt-3" style={{ borderTop: "1px solid #EBEBEB" }}>
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0"
+                        style={{ background: q.color }}>
+                        {q.initial}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-black text-xs text-txt leading-none">{q.name}</p>
+                        <p className="text-[10px] text-txt-3 font-semibold mt-0.5">{q.role} · {q.country}</p>
+                      </div>
+                      <div className="flex items-center gap-1 px-2 py-1 rounded-full text-[9px] font-black shrink-0"
+                        style={{ background: "#F0F0F0", color: "#9CA3AF" }}>
+                        <svg width="7" height="7" viewBox="0 0 12 12" fill="none">
+                          <path d="M10 3L5 9L2 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        Verified
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile dot indicators */}
+            <div className="sm:hidden flex justify-center gap-2 mt-4">
+              {quotes.map((_, i) => (
+                <button key={i} onClick={() => goToQuote(i)}
+                  className="rounded-full transition-all duration-300"
+                  style={{ width: i === activeQuote ? 20 : 8, height: 8, background: i === activeQuote ? "#F5A623" : "#E5E7EB" }} />
+              ))}
+            </div>
+
+            {/* Desktop: 2-col grid */}
+            <div className="hidden sm:grid grid-cols-2 gap-4">
               {quotes.map((q, i) => (
                 <motion.div
                   key={i}
@@ -139,11 +202,7 @@ export default function WorkProof() {
                     </div>
                     <span className="font-black text-4xl leading-none select-none" style={{ color: q.color, opacity: 0.1 }}>&ldquo;</span>
                   </div>
-
-                  <p className="text-sm leading-relaxed font-medium text-txt flex-1">
-                    &ldquo;{q.text}&rdquo;
-                  </p>
-
+                  <p className="text-sm leading-relaxed font-medium text-txt flex-1">&ldquo;{q.text}&rdquo;</p>
                   <div className="flex items-center gap-2.5 pt-3" style={{ borderTop: "1px solid #EBEBEB" }}>
                     <motion.div
                       initial={{ scale: 0.5, opacity: 0 }}

@@ -489,15 +489,15 @@ export default function Hero() {
                 ))}
               </h1>
 
-              <p className="text-base lg:text-lg text-txt-2 leading-relaxed max-w-xl mb-8">
+              <p className="text-sm lg:text-lg text-txt-2 leading-relaxed max-w-xl mb-5 lg:mb-8">
                 {s.sub}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 mb-10">
+              <div className="flex flex-row sm:flex-row gap-2 sm:gap-3 mb-6 lg:mb-10">
                 {s.ctas.map((cta, i) => (
                   <a key={i} href={cta.href}
-                    className={`${cta.primary ? "btn-primary" : "btn-outline"} px-7 py-3.5 text-base w-full sm:w-auto justify-center`}>
-                    {cta.label} {cta.primary && <ArrowRight size={16} />}
+                    className={`${cta.primary ? "btn-primary" : "btn-outline"} px-4 py-2 sm:px-7 sm:py-3.5 text-sm sm:text-base w-auto sm:w-auto justify-center`}>
+                    {cta.label} {cta.primary && <ArrowRight size={14} className="sm:hidden" />}{cta.primary && <ArrowRight size={16} className="hidden sm:inline" />}
                   </a>
                 ))}
               </div>
@@ -523,8 +523,8 @@ export default function Hero() {
             </motion.div>
           </AnimatePresence>
 
-          {/* ── Right: visual ── */}
-          <div className="hidden lg:flex items-center justify-center">
+          {/* ── Right: visual (desktop side-by-side, mobile stacked below) ── */}
+          <div className="flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div key={`right-${idx}`}
                 initial={{ opacity: 0, x: 24 }}
@@ -542,12 +542,20 @@ export default function Hero() {
                     <img
                       src="/images/v6.png"
                       alt="HiveTech — Digital Product Development"
-                      className="w-full max-w-[520px] h-auto object-contain drop-shadow-xl"
+                      className="w-full max-w-[260px] sm:max-w-[380px] lg:max-w-[520px] h-auto object-contain drop-shadow-xl"
                     />
                   </motion.div>
                 )}
-                {s.right === "chart" && <PriceChartIllustration />}
-                {s.right === "cards" && <FloatingCardsIllustration />}
+                {s.right === "chart" && (
+                  <div className="w-full max-w-[300px] sm:max-w-none lg:max-w-none scale-75 sm:scale-90 lg:scale-100 origin-center">
+                    <PriceChartIllustration />
+                  </div>
+                )}
+                {s.right === "cards" && (
+                  <div className="w-full max-w-[300px] sm:max-w-none lg:max-w-none scale-75 sm:scale-90 lg:scale-100 origin-center">
+                    <FloatingCardsIllustration />
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>

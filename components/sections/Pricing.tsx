@@ -141,26 +141,24 @@ function PlanCard({ p, i }: { p: typeof plans[0]; i: number }) {
         </motion.div>
       )}
 
-      <div className={`flex flex-col flex-1 p-5 lg:p-7 ${p.popular ? "pt-5 lg:pt-6" : ""}`}>
+      <div className={`flex flex-col flex-1 p-2.5 lg:p-7 ${p.popular ? "pt-2.5 lg:pt-6" : ""}`}>
 
         {/* Header row */}
-        <div className="flex items-start justify-between mb-5 lg:mb-6">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, x: -12 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.12 + 0.15 }}
-            >
-              <p className="font-display font-black text-xl lg:text-2xl text-txt leading-none">{p.name}</p>
-              <p className="text-xs text-txt-3 font-semibold mt-1">{p.tagline}</p>
-            </motion.div>
-          </div>
-          {/* Icon circle */}
+        <div className="flex items-start justify-between mb-2 lg:mb-6">
+          <motion.div
+            initial={{ opacity: 0, x: -12 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.4, delay: i * 0.12 + 0.15 }}
+          >
+            <p className="font-display font-black text-[11px] lg:text-2xl text-txt leading-tight">{p.name}</p>
+            <p className="hidden lg:block text-xs text-txt-3 font-semibold mt-1">{p.tagline}</p>
+          </motion.div>
+          {/* Icon — desktop only */}
           <motion.div
             initial={{ opacity: 0, scale: 0.7, rotate: -15 }}
             animate={inView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
             transition={{ duration: 0.45, delay: i * 0.12 + 0.2, type: "spring", stiffness: 180 }}
-            className="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0"
+            className="hidden lg:flex w-11 h-11 rounded-2xl items-center justify-center shrink-0"
             style={{ background: p.accentBg, color: p.color }}
           >
             {p.icon}
@@ -172,19 +170,19 @@ function PlanCard({ p, i }: { p: typeof plans[0]; i: number }) {
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, delay: i * 0.12 + 0.22 }}
-          className="mb-5 lg:mb-6 pb-5 lg:pb-6 border-b border-border"
+          className="mb-2 lg:mb-6 pb-2 lg:pb-6 border-b border-border"
         >
-          <p className="text-[10px] font-black uppercase tracking-widest text-txt-3 mb-1.5">Starting from</p>
+          <p className="hidden lg:block text-[10px] font-black uppercase tracking-widest text-txt-3 mb-1.5">Starting from</p>
           <div className="flex items-end gap-1">
-            <span className="font-display font-black leading-none" style={{ fontSize: 42, color: p.color }}>{p.from}</span>
+            <span className="font-display font-black leading-none" style={{ fontSize: "clamp(16px, 3.5vw, 42px)", color: p.color }}>{p.from}</span>
           </div>
-          <p className="text-[11px] text-txt-3 mt-1.5 font-semibold">
+          <p className="hidden lg:block text-[11px] text-txt-3 mt-1.5 font-semibold">
             {p.period === "custom" ? "Custom quote · scoped to your project" : "Fixed price · no surprise invoices"}
           </p>
         </motion.div>
 
-        {/* Best for tags */}
-        <div className="mb-5">
+        {/* Best for tags — desktop only */}
+        <div className="hidden lg:block mb-5">
           <p className="text-[10px] font-black uppercase tracking-widest text-txt-3 mb-2.5">Best for</p>
           <div className="flex flex-wrap gap-1.5">
             {p.services.map((s, si) => (
@@ -202,8 +200,8 @@ function PlanCard({ p, i }: { p: typeof plans[0]; i: number }) {
           </div>
         </div>
 
-        {/* Features */}
-        <ul className="flex flex-col gap-2.5 mb-8 flex-1">
+        {/* Features — desktop only */}
+        <ul className="hidden lg:flex flex-col gap-2.5 mb-8 flex-1">
           {p.features.map((f, fi) => (
             <motion.li
               key={f}
@@ -212,14 +210,23 @@ function PlanCard({ p, i }: { p: typeof plans[0]; i: number }) {
               transition={{ duration: 0.35, delay: i * 0.12 + 0.35 + fi * 0.06 }}
               className="flex items-center gap-3 text-sm text-txt-2 font-semibold"
             >
-              <span
-                className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                style={{ background: p.accentBg }}
-              >
+              <span className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ background: p.accentBg }}>
                 <Check size={10} strokeWidth={3} style={{ color: p.color }} />
               </span>
               {f}
             </motion.li>
+          ))}
+        </ul>
+
+        {/* Mobile: short feature list (3 items) */}
+        <ul className="lg:hidden flex flex-col gap-1 mb-2 flex-1">
+          {p.features.slice(0, 3).map((f, fi) => (
+            <li key={f} className="flex items-center gap-1 text-[9px] text-txt-2 font-medium">
+              <span className="w-3 h-3 rounded-full flex items-center justify-center shrink-0" style={{ background: p.accentBg }}>
+                <Check size={6} strokeWidth={3} style={{ color: p.color }} />
+              </span>
+              {f}
+            </li>
           ))}
         </ul>
 
@@ -231,14 +238,14 @@ function PlanCard({ p, i }: { p: typeof plans[0]; i: number }) {
           transition={{ duration: 0.4, delay: i * 0.12 + 0.55 }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full flex items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-black transition-all"
+          className="w-full flex items-center justify-center gap-1 lg:gap-2 rounded-lg lg:rounded-2xl py-1.5 lg:py-3.5 text-[9px] lg:text-sm font-black transition-all"
           style={
             p.popular
               ? { background: p.color, color: "#fff", boxShadow: `0 4px 20px ${p.color}50` }
               : { background: p.accentBg, color: p.color, border: `1.5px solid ${p.color}40` }
           }
         >
-          {p.cta} <ArrowRight size={14} />
+          {p.cta}
         </motion.a>
       </div>
     </motion.div>
@@ -291,7 +298,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* Plans */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 lg:gap-6 items-start">
+        <div className="grid grid-cols-3 gap-2 sm:gap-5 lg:gap-6 items-start">
           {plans.map((p, i) => <PlanCard key={p.name} p={p} i={i} />)}
         </div>
 

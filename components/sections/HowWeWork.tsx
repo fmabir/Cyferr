@@ -320,36 +320,37 @@ export default function HowWeWork() {
           </div>
         </div>
 
-        {/* ── Mobile: vertical stack ── */}
-        <div className="lg:hidden relative">
-          <div className="absolute left-[calc(50%-1px)] top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-purple-200 to-green-200 z-0" />
-          <div className="flex flex-col items-center gap-6 relative z-10">
-            {steps.map((s, i) => (
-              <motion.div
-                key={s.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex flex-col items-center"
-              >
-                <div style={{ filter: `drop-shadow(0 6px 16px ${s.color}35)` }}>
-                  <div style={{ clipPath: HEX, width: 150, height: 173, background: `${s.color}18`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ clipPath: HEX, width: 144, height: 167, background: `linear-gradient(160deg, white 0%, ${s.bg} 100%)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6, padding: "30px 20px 24px" }}>
-                      <div style={{ width: 56, height: 46 }}>{s.illustration}</div>
-                      <h3 className="font-display font-black text-center text-[11px] leading-snug" style={{ color: "#1A0F00" }}>{s.title}</h3>
-                    </div>
-                  </div>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mt-2"
-                  style={{ background: s.bg, border: `1.5px solid ${s.color}40` }}>
-                  <div className="w-1.5 h-1.5 rounded-full" style={{ background: s.color }} />
-                  <span className="text-[10px] font-black" style={{ color: s.color }}>{s.outcome}</span>
-                </div>
-                <p className="text-[11px] text-txt-2 text-center mt-2 max-w-[240px] leading-relaxed">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+        {/* ── Mobile: 2×2 compact grid ── */}
+        <div className="lg:hidden grid grid-cols-2 gap-3">
+          {steps.map((s, i) => (
+            <motion.div
+              key={s.number}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="flex flex-col items-center rounded-2xl p-3 gap-2"
+              style={{ background: `${s.color}08`, border: `1px solid ${s.color}25` }}
+            >
+              {/* Step number */}
+              <div className="w-6 h-6 rounded-full flex items-center justify-center font-black text-[10px] text-white shrink-0"
+                style={{ background: s.color }}>
+                {s.number}
+              </div>
+              {/* Illustration */}
+              <div style={{ width: 44, height: 36, color: s.color }}>{s.illustration}</div>
+              {/* Title */}
+              <p className="font-display font-black text-[11px] text-center leading-snug" style={{ color: "#0A0A0A" }}>{s.title}</p>
+              {/* Outcome pill */}
+              <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full"
+                style={{ background: s.bg, border: `1px solid ${s.color}35` }}>
+                <div className="w-1 h-1 rounded-full shrink-0" style={{ background: s.color }} />
+                <span className="text-[8px] font-black" style={{ color: s.color }}>{s.outcome}</span>
+              </div>
+              {/* Desc */}
+              <p className="text-[9px] text-txt-3 text-center leading-relaxed">{s.desc}</p>
+            </motion.div>
+          ))}
         </div>
 
       </div>
