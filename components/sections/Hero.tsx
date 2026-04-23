@@ -552,9 +552,41 @@ export default function Hero() {
                   </div>
                 )}
                 {s.right === "cards" && (
-                  <div className="w-full max-w-[300px] sm:max-w-none lg:max-w-none scale-75 sm:scale-90 lg:scale-100 origin-center">
-                    <FloatingCardsIllustration />
-                  </div>
+                  <>
+                    {/* Mobile: compact stats grid — avoids fixed-size overflow */}
+                    <div className="lg:hidden grid grid-cols-2 gap-2 w-full max-w-[300px] mx-auto">
+                      {[
+                        { val: "30+",  label: "Projects Delivered", color: "#F5A623" },
+                        { val: "4.9★", label: "Client Rating",      color: "#F5A623" },
+                        { val: "85%",  label: "Repeat Client Rate",  color: "#10B981" },
+                        { val: "100%", label: "On-time Delivery",    color: "#6366F1" },
+                      ].map(st => (
+                        <div key={st.label} className="flex flex-col items-center justify-center rounded-2xl p-4 text-center gap-1"
+                          style={{ background: "#F0F2F6", boxShadow: "inset 3px 3px 8px rgba(0,0,0,0.06), inset -3px -3px 8px rgba(255,255,255,0.9)" }}>
+                          <span className="font-display font-black text-2xl leading-none" style={{ color: st.color }}>{st.val}</span>
+                          <span className="text-[10px] font-semibold text-txt-3 leading-tight">{st.label}</span>
+                        </div>
+                      ))}
+                      <div className="col-span-2 rounded-2xl p-3 flex items-center justify-between"
+                        style={{ background: "#0A0A0A" }}>
+                        {[
+                          { icon: "📄", label: "Fixed Price" },
+                          { icon: "⚡", label: "2× Faster"  },
+                          { icon: "🔒", label: "NDA Ready"  },
+                          { icon: "💬", label: "24h Reply"  },
+                        ].map(u => (
+                          <div key={u.label} className="flex flex-col items-center gap-0.5">
+                            <span style={{ fontSize: 14 }}>{u.icon}</span>
+                            <span className="text-[9px] font-black text-white">{u.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {/* Desktop: full floating cards illustration */}
+                    <div className="hidden lg:block w-full">
+                      <FloatingCardsIllustration />
+                    </div>
+                  </>
                 )}
               </motion.div>
             </AnimatePresence>

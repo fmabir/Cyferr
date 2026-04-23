@@ -306,10 +306,10 @@ export default function Pricing() {
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-10 rounded-2xl bg-white border border-border p-6"
+          className="mt-5 lg:mt-10 rounded-xl lg:rounded-2xl bg-white border border-border p-3 lg:p-6"
           style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}
         >
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+          <div className="grid grid-cols-3 lg:flex lg:flex-wrap items-center justify-center gap-2 lg:gap-x-8 lg:gap-y-4">
             {guarantees.map(({ Icon, text }, i) => (
               <motion.div
                 key={text}
@@ -317,12 +317,13 @@ export default function Pricing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.35, delay: i * 0.07 }}
-                className="flex items-center gap-2"
+                className="flex items-center gap-1.5 lg:gap-2"
               >
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "#FFF7E6" }}>
-                  <Icon size={13} style={{ color: "#F5A623" }} strokeWidth={2.5} />
+                <div className="w-5 h-5 lg:w-7 lg:h-7 rounded-md lg:rounded-lg flex items-center justify-center shrink-0" style={{ background: "#FFF7E6" }}>
+                  <Icon size={10} className="lg:hidden" style={{ color: "#F5A623" }} strokeWidth={2.5} />
+                  <Icon size={13} className="hidden lg:block" style={{ color: "#F5A623" }} strokeWidth={2.5} />
                 </div>
-                <span className="text-xs font-black text-txt-2">{text}</span>
+                <span className="text-[9px] lg:text-xs font-black text-txt-2 leading-tight">{text}</span>
               </motion.div>
             ))}
           </div>
