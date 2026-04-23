@@ -11,22 +11,22 @@ export default function CTABanner() {
       <div className="pointer-events-none absolute left-1/4 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full hidden lg:block"
         style={{ background: "radial-gradient(ellipse, rgba(245,166,35,0.15) 0%, transparent 70%)", filter: "blur(60px)" }} aria-hidden />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-8 lg:px-16 py-10 lg:py-14">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-4 sm:px-8 lg:px-16 py-10 lg:py-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ── Left: headline ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.7, ease: "easeOut" as const }}
+            viewport={{ once: true, amount: 0 }} transition={{ duration: 0.7, ease: "easeOut" as const }}
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-amber text-xs font-black uppercase tracking-widest mb-6">
               🚀 Ready When You Are
             </span>
-            <h2 className="font-display font-black text-4xl lg:text-5xl tracking-tight text-white leading-[1.05] mb-5">
+            <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-5xl tracking-tight text-white leading-[1.05] mb-3 sm:mb-5">
               Stop Overpaying<br />
               <span className="gradient-text">for Software.</span>
             </h2>
-            <p className="text-base leading-relaxed max-w-md mb-8" style={{ color: "#9CA3AF" }}>
+            <p className="text-sm sm:text-base leading-relaxed max-w-md mb-5 sm:mb-8" style={{ color: "#9CA3AF" }}>
               You deserve the same quality as companies with 10× your budget. Reach out — we&apos;ll reply within 24 hours with a free consultation and honest quote.
             </p>
             <p className="text-xs font-semibold" style={{ color: "#4B5563" }}>
@@ -37,7 +37,7 @@ export default function CTABanner() {
           {/* ── Right: contact cards ── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" as const }}
+            viewport={{ once: true, amount: 0 }} transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" as const }}
             className="flex flex-col gap-4"
           >
             <p className="text-xs font-black uppercase tracking-widest mb-1" style={{ color: "#4B5563" }}>

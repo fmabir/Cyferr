@@ -147,7 +147,7 @@ function ServiceCard({ s, delay }: { s: ServiceItem; delay: number }) {
     <motion.div
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: true, amount: 0 }}
       transition={{ duration: 0.5, delay, ease: "easeOut" as const }}
       whileHover={{ y: -8 }}
       className="group relative cursor-default"
@@ -183,7 +183,7 @@ function ServiceCard({ s, delay }: { s: ServiceItem; delay: number }) {
           style={{ background: bg }}
           initial={{ scale: 1 }}
           whileInView={{ scale: [1, 1.08, 1] }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 4, ease: "easeInOut", delay: delay * 0.5 }}
         >
           {slide.src
@@ -216,24 +216,24 @@ const headingWords2 = ["One", "Lean", "Team."];
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-10 lg:py-14 bg-white px-8 lg:px-16 border-t border-border">
+    <section id="services" className="relative py-6 sm:py-10 lg:py-14 bg-white px-4 sm:px-8 lg:px-16 border-t border-border">
 
       <div className="mx-auto max-w-[1440px] relative z-10">
 
         {/* Section header */}
-        <div className="mb-10 lg:mb-14 text-center">
+        <div className="mb-6 sm:mb-10 lg:mb-14 text-center">
           <motion.span
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5 }}
             className="section-pill mb-4"
           >
             What We Build
           </motion.span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-txt mt-4">
+          <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-5xl tracking-tight text-txt mt-3 sm:mt-4">
             {headingWords.map((word, i) => (
               <motion.span key={word}
                 initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.09, ease: "easeOut" as const }}
                 className="inline-block mr-[0.2em]"
               >
@@ -243,7 +243,7 @@ export default function Services() {
             {headingWords2.map((word, i) => (
               <motion.span key={word}
                 initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.5, delay: 0.37 + i * 0.09, ease: "easeOut" as const }}
                 className="inline-block mr-[0.2em] gradient-text"
               >
@@ -253,7 +253,7 @@ export default function Services() {
           </h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.55 }}
+            viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.55 }}
             className="text-txt-2 mt-4 max-w-lg mx-auto leading-relaxed text-sm"
           >
             From a landing page to a full AI system — designed, built, and shipped by one team.

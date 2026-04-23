@@ -948,7 +948,7 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
           </div>
 
           {/* Metrics band — dark, high contrast */}
-          <div className="grid grid-cols-4 divide-x divide-white/8" style={{ background: "#130C00" }}>
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/8" style={{ background: "#130C00" }}>
             {d.metrics.map((m) => (
               <div key={m.label} className="flex flex-col items-center justify-center py-5 px-3 text-center gap-1.5">
                 <p className="font-display font-black text-xl sm:text-2xl leading-none" style={{ color: c }}>{m.value}</p>
@@ -1125,12 +1125,12 @@ export default function FeaturedWork() {
   return (
     <>
       <section id="work" className="py-8 lg:py-12 bg-bg overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-16">
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-8 text-center">
-            <span className="section-pill mb-3">Our Work</span>
-            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-txt mt-3">
+            viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5 }} className="mb-5 sm:mb-8 text-center">
+            <span className="section-pill mb-2 sm:mb-3">Our Work</span>
+            <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-5xl tracking-tight text-txt mt-2 sm:mt-3">
               Work That <span className="gradient-text">Speaks for Itself</span>
             </h2>
             <div className="inline-flex items-center gap-1.5 mt-4 px-3 py-1.5 rounded-full"
@@ -1224,7 +1224,7 @@ export default function FeaturedWork() {
               </div>
 
               <AnimatePresence mode="wait">
-                <motion.div key={pi} className="mt-5 flex items-end justify-between gap-6"
+                <motion.div key={pi} className="mt-5 flex flex-wrap items-end justify-between gap-4"
                   initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:-6 }}
                   transition={{ duration:0.3 }}>
                   <div className="min-w-0">

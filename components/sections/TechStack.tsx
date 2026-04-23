@@ -53,7 +53,7 @@ export default function TechStack() {
   return (
     <section className="py-10 border-y border-border bg-bg-2 relative">
 
-      <div className="mx-auto max-w-[1440px] px-8 lg:px-16 mb-10 text-center">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-8 lg:px-16 mb-10 text-center">
         <span className="section-pill mb-4">Tech Stack</span>
         <h2 className="font-display font-black text-4xl lg:text-5xl tracking-tight text-txt mt-4">
           Technologies We <span className="gradient-text">Work With</span>

@@ -80,16 +80,16 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="relative py-8 lg:py-14 px-6 lg:px-10 overflow-hidden bg-bg-2 border-t border-border">
+    <section className="relative py-8 lg:py-14 px-4 sm:px-8 lg:px-16 overflow-hidden bg-bg-2 border-t border-border">
 
-      <div className="mx-auto max-w-7xl pt-8">
+      <div className="mx-auto max-w-7xl pt-4 sm:pt-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}
-          className="mb-10 lg:mb-14 text-center"
+          viewport={{ once: true, amount: 0 }} transition={{ duration: 0.6 }}
+          className="mb-6 sm:mb-10 lg:mb-14 text-center"
         >
-          <span className="section-pill mb-4">By the Numbers</span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-txt mt-4">
+          <span className="section-pill mb-3 sm:mb-4">By the Numbers</span>
+          <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-5xl tracking-tight text-txt mt-2 sm:mt-4">
             The Numbers <span className="gradient-text">Behind the Work</span>
           </h2>
         </motion.div>
@@ -100,7 +100,7 @@ export default function StatsSection() {
               key={s.label}
               initial={{ opacity: 0, y: 28, rotate: -1 }}
               whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" as const }}
               whileHover={{ y: -6, rotate: i % 2 === 0 ? 1 : -1 }}
               className="flex flex-col items-center text-center rounded-2xl border bg-white p-5"

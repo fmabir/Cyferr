@@ -44,26 +44,26 @@ export default function Testimonials() {
   const cardClass = "shrink-0 snap-start w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]";
 
   return (
-    <section className="relative py-10 lg:py-14 bg-bg-2 border-t border-border px-6 lg:px-10 overflow-hidden">
+    <section className="relative py-10 lg:py-14 bg-bg-2 border-t border-border px-4 sm:px-8 lg:px-16 overflow-hidden">
 
       <div className="mx-auto max-w-7xl relative z-10">
-        <div className="mb-14 text-center">
+        <div className="mb-6 sm:mb-10 lg:mb-14 text-center">
           <motion.span
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5 }}
-            className="section-pill mb-4">Client Stories
+            viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5 }}
+            className="section-pill mb-3 sm:mb-4">Client Stories
           </motion.span>
-          <h2 className="font-display font-black text-4xl lg:text-5xl tracking-tight text-txt mt-4">
+          <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-5xl tracking-tight text-txt mt-2 sm:mt-4">
             {["What", "Our", "Clients"].map((word, i) => (
               <motion.span key={word}
                 initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 + i * 0.09, ease: "easeOut" as const }}
+                viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.1 + i * 0.09, ease: "easeOut" as const }}
                 className="inline-block mr-[0.2em]">{word}
               </motion.span>
             ))}{" "}
             <motion.span
               initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.37, ease: "easeOut" as const }}
+              viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.37, ease: "easeOut" as const }}
               className="inline-block gradient-text">Say
             </motion.span>
           </h2>

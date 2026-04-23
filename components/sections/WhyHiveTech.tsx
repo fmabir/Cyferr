@@ -98,24 +98,24 @@ export default function WhyHiveTech() {
   const display = hovered !== null ? segments[hovered] : seg;
 
   return (
-    <section id="about" className="py-8 lg:py-10 px-8 lg:px-16 bg-bg-2 border-t border-border">
+    <section id="about" className="py-8 lg:py-10 px-4 sm:px-8 lg:px-16 bg-bg-2 border-t border-border">
       <div className="mx-auto max-w-[1440px]">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
 
           {/* Left heading */}
           <div className="lg:col-span-2 lg:sticky lg:top-28">
             <motion.div initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }}
-              viewport={{ once:true }} transition={{ duration:0.6 }}>
-              <span className="section-pill mb-3 inline-flex">Why HiveTech</span>
-              <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl tracking-tight text-txt mt-3 leading-[1.08]">
+              viewport={{ once: true, amount: 0 }} transition={{ duration:0.6 }}>
+              <span className="section-pill mb-2 sm:mb-3 inline-flex">Why HiveTech</span>
+              <h2 className="font-display font-black text-xl sm:text-2xl lg:text-4xl tracking-tight text-txt mt-2 sm:mt-3 leading-[1.08]">
                 Why Pay More<br />for the Same<br /><span className="gradient-text">Quality?</span>
               </h2>
-              <p className="text-txt-2 mt-3 leading-relaxed text-sm max-w-sm">
+              <p className="text-txt-2 mt-2 sm:mt-3 leading-relaxed text-xs sm:text-sm max-w-sm">
                 Top agencies charge a premium for the brand name. We charge for the work. Same quality, honest price, direct access to the founders on every project.
               </p>
-              <div className="mt-6 hidden lg:block border-l-4 border-amber pl-5 flex flex-col gap-1">
-                <span className="font-display font-black text-4xl text-txt leading-none">60%</span>
-                <span className="text-sm font-semibold text-txt-3">less than a top agency<br />for the same output</span>
+              <div className="mt-4 lg:mt-6 border-l-4 border-amber pl-4 lg:pl-5 flex flex-col gap-1">
+                <span className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-txt leading-none">60%</span>
+                <span className="text-xs sm:text-sm font-semibold text-txt-3">less than a top agency<br />for the same output</span>
               </div>
             </motion.div>
           </div>
@@ -127,7 +127,7 @@ export default function WhyHiveTech() {
             <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
 
             {/* Chart SVG */}
-            <div className="relative w-full sm:w-[310px] shrink-0">
+            <div className="relative w-full sm:w-[310px] shrink-0 overflow-hidden sm:overflow-visible">
               {/* Ambient glow */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <motion.div animate={{ background:`radial-gradient(circle, ${seg.color}1A 0%, transparent 68%)` }}

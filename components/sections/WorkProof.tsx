@@ -35,7 +35,7 @@ export default function WorkProof() {
   const inView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section className="py-16 lg:py-24 bg-bg-2 border-t border-border px-8 lg:px-16">
+    <section className="py-6 sm:py-10 lg:py-14 bg-bg-2 border-t border-border px-4 sm:px-8 lg:px-16">
       <div className="mx-auto max-w-[1440px]">
         <motion.div
           ref={ref}
@@ -47,7 +47,7 @@ export default function WorkProof() {
         >
           {/* ── Orange sidebar ── */}
           <div
-            className="lg:w-[300px] shrink-0 p-8 flex flex-col gap-6"
+            className="lg:w-[300px] shrink-0 p-4 sm:p-6 lg:p-8 flex flex-col gap-4 sm:gap-6"
             style={{ background: "linear-gradient(160deg, #F5A623 0%, #F59E0B 100%)" }}
           >
             <motion.div
@@ -90,7 +90,7 @@ export default function WorkProof() {
           </div>
 
           {/* ── Quote cards ── */}
-          <div className="flex-1 p-8">
+          <div className="flex-1 p-4 sm:p-6 lg:p-8">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}

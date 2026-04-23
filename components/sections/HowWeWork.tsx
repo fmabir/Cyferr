@@ -126,7 +126,7 @@ function HexCard({ step, idx }: { step: typeof steps[0]; idx: number }) {
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.4, delay: idx * 0.13 }}
         className="mb-3 flex items-center gap-2"
       >
@@ -145,7 +145,7 @@ function HexCard({ step, idx }: { step: typeof steps[0]; idx: number }) {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.55, delay: idx * 0.13, ease: "easeOut" as const }}
         whileHover={{ scale: 1.05, y: -6 }}
         onMouseEnter={() => setHovered(true)}
@@ -213,7 +213,7 @@ function HexCard({ step, idx }: { step: typeof steps[0]; idx: number }) {
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.4, delay: idx * 0.13 + 0.25 }}
         className="mt-4 text-center"
         style={{ maxWidth: W }}
@@ -239,19 +239,19 @@ function HexCard({ step, idx }: { step: typeof steps[0]; idx: number }) {
 
 export default function HowWeWork() {
   return (
-    <section className="py-8 lg:py-14 bg-surface px-8 lg:px-16 overflow-hidden">
+    <section className="py-8 lg:py-14 bg-surface px-4 sm:px-8 lg:px-16 overflow-hidden">
       <div className="mx-auto max-w-[1440px]">
 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}
-          className="mb-10 lg:mb-20 text-center"
+          viewport={{ once: true, amount: 0 }} transition={{ duration: 0.6 }}
+          className="mb-6 sm:mb-10 lg:mb-20 text-center"
         >
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-txt">
+          <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-5xl tracking-tight text-txt">
             From First Call to <span className="gradient-text">Live Product</span>
           </h2>
-          <p className="text-txt-2 mt-4 max-w-lg mx-auto leading-relaxed text-sm">
+          <p className="text-txt-2 mt-2 sm:mt-4 max-w-lg mx-auto leading-relaxed text-xs sm:text-sm">
             No black boxes, no agency theatre. A clear four-step process so you always know exactly where your project stands and what comes next.
           </p>
         </motion.div>
@@ -320,33 +320,33 @@ export default function HowWeWork() {
           </div>
         </div>
 
-        {/* ── Mobile: vertical stack with connecting line ── */}
+        {/* ── Mobile: vertical stack ── */}
         <div className="lg:hidden relative">
           <div className="absolute left-[calc(50%-1px)] top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-purple-200 to-green-200 z-0" />
-          <div className="flex flex-col items-center gap-8 relative z-10">
+          <div className="flex flex-col items-center gap-6 relative z-10">
             {steps.map((s, i) => (
               <motion.div
                 key={s.number}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="flex flex-col items-center"
               >
                 <div style={{ filter: `drop-shadow(0 6px 16px ${s.color}35)` }}>
-                  <div style={{ clipPath: HEX, width: 170, height: 196, background: `${s.color}18`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ clipPath: HEX, width: 164, height: 190, background: `linear-gradient(160deg, white 0%, ${s.bg} 100%)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6, padding: "36px 24px 28px" }}>
-                      <div style={{ width: 66, height: 54 }}>{s.illustration}</div>
-                      <h3 className="font-display font-black text-center text-[11.5px] leading-snug" style={{ color: "#1A0F00" }}>{s.title}</h3>
+                  <div style={{ clipPath: HEX, width: 150, height: 173, background: `${s.color}18`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ clipPath: HEX, width: 144, height: 167, background: `linear-gradient(160deg, white 0%, ${s.bg} 100%)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6, padding: "30px 20px 24px" }}>
+                      <div style={{ width: 56, height: 46 }}>{s.illustration}</div>
+                      <h3 className="font-display font-black text-center text-[11px] leading-snug" style={{ color: "#1A0F00" }}>{s.title}</h3>
                     </div>
                   </div>
                 </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mt-3"
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mt-2"
                   style={{ background: s.bg, border: `1.5px solid ${s.color}40` }}>
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background: s.color }} />
                   <span className="text-[10px] font-black" style={{ color: s.color }}>{s.outcome}</span>
                 </div>
-                <p className="text-[11px] text-txt-2 text-center mt-2 max-w-[220px] leading-relaxed">{s.desc}</p>
+                <p className="text-[11px] text-txt-2 text-center mt-2 max-w-[240px] leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
           </div>

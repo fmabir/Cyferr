@@ -7,8 +7,8 @@ const company  = ["About Us","Our Work","Blog","Careers","Contact"];
 export default function Footer() {
   return (
     <footer style={{ background: "#0A0A0A" }} className="border-t border-white/10">
-      <div className="mx-auto max-w-[1440px] px-8 pt-16 pb-10 lg:px-16">
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-5">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-8 pt-12 pb-10 lg:px-16">
+        <div className="grid grid-cols-2 gap-6 md:gap-10 md:grid-cols-4 lg:grid-cols-5">
 
           {/* Brand */}
           <div className="col-span-2 lg:col-span-2">

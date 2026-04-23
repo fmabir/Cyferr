@@ -141,17 +141,17 @@ function PlanCard({ p, i }: { p: typeof plans[0]; i: number }) {
         </motion.div>
       )}
 
-      <div className={`flex flex-col flex-1 p-7 ${p.popular ? "pt-6" : ""}`}>
+      <div className={`flex flex-col flex-1 p-5 lg:p-7 ${p.popular ? "pt-5 lg:pt-6" : ""}`}>
 
         {/* Header row */}
-        <div className="flex items-start justify-between mb-6">
+        <div className="flex items-start justify-between mb-5 lg:mb-6">
           <div>
             <motion.div
               initial={{ opacity: 0, x: -12 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.12 + 0.15 }}
             >
-              <p className="font-display font-black text-2xl text-txt leading-none">{p.name}</p>
+              <p className="font-display font-black text-xl lg:text-2xl text-txt leading-none">{p.name}</p>
               <p className="text-xs text-txt-3 font-semibold mt-1">{p.tagline}</p>
             </motion.div>
           </div>
@@ -172,7 +172,7 @@ function PlanCard({ p, i }: { p: typeof plans[0]; i: number }) {
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, delay: i * 0.12 + 0.22 }}
-          className="mb-6 pb-6 border-b border-border"
+          className="mb-5 lg:mb-6 pb-5 lg:pb-6 border-b border-border"
         >
           <p className="text-[10px] font-black uppercase tracking-widest text-txt-3 mb-1.5">Starting from</p>
           <div className="flex items-end gap-1">
@@ -272,14 +272,14 @@ export default function Pricing() {
   }
 
   return (
-    <section id="pricing" className="py-8 lg:py-14 bg-bg-2 border-t border-border px-8 lg:px-16">
+    <section id="pricing" className="py-8 lg:py-14 bg-bg-2 border-t border-border px-4 sm:px-8 lg:px-16">
       <div className="mx-auto max-w-[1440px]">
 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}
-          className="mb-14 text-center"
+          viewport={{ once: true, amount: 0 }} transition={{ duration: 0.6 }}
+          className="mb-6 sm:mb-10 lg:mb-14 text-center"
         >
           <span className="section-pill mb-4">Transparent Pricing</span>
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-txt mt-4">
@@ -291,14 +291,14 @@ export default function Pricing() {
         </motion.div>
 
         {/* Plans */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 lg:gap-6 items-start">
           {plans.map((p, i) => <PlanCard key={p.name} p={p} i={i} />)}
         </div>
 
         {/* Guarantee strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-10 rounded-2xl bg-white border border-border p-6"
           style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}
         >
@@ -308,7 +308,7 @@ export default function Pricing() {
                 key={text}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.35, delay: i * 0.07 }}
                 className="flex items-center gap-2"
               >
@@ -325,7 +325,7 @@ export default function Pricing() {
         <div className="mt-16">
           <motion.h3
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5 }}
             className="font-display font-black text-2xl text-txt text-center mb-8"
           >
             Common Questions
@@ -341,7 +341,7 @@ export default function Pricing() {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.4, delay: (i % cpp) * 0.08 }}
                 whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(245,166,35,0.12)" }}
                 className="snap-start shrink-0 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] rounded-2xl bg-white border border-border p-6 cursor-default"

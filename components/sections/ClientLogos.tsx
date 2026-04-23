@@ -68,7 +68,7 @@ export default function ClientLogos() {
   return (
     <section className="py-8 border-y border-border bg-bg-2 overflow-hidden">
       {/* Header row */}
-      <div className="mx-auto max-w-[1440px] px-8 lg:px-16 mb-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-8 lg:px-16 mb-8 flex flex-col sm:flex-row items-center justify-between gap-2">
         <p className="text-xs font-black uppercase tracking-widest text-txt-3">
           🏆 Trusted by Growing Companies
         </p>

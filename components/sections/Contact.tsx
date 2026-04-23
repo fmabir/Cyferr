@@ -15,7 +15,7 @@ export default function Contact() {
       <div className="mx-auto max-w-4xl pt-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0 }} transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
           <span className="section-pill mb-4">Get In Touch</span>
@@ -32,7 +32,7 @@ export default function Contact() {
           <motion.a
             href="mailto:hello@hivetech.dev"
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
             whileHover={{ y: -6 }}
             className="flex flex-col items-center gap-4 rounded-2xl border-2 border-border bg-surface p-8 text-center group"
             style={{ boxShadow: "4px 6px 0px #F0DDB0" }}
@@ -51,7 +51,7 @@ export default function Contact() {
           <motion.a
             href="tel:+1234567890"
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
             whileHover={{ y: -6 }}
             className="flex flex-col items-center gap-4 rounded-2xl border-2 border-border bg-surface p-8 text-center group"
             style={{ boxShadow: "4px 6px 0px #F0DDB0" }}
@@ -70,7 +70,7 @@ export default function Contact() {
         {/* What happens next */}
         <motion.div
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-10 rounded-2xl border-2 border-border bg-surface p-7 max-w-2xl mx-auto"
           style={{ boxShadow: "4px 6px 0px #F0DDB0" }}
         >

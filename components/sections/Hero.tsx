@@ -419,7 +419,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col bg-white pt-16 overflow-hidden"
+      className="relative min-h-[80vh] sm:min-h-screen flex flex-col bg-white pt-16 overflow-hidden"
     >
       {/* Subtle dot grid */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.025]"
@@ -468,7 +468,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1440px] w-full px-8 lg:px-16 flex-1 flex items-center py-12 lg:py-8">
+      <div className="relative z-10 mx-auto max-w-[1440px] w-full px-4 sm:px-8 lg:px-16 flex-1 flex items-center py-6 sm:py-10 lg:py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
 
           {/* ── Left: text ── */}
@@ -556,7 +556,7 @@ export default function Hero() {
       </div>
 
       {/* Progress bar */}
-      <div className="relative z-10 mx-auto max-w-[1440px] w-full px-8 lg:px-16 pb-5">
+      <div className="relative z-10 mx-auto max-w-[1440px] w-full px-4 sm:px-8 lg:px-16 pb-5">
         <div className="h-[2px] bg-border rounded-full overflow-hidden max-w-xs">
           <motion.div key={idx} className="h-full bg-amber rounded-full"
             initial={{ width: "0%" }} animate={{ width: "100%" }}
@@ -566,12 +566,12 @@ export default function Hero() {
 
       {/* Stats strip */}
       <div className="relative z-10 border-t border-border bg-bg-2">
-        <div className="mx-auto max-w-[1440px] px-8 lg:px-16 py-4 flex flex-wrap gap-6 items-center justify-between">
-          <div className="flex flex-wrap gap-6">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-8 lg:px-16 py-3 sm:py-4 flex flex-wrap gap-3 sm:gap-4 items-center justify-between">
+          <div className="flex flex-wrap gap-3 sm:gap-6">
             {stats.map((st, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <span className="font-display font-black text-xl text-amber">{st.value}</span>
-                <span className="text-sm text-txt-3 font-semibold">{st.label}</span>
+              <div key={i} className="flex items-center gap-1.5 sm:gap-2">
+                <span className="font-display font-black text-base sm:text-xl text-amber">{st.value}</span>
+                <span className="text-xs sm:text-sm text-txt-3 font-semibold">{st.label}</span>
               </div>
             ))}
           </div>
