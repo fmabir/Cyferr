@@ -523,26 +523,28 @@ export default function Hero() {
             </motion.div>
           </AnimatePresence>
 
-          {/* ── Right: visual (desktop side-by-side, mobile stacked below) ── */}
-          <div className="flex items-center justify-center">
+          {/* ── Right: visual — fixed height so all slides are the same size ── */}
+          <div className="flex items-center justify-center"
+            style={{ height: "clamp(320px, 44vw, 560px)", overflow: "hidden" }}>
             <AnimatePresence mode="wait">
               <motion.div key={`right-${idx}`}
                 initial={{ opacity: 0, x: 24 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -16 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="w-full flex items-center justify-center"
+                className="w-full h-full flex items-center justify-center"
               >
                 {s.right === "code"  && (
                   <motion.div
                     animate={{ y: [0, -10, 0] }}
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-full flex items-center justify-center"
+                    className="w-full h-full flex items-end justify-center"
                   >
                     <img
                       src="/images/v6.png"
                       alt="HiveTech — Digital Product Development"
-                      className="w-full max-w-[260px] sm:max-w-[380px] lg:max-w-[520px] h-auto object-contain drop-shadow-xl"
+                      className="w-full max-w-[380px] sm:max-w-[560px] lg:max-w-[760px] object-contain object-bottom drop-shadow-xl"
+                      style={{ height: "115%", maxHeight: "none" }}
                     />
                   </motion.div>
                 )}
