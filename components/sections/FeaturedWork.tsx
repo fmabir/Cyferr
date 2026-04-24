@@ -128,8 +128,8 @@ const PROJECTS = [ // prettier-ignore
     id: 3, name: "TaskFlow", type: "SaaS Web App", color: "#3B82F6",
     desc: "A 12-person creative agency was running live projects across Notion, Slack, three spreadsheets, and a shared Google Drive — and losing clients because nobody could see what was happening. Custom project management platform with a white-labelled client portal, shipped in 5 weeks. Zero manual status reports on day one.",
     slides: [
-      { img:"/images/tf-hero.png",     a:"#DBEAFE", b:"#1D4ED8", pos:"top center" },
-      { img:"/images/tf-homepage.png", a:"#93C5FD", b:"#1E40AF", pos:"top center" },
+      { img:"/images/tf-hero.png",     a:"#DBEAFE", b:"#1D4ED8", pos:"center", fit:"contain", bg:"#ffffff" },
+      { img:"/images/tf-homepage.png", a:"#93C5FD", b:"#1E40AF", pos:"center", fit:"contain", bg:"#ffffff" },
       { img:"/images/tf-portal.png",   a:"#BFDBFE", b:"#2563EB", pos:"top center" },
     ],
     details: {
@@ -167,7 +167,7 @@ const PROJECTS = [ // prettier-ignore
         { marker: "Day 35",  event: "Full agency team migrated to production" },
         { marker: "Month 1", event: "Zero manual status reports · new hire onboarding −80%" },
       ],
-      beforeGallery: ["/images/tf-before.png"],
+      beforeGallery: [],
       afterGallery:  ["/images/tf-homepage.png"],
       beforeBullets: [
         "Projects scattered across Notion, Slack, and three spreadsheets",
