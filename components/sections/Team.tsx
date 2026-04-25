@@ -6,7 +6,7 @@ const abir = {
   name: "F. M Abir Hossain",
   role: "Co-Founder & CEO",
   quote: "Every project we take on, I treat like it's my own startup. If it doesn't work for you, it doesn't work for us.",
-  image: "/images/ab.PNG",
+  image: "/images/Ab.png",
   linkedin: "https://www.linkedin.com/in/f-m-abir-hossain-371a09342/",
   email: "fmabir2015@gmail.com",
 };
