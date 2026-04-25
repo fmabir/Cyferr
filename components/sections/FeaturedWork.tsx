@@ -362,7 +362,7 @@ const PROJECTS = [ // prettier-ignore
 /* ─── Helpers ────────────────────────────────────────────────────────────────── */
 const IMG_V = 2;
 function imgSrc(s: string) { return `${s}?v=${IMG_V}`; }
-type Slide = { img?: string; a?: string; b?: string; pos?: string; bg?: string };
+type Slide = { img?: string; a?: string; b?: string; pos?: string; bg?: string; fit?: string };
 function slideBg(s: Slide) { return s.a ? `linear-gradient(140deg,${s.a},${s.b})` : "transparent"; }
 
 const N_SLIDES = 3;
@@ -921,7 +921,7 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
           <div className="relative w-full" style={{ aspectRatio: d.gallery.length === 1 ? "unset" : "16/8", height: d.gallery.length === 1 ? 340 : "unset" }}>
             <AnimatePresence mode="wait">
               <motion.div key={activeImg} className={d.gallery.length === 1 ? "w-full h-full p-2" : "absolute inset-0"}
-                style={{ background: d.gallery.length === 1 ? "#fff" : (project.slides[activeImg]?.bg ?? slideBg(project.slides[activeImg])) }}
+                style={{ background: d.gallery.length === 1 ? "#fff" : ((project.slides[activeImg] as Slide)?.bg ?? slideBg(project.slides[activeImg] as Slide)) }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}>
                 <img src={imgSrc(d.gallery[activeImg])} alt={project.name}

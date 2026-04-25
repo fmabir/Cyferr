@@ -200,7 +200,7 @@ function NeuCard({ delay, className, style, children }: {
       initial={{ opacity: 0, y: 14, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ y: -3, boxShadow: "8px 8px 24px rgba(0,0,0,0.10), -4px -4px 14px rgba(255,255,255,1)" }}
-      transition={{ default: { duration: 0.42, delay, ease: "easeOut" }, whileHover: { duration: 0.2 } }}
+      transition={{ duration: 0.42, delay, ease: "easeOut" }}
       className={className}
       style={{ ...NEU_CARD, padding: "14px 16px", ...style }}
     >
