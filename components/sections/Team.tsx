@@ -31,19 +31,34 @@ function FoundersVideo() {
   }
 
   return (
-    <div className="relative rounded-2xl overflow-hidden"
-      style={{ boxShadow: "0 8px 48px rgba(0,0,0,0.12)" }}>
-      <video ref={ref} src="/videos/founders-intro.mp4"
-        autoPlay muted loop playsInline className="w-full h-auto block" />
-      <button onClick={toggleMute}
-        className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 z-10 flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[9px] sm:text-[11px] font-semibold transition-all hover:opacity-80"
-        style={{ background: "rgba(0,0,0,0.40)", color: "#fff", backdropFilter: "blur(8px)" }}>
-        {muted ? (
-          <><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg><span className="hidden sm:inline">Sound off</span></>
-        ) : (
-          <><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span className="hidden sm:inline">Sound on</span></>
-        )}
-      </button>
+    <div className="relative flex items-center justify-center py-4">
+      {/* decorative glow behind */}
+      <div className="absolute inset-0 rounded-full opacity-20 blur-2xl"
+        style={{ background: "radial-gradient(circle, #F5A623 0%, #6366F1 100%)" }} />
+
+      {/* card */}
+      <div className="relative w-full" style={{ transform: "rotate(-1.5deg)" }}>
+        {/* top label */}
+        <div className="flex items-center justify-between px-1 pb-1.5">
+          <span className="text-[9px] font-black uppercase tracking-widest" style={{ color: "#aaa" }}>Founders · Intro</span>
+          <button onClick={toggleMute}
+            className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-semibold transition-all hover:opacity-70"
+            style={{ background: "rgba(0,0,0,0.08)", color: "#555" }}>
+            {muted ? (
+              <><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>Muted</>
+            ) : (
+              <><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>Sound</>
+            )}
+          </button>
+        </div>
+
+        {/* video */}
+        <div className="rounded-xl overflow-hidden"
+          style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.15), 0 0 0 1.5px rgba(0,0,0,0.08)" }}>
+          <video ref={ref} src="/videos/founders-intro.mp4"
+            autoPlay muted loop playsInline className="w-full h-auto block" style={{ background: "#111" }} />
+        </div>
+      </div>
     </div>
   );
 }
@@ -68,21 +83,22 @@ export default function Team() {
           </p>
         </motion.div>
 
-        {/* Unified 3-col layout — scales from mobile to desktop */}
-        <div className="grid grid-cols-[80px_1fr_80px] sm:grid-cols-[160px_1fr_160px] lg:grid-cols-[240px_1fr_240px] gap-3 sm:gap-8 lg:gap-12 items-stretch">
+        {/* 2-col layout */}
+        <div className="grid grid-cols-[200px_200px] sm:grid-cols-[260px_260px] lg:grid-cols-[320px_320px] gap-6 sm:gap-10 lg:gap-16 items-stretch mx-auto w-fit">
 
-          {/* Left col — Abir: image top, quote below */}
+          {/* Left col — Abir */}
           <motion.div
             initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0 }} transition={{ duration: 0.55, delay: 0.1 }}
-            className="flex flex-col justify-start gap-2 sm:gap-4 lg:gap-5 pt-2 lg:pt-4"
+            className="flex flex-col gap-4 rounded-2xl p-4 sm:p-5"
+            style={{ background: "#fff", border: "1.5px solid #f0f0f0", boxShadow: "0 2px 16px rgba(0,0,0,0.05)" }}
           >
-            <img src={abir.image} alt={abir.name} className="w-full rounded-xl lg:rounded-2xl object-cover" />
+            <img src={abir.image} alt={abir.name} className="w-full rounded-xl object-cover object-center" style={{ height: 260 }} />
             <div>
-              <p className="text-[10px] sm:text-[14px] lg:text-[16px] text-[#444] leading-relaxed italic">&ldquo;{abir.quote}&rdquo;</p>
-              <p className="mt-1 sm:mt-3 font-semibold text-[10px] sm:text-[13px] lg:text-[14px] text-[#0A0A0A]">{abir.name}</p>
+              <p className="text-[10px] sm:text-[13px] lg:text-[14px] text-[#444] leading-relaxed italic">&ldquo;{abir.quote}&rdquo;</p>
+              <p className="mt-2 sm:mt-3 font-semibold text-[10px] sm:text-[13px] lg:text-[14px] text-[#0A0A0A]">{abir.name}</p>
               <p className="text-[8px] sm:text-[10px] lg:text-[11px] font-medium uppercase tracking-widest mt-0.5" style={{ color: "#F5A623" }}>{abir.role}</p>
-              <div className="flex items-center gap-2 mt-1.5 sm:mt-2">
+              <div className="flex items-center gap-2 mt-2">
                 <a href={abir.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                   className="flex items-center justify-center rounded-full transition-opacity hover:opacity-70"
                   style={{ width: 20, height: 20, background: "#0A66C2" }}>
@@ -97,28 +113,19 @@ export default function Team() {
             </div>
           </motion.div>
 
-          {/* Center — Video */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0 }} transition={{ duration: 0.55 }}
-            className="flex items-center"
-          >
-            <div className="w-full">
-              <FoundersVideo />
-            </div>
-          </motion.div>
-
-          {/* Right col — Safwan: quote top, image below */}
+          {/* Right col — Safwan */}
           <motion.div
             initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0 }} transition={{ duration: 0.55, delay: 0.1 }}
-            className="flex flex-col justify-end gap-2 sm:gap-4 lg:gap-5 pb-2 lg:pb-4"
+            className="flex flex-col gap-4 rounded-2xl p-4 sm:p-5"
+            style={{ background: "#fff", border: "1.5px solid #f0f0f0", boxShadow: "0 2px 16px rgba(0,0,0,0.05)" }}
           >
+            <img src={safwan.image} alt={safwan.name} className="w-full rounded-xl object-cover object-top" style={{ height: 260 }} />
             <div>
-              <p className="text-[10px] sm:text-[14px] lg:text-[16px] text-[#444] leading-relaxed italic">&ldquo;{safwan.quote}&rdquo;</p>
-              <p className="mt-1 sm:mt-3 font-semibold text-[10px] sm:text-[13px] lg:text-[14px] text-[#0A0A0A]">{safwan.name}</p>
+              <p className="text-[10px] sm:text-[13px] lg:text-[14px] text-[#444] leading-relaxed italic">&ldquo;{safwan.quote}&rdquo;</p>
+              <p className="mt-2 sm:mt-3 font-semibold text-[10px] sm:text-[13px] lg:text-[14px] text-[#0A0A0A]">{safwan.name}</p>
               <p className="text-[8px] sm:text-[10px] lg:text-[11px] font-medium uppercase tracking-widest mt-0.5" style={{ color: "#6366F1" }}>{safwan.role}</p>
-              <div className="flex items-center gap-2 mt-1.5 sm:mt-2">
+              <div className="flex items-center gap-2 mt-2">
                 <a href={safwan.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                   className="flex items-center justify-center rounded-full transition-opacity hover:opacity-70"
                   style={{ width: 20, height: 20, background: "#0A66C2" }}>
@@ -131,7 +138,6 @@ export default function Team() {
                 </a>
               </div>
             </div>
-            <img src={safwan.image} alt={safwan.name} className="w-full rounded-xl lg:rounded-2xl object-cover" />
           </motion.div>
 
         </div>

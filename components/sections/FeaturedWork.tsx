@@ -125,65 +125,7 @@ const PROJECTS = [ // prettier-ignore
     },
   },
   {
-    id: 3, name: "TaskFlow", type: "SaaS Web App", color: "#3B82F6",
-    desc: "A 12-person creative agency was running live projects across Notion, Slack, three spreadsheets, and a shared Google Drive — and losing clients because nobody could see what was happening. Custom project management platform with a white-labelled client portal, shipped in 5 weeks. Zero manual status reports on day one.",
-    slides: [
-      { img:"/images/tf-hero.png",     a:"#DBEAFE", b:"#1D4ED8", pos:"center", fit:"contain", bg:"#ffffff" },
-      { img:"/images/tf-homepage.png", a:"#93C5FD", b:"#1E40AF", pos:"center", fit:"contain", bg:"#ffffff" },
-      { img:"/images/tf-portal.png",   a:"#BFDBFE", b:"#2563EB", pos:"top center" },
-    ],
-    details: {
-      timeline: "5 weeks",
-      tagline: "Two days of discovery. Five weeks to ship. Zero rewrites.",
-      quote: { text: "The first Monday after launch, nobody wrote a status email. That had never happened before. The client portal alone re-engaged two accounts we'd lost.", author: "Priya M.", role: "Managing Director" },
-      metrics: [
-        { label: "Hours saved / wk",  value: "6+" },
-        { label: "Tools replaced",    value: "4" },
-        { label: "Onboarding time",   value: "−80%" },
-        { label: "Client NPS delta",  value: "+42" },
-      ],
-      flow: [
-        { name: "PM Creates Project", desc: "Sets up a project with brief, deliverables, and deadlines — all in one place, visible to the whole team the moment it's created. No separate Slack message, no Notion doc to update." },
-        { name: "Tasks Assigned",     desc: "Work is broken into tasks with owners, due dates, priority levels, and file attachment slots. Every task is visible to the whole team — no context lives in anyone's inbox." },
-        { name: "Team Collaborates",  desc: "Status updates, comments, and file changes propagate instantly to every team member via WebSockets. No page refresh required. Three people working the same account simultaneously see the same state." },
-        { name: "Files Delivered",    desc: "Deliverables are uploaded directly to tasks — designs, copy docs, exported assets. Every upload is versioned. The client is notified automatically when a deliverable is ready." },
-        { name: "Client Reviews",     desc: "The client logs into a read-only, white-labelled portal — their brand, not the agency's tool. They see project progress, milestones, and uploaded deliverables. No internal discussion, no pricing, no admin is visible." },
-        { name: "Digest Sent",        desc: "Every Monday at 8am, an automated status digest is emailed to all stakeholders — aggregated from live task data. No human writes it. No one forgets to send it on a heavy week." },
-      ],
-      features: [
-        { img: "/images/tf-homepage.png", title: "Dashboard & Live Task Board",       desc: "The main dashboard gives every team member a single view of all active projects, task statuses, and upcoming deadlines the moment they log in. Task creation, assignment, status updates, and comments all propagate instantly via WebSockets — no page refresh, no 'did you see my update?' messages. Designed around how this specific agency works, not a generic PM framework." },
-        { img: "/images/tf-portal.png", title: "White-Labelled Client Portal",     desc: "A separately branded, read-only view the agency sends to each client — their logo, their colours, their project. Clients see live progress, milestone status, and uploaded deliverables. None of the internal discussion, billable hours, or team notes are ever visible. Two previously churned clients re-engaged after seeing a demo of the portal during the sales call." },
-        { img: "/images/tf-digest.png", title: "Automated Weekly Digest",          desc: "A scheduled function aggregates task completion data every Sunday night and emails a formatted status report to all stakeholders at 8am Monday. The format was designed by the agency's most senior PM to match exactly what she had been writing manually every Friday afternoon — word for word, minus the 90 minutes it took her to produce it." },
-        { img: "/images/tf-files.png", title: "File Deliverables & Version History", desc: "Files attach directly to the tasks they belong to — designs, copy docs, exported assets. Every upload is versioned so the team can roll back without hunting through email chains. Clients download final deliverables from the portal without needing a shared Drive folder, a WeTransfer link, or a follow-up Slack message." },
-        { img: "/images/tf-workload.png", title: "Team Workload View",               desc: "A capacity overview showing every team member's active tasks, due dates, and estimated hours for the week. The MD reviews it every Monday morning to spot overloaded team members before they become a delivery risk. She described it as the most useful thing we built — something that was simply not possible when work was scattered across four separate tools." },
-      ],
-      overview: "A 12-person creative agency was drowning in tool fragmentation. Client projects lived in Notion, conversations happened in Slack threads that quickly became unsearchable, timelines were tracked in three different spreadsheets, and client updates were written manually every Friday afternoon by whoever had time. No one had a single view of what was happening across all live accounts simultaneously — and clients had zero visibility unless someone wrote them an email.\n\nThe agency had trialled Asana and Monday.com. Both were rejected within weeks: too generic, too much configuration required before they became useful, and neither offered the feature the agency needed most — a clean, white-labelled client-facing view that showed progress without exposing internal discussion or pricing.\n\nWe spent two days in discovery sessions with the full team — PMs, designers, and the MD — mapping the exact lifecycle of a project from brief to final delivery. Every step was documented, every tool involved identified. The custom build decision came down to one non-negotiable requirement: a client portal that looked and felt like the agency's own product, not a third-party tool they were renting access to.",
-      problem: "Project managers were spending more than 6 hours every week writing manual status emails to clients — often on Friday afternoons, often incomplete. New hires took three full days to get up to speed because context was scattered across Notion, Slack, email threads, and whoever's memory happened to hold the relevant detail. Two clients had churned in the previous quarter citing 'lack of visibility' in their exit interviews. Both had stopped receiving timely updates during a period of heavy delivery.",
-      milestones: [
-        { marker: "Day 0",   event: "2-day discovery sprint with full team — workflow mapped in detail" },
-        { marker: "Day 7",   event: "Data model, API architecture, and WebSocket strategy finalised" },
-        { marker: "Day 21",  event: "Internal alpha — real-time task board live and tested by the team" },
-        { marker: "Day 28",  event: "White-labelled client portal shipped to first test account" },
-        { marker: "Day 35",  event: "Full agency team migrated to production" },
-        { marker: "Month 1", event: "Zero manual status reports · new hire onboarding −80%" },
-      ],
-      beforeGallery: [],
-      afterGallery:  ["/images/tf-homepage.png"],
-      beforeBullets: [
-        "Projects scattered across Notion, Slack, and three spreadsheets",
-        "No single view of what was happening across live accounts",
-        "Clients had zero visibility unless someone wrote them an email",
-        "Manual status reports written every Friday afternoon — 90 minutes each",
-        "New hire onboarding took three full days",
-      ],
-      tech: ["Next.js 14", "Socket.io", "Resend", "Prisma", "PostgreSQL", "Cloudinary", "Tailwind CSS", "Vercel", "Railway"],
-      outcome: "Within the first month, manual status reporting dropped to zero across the entire team — not as a policy, but because the portal made it unnecessary. Both clients who had churned citing lack of visibility were re-engaged after seeing a live demo of the portal. New hire onboarding dropped from three days to half a day. The agency's senior PM described the first Monday after launch as 'the first time I started the week without writing emails'.",
-      gallery: ["/images/tf-hero.png"],
-      videoUrl: "/videos/taskflow.mp4",
-    },
-  },
-  {
-    id: 4, name: "ShopEase", type: "E-commerce Platform", color: "#A855F7",
+    id: 3, name: "ShopEase", type: "E-commerce Platform", color: "#A855F7",
     desc: "A multi-category retail brand had been selling 200+ SKUs on Daraz for three years — paying 15% commission per sale and owning none of their customers. Built a fully owned storefront with bKash + Stripe checkout, custom inventory admin, and a promotions engine in 4 weeks. Repeat purchase rate up 60%.",
     slides: [
       { img:"/images/se-hero.png",     a:"#EDE9FE", b:"#7C3AED", pos:"top center" },
@@ -241,7 +183,7 @@ const PROJECTS = [ // prettier-ignore
     },
   },
   {
-    id: 5, name: "MediBook", type: "Healthcare App", color: "#0D9488",
+    id: 4, name: "MediBook", type: "Healthcare App", color: "#0D9488",
     desc: "Booking a verified specialist in Ghana could take days of phone calls, referrals, and physical visits — and for patients outside the major cities, it often meant a full day of travel. Built a cross-platform Flutter app with live availability, video consultations, and Paystack mobile money in 8 weeks. 40+ doctors live at launch.",
     slides: [
       { img:"/images/mb-hero.png",     a:"#CCFBF1", b:"#0F766E", pos:"top center" },
@@ -299,7 +241,7 @@ const PROJECTS = [ // prettier-ignore
     },
   },
   {
-    id: 6, name: "NexusBot", type: "AI Support Agent", color: "#6366F1",
+    id: 5, name: "NexusBot", type: "AI Support Agent", color: "#6366F1",
     desc: "A SaaS company's support team was fielding 200+ tickets a week with 3 agents — 78% of them variations of the same 20 questions. Built a GPT-4 RAG agent trained on their own product documentation. Live in 3 weeks. 78% of tickets now resolved with zero human involvement, response time under 2 seconds.",
     slides: [
       { img:"/images/nb-hero.png",        a:"#E0E7FF", b:"#4338CA", pos:"top center", fit:"contain" },
@@ -354,6 +296,65 @@ const PROJECTS = [ // prettier-ignore
       outcome: "In the first full month of deployment, NexusBot resolved 78% of incoming support tickets without any human involvement. Average first response time dropped from over 4 hours to under 2 seconds. The overall support team ticket load fell by 55%. Both agents the head of support had wanted to redeploy to strategic account work were redeployed within 30 days of launch. The knowledge base now updates automatically each night — no maintenance required.",
       gallery: ["/images/nb-hero.png"],
       videoUrl: "/videos/nexusbot.mp4",
+    },
+  },
+  {
+    id: 6, name: "TaskFlow",
+ type: "SaaS Web App", color: "#3B82F6",
+    desc: "A 12-person creative agency was running live projects across Notion, Slack, three spreadsheets, and a shared Google Drive — and losing clients because nobody could see what was happening. Custom project management platform with a white-labelled client portal, shipped in 5 weeks. Zero manual status reports on day one.",
+    slides: [
+      { img:"/images/tf-hero.png",     a:"#DBEAFE", b:"#1D4ED8", pos:"center", fit:"contain", bg:"#ffffff" },
+      { img:"/images/tf-homepage.png", a:"#93C5FD", b:"#1E40AF", pos:"center", fit:"contain", bg:"#ffffff" },
+      { img:"/images/tf-portal.png",   a:"#BFDBFE", b:"#2563EB", pos:"top center" },
+    ],
+    details: {
+      timeline: "5 weeks",
+      tagline: "Two days of discovery. Five weeks to ship. Zero rewrites.",
+      quote: { text: "The first Monday after launch, nobody wrote a status email. That had never happened before. The client portal alone re-engaged two accounts we'd lost.", author: "Priya M.", role: "Managing Director" },
+      metrics: [
+        { label: "Hours saved / wk",  value: "6+" },
+        { label: "Tools replaced",    value: "4" },
+        { label: "Onboarding time",   value: "−80%" },
+        { label: "Client NPS delta",  value: "+42" },
+      ],
+      flow: [
+        { name: "PM Creates Project", desc: "Sets up a project with brief, deliverables, and deadlines — all in one place, visible to the whole team the moment it's created. No separate Slack message, no Notion doc to update." },
+        { name: "Tasks Assigned",     desc: "Work is broken into tasks with owners, due dates, priority levels, and file attachment slots. Every task is visible to the whole team — no context lives in anyone's inbox." },
+        { name: "Team Collaborates",  desc: "Status updates, comments, and file changes propagate instantly to every team member via WebSockets. No page refresh required. Three people working the same account simultaneously see the same state." },
+        { name: "Files Delivered",    desc: "Deliverables are uploaded directly to tasks — designs, copy docs, exported assets. Every upload is versioned. The client is notified automatically when a deliverable is ready." },
+        { name: "Client Reviews",     desc: "The client logs into a read-only, white-labelled portal — their brand, not the agency's tool. They see project progress, milestones, and uploaded deliverables. No internal discussion, no pricing, no admin is visible." },
+        { name: "Digest Sent",        desc: "Every Monday at 8am, an automated status digest is emailed to all stakeholders — aggregated from live task data. No human writes it. No one forgets to send it on a heavy week." },
+      ],
+      features: [
+        { img: "/images/tf-homepage.png", title: "Dashboard & Live Task Board",         desc: "The main dashboard gives every team member a single view of all active projects, task statuses, and upcoming deadlines the moment they log in. Task creation, assignment, status updates, and comments all propagate instantly via WebSockets — no page refresh, no 'did you see my update?' messages. Designed around how this specific agency works, not a generic PM framework." },
+        { img: "/images/tf-portal.png",   title: "White-Labelled Client Portal",        desc: "A separately branded, read-only view the agency sends to each client — their logo, their colours, their project. Clients see live progress, milestone status, and uploaded deliverables. None of the internal discussion, billable hours, or team notes are ever visible. Two previously churned clients re-engaged after seeing a demo of the portal during the sales call." },
+        { img: "/images/tf-digest.png",   title: "Automated Weekly Digest",             desc: "A scheduled function aggregates task completion data every Sunday night and emails a formatted status report to all stakeholders at 8am Monday. The format was designed by the agency's most senior PM to match exactly what she had been writing manually every Friday afternoon — word for word, minus the 90 minutes it took her to produce it." },
+        { img: "/images/tf-files.png",    title: "File Deliverables & Version History", desc: "Files attach directly to the tasks they belong to — designs, copy docs, exported assets. Every upload is versioned so the team can roll back without hunting through email chains. Clients download final deliverables from the portal without needing a shared Drive folder, a WeTransfer link, or a follow-up Slack message." },
+        { img: "/images/tf-workload.png", title: "Team Workload View",                  desc: "A capacity overview showing every team member's active tasks, due dates, and estimated hours for the week. The MD reviews it every Monday morning to spot overloaded team members before they become a delivery risk. She described it as the most useful thing we built — something that was simply not possible when work was scattered across four separate tools." },
+      ],
+      overview: "A 12-person creative agency was drowning in tool fragmentation. Client projects lived in Notion, conversations happened in Slack threads that quickly became unsearchable, timelines were tracked in three different spreadsheets, and client updates were written manually every Friday afternoon by whoever had time. No one had a single view of what was happening across all live accounts simultaneously — and clients had zero visibility unless someone wrote them an email.\n\nThe agency had trialled Asana and Monday.com. Both were rejected within weeks: too generic, too much configuration required before they became useful, and neither offered the feature the agency needed most — a clean, white-labelled client-facing view that showed progress without exposing internal discussion or pricing.\n\nWe spent two days in discovery sessions with the full team — PMs, designers, and the MD — mapping the exact lifecycle of a project from brief to final delivery. Every step was documented, every tool involved identified. The custom build decision came down to one non-negotiable requirement: a client portal that looked and felt like the agency's own product, not a third-party tool they were renting access to.",
+      problem: "Project managers were spending more than 6 hours every week writing manual status emails to clients — often on Friday afternoons, often incomplete. New hires took three full days to get up to speed because context was scattered across Notion, Slack, email threads, and whoever's memory happened to hold the relevant detail. Two clients had churned in the previous quarter citing 'lack of visibility' in their exit interviews. Both had stopped receiving timely updates during a period of heavy delivery.",
+      milestones: [
+        { marker: "Day 0",   event: "2-day discovery sprint with full team — workflow mapped in detail" },
+        { marker: "Day 7",   event: "Data model, API architecture, and WebSocket strategy finalised" },
+        { marker: "Day 21",  event: "Internal alpha — real-time task board live and tested by the team" },
+        { marker: "Day 28",  event: "White-labelled client portal shipped to first test account" },
+        { marker: "Day 35",  event: "Full agency team migrated to production" },
+        { marker: "Month 1", event: "Zero manual status reports · new hire onboarding −80%" },
+      ],
+      beforeGallery: [],
+      afterGallery:  ["/images/tf-homepage.png"],
+      beforeBullets: [
+        "Projects scattered across Notion, Slack, and three spreadsheets",
+        "No single view of what was happening across live accounts",
+        "Clients had zero visibility unless someone wrote them an email",
+        "Manual status reports written every Friday afternoon — 90 minutes each",
+        "New hire onboarding took three full days",
+      ],
+      tech: ["Next.js 14", "Socket.io", "Resend", "Prisma", "PostgreSQL", "Cloudinary", "Tailwind CSS", "Vercel", "Railway"],
+      outcome: "Within the first month, manual status reporting dropped to zero across the entire team — not as a policy, but because the portal made it unnecessary. Both clients who had churned citing lack of visibility were re-engaged after seeing a live demo of the portal. New hire onboarding dropped from three days to half a day. The agency's senior PM described the first Monday after launch as 'the first time I started the week without writing emails'.",
+      gallery: ["/images/tf-hero.png"],
+      videoUrl: "/videos/taskflow.mp4",
     },
   },
 ];
@@ -1002,10 +1003,10 @@ function CaseStudyModal({ project, onClose }: { project: typeof PROJECTS[0]; onC
             {d.videoUrl && (
               <div>
                 <SHead label="Founder Insight" color={c} />
-                <div className="flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl overflow-hidden"
-                  style={{ border: `1.5px solid ${c}20` }}>
+                <div className="flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl overflow-hidden mx-auto"
+                  style={{ border: `1.5px solid ${c}20`, maxWidth: 520 }}>
                   {/* Video */}
-                  <div className="sm:w-60 shrink-0 p-[3px]">
+                  <div className="sm:w-44 shrink-0 p-[3px]">
                     <ModalVideo url={d.videoUrl} color={c} />
                   </div>
                   {/* Separator */}
