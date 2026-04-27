@@ -91,7 +91,7 @@ export default function Team() {
             viewport={{ once: true, amount: 0 }} transition={{ duration: 0.55, delay: 0.1 }}
             className="flex flex-row items-center gap-6 sm:gap-10 py-5 sm:py-6"
           >
-            <div className="w-28 sm:w-36 lg:w-44 shrink-0 rounded-2xl overflow-hidden" style={{ background: "#F9F9F9", borderBottom: "2px solid #e5e5e5" }}>
+            <div className="w-28 sm:w-36 lg:w-44 shrink-0 rounded-2xl overflow-hidden">
               <img src={abir.image} alt={abir.name} className="w-full object-cover object-center" style={{ height: 148 }} />
             </div>
             <div>
@@ -122,7 +122,7 @@ export default function Team() {
             viewport={{ once: true, amount: 0 }} transition={{ duration: 0.55, delay: 0.15 }}
             className="flex flex-row-reverse items-center gap-6 sm:gap-10 py-5 sm:py-6"
           >
-            <div className="w-28 sm:w-36 lg:w-44 shrink-0 rounded-2xl overflow-hidden" style={{ background: "#F9F9F9", borderBottom: "2px solid #e5e5e5" }}>
+            <div className="w-28 sm:w-36 lg:w-44 shrink-0 rounded-2xl overflow-hidden">
               <img src={safwan.image} alt={safwan.name} className="w-full object-cover object-top" style={{ height: 148 }} />
             </div>
             <div>
