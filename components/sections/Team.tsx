@@ -65,7 +65,7 @@ function FoundersVideo() {
 
 export default function Team() {
   return (
-    <section id="team" className="py-8 sm:py-12 lg:py-24 px-4 sm:px-8 lg:px-16 bg-[#F9F9F9] border-t border-border overflow-hidden">
+    <section id="team" className="py-8 sm:py-10 lg:py-16 px-4 sm:px-8 lg:px-16 bg-[#F9F9F9] border-t border-border overflow-hidden">
       <div className="mx-auto max-w-[1440px]">
 
         {/* Header */}
@@ -89,9 +89,9 @@ export default function Team() {
           <motion.div
             initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0 }} transition={{ duration: 0.55, delay: 0.1 }}
-            className="flex flex-row items-center gap-6 sm:gap-10 py-8 sm:py-10"
+            className="flex flex-row items-center gap-6 sm:gap-10 py-5 sm:py-6"
           >
-            <img src={abir.image} alt={abir.name} className="w-28 sm:w-36 lg:w-44 shrink-0 rounded-2xl object-cover object-center" style={{ height: 180 }} />
+            <img src={abir.image} alt={abir.name} className="w-28 sm:w-36 lg:w-44 shrink-0 rounded-2xl object-cover object-center" style={{ height: 148 }} />
             <div>
               <p className="text-[11px] sm:text-[13px] lg:text-[14px] text-[#444] leading-relaxed italic">&ldquo;{abir.quote}&rdquo;</p>
               <p className="mt-3 font-semibold text-[12px] sm:text-[14px] lg:text-[15px] text-[#0A0A0A]">{abir.name}</p>
@@ -118,9 +118,9 @@ export default function Team() {
           <motion.div
             initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0 }} transition={{ duration: 0.55, delay: 0.15 }}
-            className="flex flex-row-reverse items-center gap-6 sm:gap-10 py-8 sm:py-10"
+            className="flex flex-row-reverse items-center gap-6 sm:gap-10 py-5 sm:py-6"
           >
-            <img src={safwan.image} alt={safwan.name} className="w-28 sm:w-36 lg:w-44 shrink-0 rounded-2xl object-cover object-top" style={{ height: 180 }} />
+            <img src={safwan.image} alt={safwan.name} className="w-28 sm:w-36 lg:w-44 shrink-0 rounded-2xl object-cover object-top" style={{ height: 148 }} />
             <div>
               <p className="text-[11px] sm:text-[13px] lg:text-[14px] text-[#444] leading-relaxed italic">&ldquo;{safwan.quote}&rdquo;</p>
               <p className="mt-3 font-semibold text-[12px] sm:text-[14px] lg:text-[15px] text-[#0A0A0A]">{safwan.name}</p>
