@@ -72,14 +72,14 @@ export default function Team() {
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5 }}
-          className="mb-8 sm:mb-12 lg:mb-16 text-center"
+          className="mb-4 sm:mb-6 text-center"
         >
           <span className="section-pill mb-3 sm:mb-4 inline-flex">The Team</span>
           <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-5xl tracking-tight text-txt mt-2 sm:mt-3">
             You Work With <span className="gradient-text">the Founders</span>
           </h2>
-          <p className="text-txt-2 mt-2 sm:mt-3 max-w-sm mx-auto text-xs sm:text-sm leading-relaxed">
-            No account managers. No juniors. Just the two people who built this.
+          <p className="text-txt-2 mt-2 sm:mt-3 max-w-md mx-auto text-xs sm:text-sm leading-relaxed">
+            Every client works directly with the people who designed and built the product — no intermediaries, full accountability.
           </p>
         </motion.div>
 
