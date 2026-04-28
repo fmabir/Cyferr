@@ -106,7 +106,7 @@ export default function WhyHiveTech() {
           <div className="lg:col-span-2 lg:sticky lg:top-28">
             <motion.div initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }}
               viewport={{ once: true, amount: 0 }} transition={{ duration:0.6 }}>
-              <span className="section-pill mb-2 sm:mb-3 inline-flex">Why HiveTech</span>
+              <span className="section-pill mb-2 sm:mb-3 inline-flex">Why Zbrainstorm</span>
               <h2 className="font-display font-black text-xl sm:text-2xl lg:text-4xl tracking-tight text-txt mt-2 sm:mt-3 leading-[1.08]">
                 Why Pay More<br />for the Same<br /><span className="gradient-text">Quality?</span>
               </h2>

@@ -21,7 +21,7 @@ const quotes = [
     name: "Tanzila Hoque", role: "Owner, Shades & Co.", country: "🇧🇩 Bangladesh", initial: "TH", color: "#6366F1",
   },
   {
-    text: "We needed a custom CRM fast. HiveTech had a working prototype in the first week. The communication throughout was clear and they never missed a deadline.",
+    text: "We needed a custom CRM fast. Zbrainstorm had a working prototype in the first week. The communication throughout was clear and they never missed a deadline.",
     name: "Imran Khan", role: "MD, LogiTrack BD", country: "🇧🇩 Bangladesh", initial: "IK", color: "#10B981",
   },
   {

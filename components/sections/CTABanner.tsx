@@ -45,7 +45,7 @@ export default function CTABanner() {
             </p>
 
             <motion.a
-              href="mailto:hello@hivetech.dev"
+              href="mailto:hello@zbrainstrom.com"
               whileHover={{ y: -3 }}
               className="flex items-center gap-4 rounded-2xl border p-5 group transition-colors"
               style={{ borderColor: "#222222", background: "#111111" }}
@@ -58,7 +58,7 @@ export default function CTABanner() {
               </div>
               <div className="text-left">
                 <p className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color: "#4B5563" }}>Email</p>
-                <p className="text-sm font-black text-white group-hover:text-amber transition-colors">hello@hivetech.dev</p>
+                <p className="text-sm font-black text-white group-hover:text-amber transition-colors">hello@zbrainstrom.com</p>
               </div>
             </motion.a>
 

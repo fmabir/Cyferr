@@ -959,10 +959,10 @@ export default function DemoPage() {
           <StyleQ />
 
           {/* ══════════════════════════════════
-              WHY HIVETECH — PARALLELOGRAM DEMOS
+              WHY ZBRAINSTORM — PARALLELOGRAM DEMOS
           ══════════════════════════════════ */}
           <div className="pt-10 border-t-2 border-gray-200">
-            <h2 className="font-black text-2xl text-gray-900 mb-2">Why HiveTech — Parallelogram Styles</h2>
+            <h2 className="font-black text-2xl text-gray-900 mb-2">Why Zbrainstorm — Parallelogram Styles</h2>
             <p className="text-gray-400 text-sm mb-14">All keep the skewX parallelogram shape. Pick one to apply.</p>
             <div className="flex flex-col gap-20">
               <WHY_A />
@@ -1000,7 +1000,7 @@ function WHY_A() {
     <div>
       <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">A — Gradient Fill on Dark</h3>
       <div className="rounded-3xl p-8 lg:p-10" style={{ background:"#0A0A0A" }}>
-        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why HiveTech</p>
+        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
         <h2 className="font-black text-2xl text-white mb-8">Why Pay More for the Same <span style={{ color:"#F5A623" }}>Quality?</span></h2>
         <div className="flex gap-4 items-stretch">
           {why.map((r,i) => (
@@ -1033,7 +1033,7 @@ function WHY_B() {
     <div>
       <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">B — Bold Outlined, White</h3>
       <div className="rounded-3xl p-8 lg:p-10" style={{ background:"#F8F9FA", border:"1px solid #E5E7EB" }}>
-        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why HiveTech</p>
+        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
         <h2 className="font-black text-2xl text-gray-900 mb-8">Why Pay More for the Same <span style={{ color:"#F5A623" }}>Quality?</span></h2>
         <div className="flex gap-4 items-stretch px-2">
           {why.map((r,i) => (
@@ -1064,7 +1064,7 @@ function WHY_C() {
     <div>
       <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">C — Overlapping Depth</h3>
       <div className="rounded-3xl p-8 lg:p-10" style={{ background:"#fff", border:"1px solid #E5E7EB" }}>
-        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why HiveTech</p>
+        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
         <h2 className="font-black text-2xl text-gray-900 mb-8">Why Pay More for the Same <span style={{ color:"#F5A623" }}>Quality?</span></h2>
         <div className="flex items-stretch" style={{ gap:0 }}>
           {why.map((r,i) => (
@@ -1107,7 +1107,7 @@ function WHY_D() {
           style={{ background:"radial-gradient(circle,rgba(245,166,35,0.20) 0%,transparent 70%)",transform:"translate(-50%,-50%)" }}/>
         <div className="absolute bottom-0 right-1/4 w-72 h-72 rounded-full pointer-events-none"
           style={{ background:"radial-gradient(circle,rgba(99,102,241,0.15) 0%,transparent 70%)",transform:"translate(50%,50%)" }}/>
-        <p className="text-[10px] font-black uppercase tracking-widest mb-1 relative z-10" style={{ color:"#F5A623" }}>Why HiveTech</p>
+        <p className="text-[10px] font-black uppercase tracking-widest mb-1 relative z-10" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
         <h2 className="font-black text-2xl text-gray-900 mb-8 relative z-10">Why Pay More for the Same <span style={{ color:"#F5A623" }}>Quality?</span></h2>
         <div className="flex gap-4 items-stretch relative z-10">
           {why.map((r,i) => (
@@ -1145,7 +1145,7 @@ function WHY_E() {
     <div>
       <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">E — Neon Glow on Black</h3>
       <div className="rounded-3xl p-8 lg:p-10" style={{ background:"#060606" }}>
-        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why HiveTech</p>
+        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
         <h2 className="font-black text-2xl text-white mb-8">Why Pay More for the Same <span style={{ color:"#F5A623" }}>Quality?</span></h2>
         <div className="flex gap-4 items-stretch">
           {why.map((r,i) => (
@@ -1186,7 +1186,7 @@ function WHY_F() {
         <div className="lg:w-[240px] shrink-0 p-8 flex flex-col justify-between"
           style={{ background:"linear-gradient(160deg,#0A0A0A,#1A1A1A)" }}>
           <div>
-            <p className="text-[10px] font-black uppercase tracking-widest mb-2" style={{ color:"#F5A623" }}>Why HiveTech</p>
+            <p className="text-[10px] font-black uppercase tracking-widest mb-2" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
             <h2 className="font-black text-xl text-white leading-snug">Why Pay More <span style={{ color:"#F5A623" }}>for Less?</span></h2>
             <p className="text-[11px] text-gray-500 mt-3 leading-relaxed">Same quality. Honest price. Direct founder access.</p>
           </div>
@@ -1231,7 +1231,7 @@ function WHY_G() {
     <div>
       <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">G — Staggered Heights + Watermark</h3>
       <div className="rounded-3xl p-8 lg:p-10 bg-white" style={{ border:"1px solid #E5E7EB" }}>
-        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why HiveTech</p>
+        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
         <h2 className="font-black text-2xl text-gray-900 mb-10">Why Pay More for the Same <span style={{ color:"#F5A623" }}>Quality?</span></h2>
         <div className="flex gap-4 items-end">
           {why.map((r,i) => (
@@ -1266,7 +1266,7 @@ function WHY_H() {
     <div>
       <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">H — Monochrome Amber Progression</h3>
       <div className="rounded-3xl p-8 lg:p-10" style={{ background:"#1A0F00" }}>
-        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why HiveTech</p>
+        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
         <h2 className="font-black text-2xl text-white mb-10">Why Pay More for the Same <span style={{ color:"#F5A623" }}>Quality?</span></h2>
         <div className="flex gap-3 items-stretch">
           {why.map((r,i) => (
@@ -1296,7 +1296,7 @@ function WHY_I() {
     <div>
       <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">I — Half-Fill Horizon Split</h3>
       <div className="rounded-3xl p-8 lg:p-10" style={{ background:"#F8F9FA", border:"1px solid #E5E7EB" }}>
-        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why HiveTech</p>
+        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
         <h2 className="font-black text-2xl text-gray-900 mb-10">Why Pay More for the Same <span style={{ color:"#F5A623" }}>Quality?</span></h2>
         <div className="flex gap-4 items-stretch">
           {why.map((r,i) => (
@@ -1331,7 +1331,7 @@ function WHY_J() {
     <div>
       <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">J — Soft 3D Raised Cards</h3>
       <div className="rounded-3xl p-8 lg:p-10" style={{ background:"#F1F3F5", border:"1px solid #E5E7EB" }}>
-        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why HiveTech</p>
+        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
         <h2 className="font-black text-2xl text-gray-900 mb-10">Why Pay More for the Same <span style={{ color:"#F5A623" }}>Quality?</span></h2>
         <div className="flex gap-5 items-stretch pb-3">
           {why.map((r,i) => (
@@ -1364,7 +1364,7 @@ function WHY_K() {
     <div>
       <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">K — Connected Flow with Arrows</h3>
       <div className="rounded-3xl p-8 lg:p-10" style={{ background:"#0A0A0A" }}>
-        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why HiveTech</p>
+        <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color:"#F5A623" }}>Why Zbrainstorm</p>
         <h2 className="font-black text-2xl text-white mb-10">Why Pay More for the Same <span style={{ color:"#F5A623" }}>Quality?</span></h2>
         <div className="flex items-center">
           {why.map((r,i) => (

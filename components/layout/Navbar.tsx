@@ -50,11 +50,11 @@ export default function Navbar() {
                 <path d="M20 2L37 11.5V30.5L20 40L3 30.5V11.5L20 2Z"
                   fill="rgba(245,166,35,0.12)" stroke="#F5A623" strokeWidth="2.5"/>
                 <text x="20" y="27" textAnchor="middle" fontSize="16" fontWeight="900"
-                  fill="#F5A623" fontFamily="system-ui">H</text>
+                  fill="#F5A623" fontFamily="system-ui">Z</text>
               </svg>
             </div>
             <span className="font-display font-black text-xl tracking-tight text-txt">
-              Hive<span className="text-amber">Tech</span>
+              Zbrain<span className="text-amber">storm</span>
             </span>
           </a>
 

@@ -16,11 +16,11 @@ export default function Footer() {
               <div className="relative w-8 h-8">
                 <svg viewBox="0 0 40 46" fill="none" className="w-full h-full">
                   <path d="M20 2L37 11.5V30.5L20 40L3 30.5V11.5L20 2Z" fill="rgba(245,166,35,0.15)" stroke="#F5A623" strokeWidth="2.5"/>
-                  <text x="20" y="27" textAnchor="middle" fontSize="16" fontWeight="900" fill="#F5A623" fontFamily="system-ui">H</text>
+                  <text x="20" y="27" textAnchor="middle" fontSize="16" fontWeight="900" fill="#F5A623" fontFamily="system-ui">Z</text>
                 </svg>
               </div>
               <span className="font-display font-black text-xl tracking-tight text-white">
-                Hive<span className="text-amber">Tech</span>
+                Zbrain<span className="text-amber">storm</span>
               </span>
             </a>
             <p className="text-sm leading-relaxed max-w-xs mb-6" style={{ color: "#9CA3AF" }}>
@@ -114,7 +114,7 @@ export default function Footer() {
 
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs" style={{ color: "#6B7280" }}>
-            © {new Date().getFullYear()} HiveTech. All rights reserved. 🐝
+            © {new Date().getFullYear()} Zbrainstorm. All rights reserved. 🐝
           </p>
           <div className="flex gap-4">
             {["Privacy Policy","Terms of Service"].map((l) => (
