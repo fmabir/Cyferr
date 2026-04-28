@@ -1,4 +1,5 @@
 "use client";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Check, Zap, Globe, Shield, RefreshCw, FileText, MessageSquare } from "lucide-react";
 
