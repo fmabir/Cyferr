@@ -33,7 +33,7 @@ export default function WhatWeBuild() {
         {/* Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
           {services.map((s, i) => (
-            <div key={i} className="relative cursor-default h-[220px] sm:h-[260px] lg:h-[280px]">
+            <div key={i} className="relative cursor-default h-[190px] sm:h-[220px] lg:h-[245px]">
 
               {/* Back: rotated image card */}
               <div
@@ -49,7 +49,7 @@ export default function WhatWeBuild() {
 
               {/* Front: white content card */}
               <div
-                className="absolute bottom-0 inset-x-1 sm:inset-x-2 rounded-2xl p-3 sm:p-4 flex flex-col gap-1.5 sm:gap-2"
+                className="absolute bottom-0 inset-x-1 sm:inset-x-2 rounded-2xl p-2.5 sm:p-3 flex flex-col gap-1 sm:gap-1.5"
                 style={{
                   background: "#fff",
                   boxShadow: "0 -4px 32px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.06)",
@@ -58,40 +58,40 @@ export default function WhatWeBuild() {
                 }}
               >
                 {/* Icon overlapping top edge */}
-                <div className="absolute -top-5 sm:-top-7 left-3 sm:left-4">
+                <div className="absolute -top-4 sm:-top-5 left-3">
                   <div
-                    className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center border-2 sm:border-4 border-white"
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border-2 border-white"
                     style={{ background: "#F5F5F5", boxShadow: "0 4px 20px rgba(245,166,35,0.35)" }}
                   >
-                    <img src={s.icon} alt={s.title} className="w-6 h-6 sm:w-9 sm:h-9 object-contain" />
+                    <img src={s.icon} alt={s.title} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
                   </div>
                 </div>
 
                 {/* Title + tag */}
-                <div className="mt-5 sm:mt-6">
-                  <p className="font-semibold text-[12px] sm:text-[15px] tracking-tight text-txt leading-snug">{s.title}</p>
-                  <p className="text-[9px] sm:text-[11px] font-medium mt-0.5 tracking-wide uppercase" style={{ color: "#F5A623" }}>{s.tag}</p>
+                <div className="mt-4 sm:mt-5">
+                  <p className="font-semibold text-[11px] sm:text-[13px] tracking-tight text-txt leading-snug">{s.title}</p>
+                  <p className="text-[8px] sm:text-[10px] font-medium mt-0.5 tracking-wide uppercase" style={{ color: "#F5A623" }}>{s.tag}</p>
                 </div>
 
                 {/* Divider */}
                 <div style={{ height: 1, background: "#F3F3F3" }} />
 
                 {/* Description */}
-                <p className="text-[10px] sm:text-[12px] font-normal text-txt-2 leading-relaxed">{s.desc}</p>
+                <p className="text-[9px] sm:text-[11px] font-normal text-txt-2 leading-snug">{s.desc}</p>
 
                 {/* Pills + arrow */}
-                <div className="flex items-center justify-between mt-0.5 sm:mt-1">
-                  <div className="flex flex-wrap gap-0.5 sm:gap-1">
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap gap-0.5">
                     {s.points.slice(0, 2).map((pt, j) => (
                       <span key={j}
-                        className="text-[8px] sm:text-[10px] font-medium px-1.5 sm:px-2 py-0.5 rounded-full tracking-wide"
+                        className="text-[7px] sm:text-[9px] font-medium px-1.5 py-0.5 rounded-full tracking-wide"
                         style={{ background: "#F5F5F5", color: "#0A0A0A", border: "1px solid #E5E5E5" }}
                       >
                         {pt}
                       </span>
                     ))}
                   </div>
-                  <span className="text-[9px] sm:text-xs font-semibold shrink-0 ml-1 sm:ml-2 tracking-wide" style={{ color: "#F5A623" }}>→</span>
+                  <span className="text-[9px] font-semibold shrink-0 ml-1 tracking-wide" style={{ color: "#F5A623" }}>→</span>
                 </div>
               </div>
 
