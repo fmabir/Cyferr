@@ -11,6 +11,7 @@ import Team        from "@/components/sections/Team";
 import Pricing      from "@/components/sections/Pricing";
 import CTABanner    from "@/components/sections/CTABanner";
 import WhatWeBuild  from "@/components/sections/WhatWeBuild";
+import FAQ          from "@/components/sections/FAQ";
 
 
 export default function HomePage() {
@@ -28,6 +29,7 @@ export default function HomePage() {
         <HowWeWork />
         <TechStack />
         <Team />
+        <FAQ />
         <CTABanner />
       </main>
       <Footer />
