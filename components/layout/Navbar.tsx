@@ -54,7 +54,7 @@ export default function Navbar() {
               </svg>
             </div>
             <span className="font-display font-black text-xl tracking-tight text-txt">
-              Zbrain<span className="text-amber">storm</span>
+              Z<span className="text-amber">brainstorm</span>
             </span>
           </a>
 

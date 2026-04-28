@@ -20,7 +20,7 @@ export default function Footer() {
                 </svg>
               </div>
               <span className="font-display font-black text-xl tracking-tight text-white">
-                Zbrain<span className="text-amber">storm</span>
+                Z<span className="text-amber">brainstorm</span>
               </span>
             </a>
             <p className="text-sm leading-relaxed max-w-xs mb-6" style={{ color: "#9CA3AF" }}>
