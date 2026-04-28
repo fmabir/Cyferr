@@ -33,7 +33,7 @@ export default function WhatWeBuild() {
         {/* Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
           {services.map((s, i) => (
-            <div key={i} className="relative cursor-default h-[190px] sm:h-[220px] lg:h-[245px]">
+            <div key={i} className="relative cursor-default h-[170px] sm:h-[195px] lg:h-[215px]">
 
               {/* Back: rotated image card */}
               <div
@@ -44,7 +44,7 @@ export default function WhatWeBuild() {
                 }}
               >
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.35)" }} />
+                <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.55)" }} />
               </div>
 
               {/* Front: white content card */}
