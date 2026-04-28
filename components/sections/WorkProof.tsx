@@ -230,7 +230,7 @@ export default function WorkProof() {
                     transition={{ duration: 0.35, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
                     whileHover={{ y: -3, boxShadow: `0 10px 28px ${q.color}18` }}
                     className="flex flex-col gap-2.5 p-5 rounded-2xl cursor-default"
-                    style={{ background: "#F9FAFB", border: "1px solid #F0F0F0" }}
+                    style={{ background: "#F9FAFB", border: "1px solid #F0F0F0", height: 172 }}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex gap-0.5">
@@ -238,7 +238,7 @@ export default function WorkProof() {
                       </div>
                       <span className="font-black text-4xl leading-none select-none" style={{ color: q.color, opacity: 0.1 }}>&ldquo;</span>
                     </div>
-                    <p className="text-sm leading-relaxed font-medium text-txt flex-1">&ldquo;{q.text}&rdquo;</p>
+                    <p className="text-sm leading-relaxed font-medium text-txt flex-1 overflow-hidden" style={{ display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" }}>&ldquo;{q.text}&rdquo;</p>
                     <div className="flex items-center gap-2.5 pt-3" style={{ borderTop: "1px solid #EBEBEB" }}>
                       <div className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0"
                         style={{ background: q.color, boxShadow: `0 3px 10px ${q.color}40` }}>
