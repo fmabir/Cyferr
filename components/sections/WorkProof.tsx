@@ -14,15 +14,15 @@ const stats = [
 const quotes = [
   {
     text: "Honestly didn't expect this level of quality at this price. They built our inventory system in under 5 weeks and it's been running without a single issue since day one.",
-    name: "Rafi Ahmed", role: "Founder, StockBD", country: "🇧🇩 Bangladesh", initial: "RA", color: "#F5A623",
+    name: "Rafi A.", role: "Founder", country: "🇧🇩 Bangladesh", initial: "RA", color: "#F5A623",
   },
   {
     text: "My e-commerce site was done in 3 weeks. Sales picked up right after launch. These guys actually care about what they're building, not just billing hours.",
-    name: "Tanzila Hoque", role: "Owner, Shades & Co.", country: "🇧🇩 Bangladesh", initial: "TH", color: "#6366F1",
+    name: "Tanzila H.", role: "E-commerce Owner", country: "🇧🇩 Bangladesh", initial: "TH", color: "#6366F1",
   },
   {
     text: "We needed a custom CRM fast. Zbrainstorm had a working prototype in the first week. Communication was clear throughout and they delivered exactly what was scoped.",
-    name: "Imran Khan", role: "MD, LogiTrack BD", country: "🇧🇩 Bangladesh", initial: "IK", color: "#10B981",
+    name: "Imran K.", role: "Managing Director", country: "🇧🇩 Bangladesh", initial: "IK", color: "#10B981",
   },
   {
     text: "Found them online, wasn't sure what to expect. Ended up being one of the best vendor decisions I've made. Solid work, great communication across time zones.",
@@ -30,19 +30,35 @@ const quotes = [
   },
   {
     text: "They asked the right questions upfront, flagged things we hadn't thought of, and delivered a product we're genuinely proud to show clients.",
-    name: "Sarah M.", role: "CEO, FinEdge", country: "🇬🇧 UK", initial: "SM", color: "#F5A623",
+    name: "Sarah M.", role: "CEO", country: "🇬🇧 UK", initial: "SM", color: "#F5A623",
   },
   {
-    text: "The mobile app they built for us works exactly as promised. No scope creep, no surprises on the invoice. Refreshingly straightforward to work with.",
+    text: "The mobile app they built works exactly as promised. No scope creep, no surprises on the invoice. Refreshingly straightforward to work with.",
     name: "Kwame A.", role: "Product Manager", country: "🇬🇭 Ghana", initial: "KA", color: "#6366F1",
   },
   {
     text: "I've used other freelancers and agencies before. Zbrainstorm is the first team that felt like a real partner — proactive, honest, and technically sharp.",
-    name: "Daniel R.", role: "CTO, BuildOps", country: "🇺🇸 USA", initial: "DR", color: "#10B981",
+    name: "Daniel R.", role: "CTO", country: "🇺🇸 USA", initial: "DR", color: "#10B981",
   },
   {
-    text: "Landing page was live in under 2 weeks. The design was clean, the load time was fast, and the whole process felt smooth from brief to handoff.",
+    text: "Landing page was live in under 2 weeks. Clean design, fast load time, and the whole process felt smooth from brief to handoff.",
     name: "Priya N.", role: "Marketing Director", country: "🇸🇬 Singapore", initial: "PN", color: "#3B82F6",
+  },
+  {
+    text: "We had a tight deadline and a half-built product. They picked it up, cleaned it up, and got us to launch on time. No drama.",
+    name: "Lena H.", role: "Operations Director", country: "🇩🇪 Germany", initial: "LH", color: "#F5A623",
+  },
+  {
+    text: "Pricing was transparent from the start. What was quoted is what we paid. The quality genuinely surprised me for the budget.",
+    name: "Tariq M.", role: "CEO", country: "🇦🇪 UAE", initial: "TM", color: "#6366F1",
+  },
+  {
+    text: "Fast, communicative, and technically competent. The AI chatbot they built handles a solid chunk of our support tickets automatically now.",
+    name: "Amara S.", role: "Head of Product", country: "🇸🇳 Senegal", initial: "AS", color: "#10B981",
+  },
+  {
+    text: "Three weeks from kickoff to live site. They kept us in the loop the whole way. Would absolutely work with them again.",
+    name: "Marcus L.", role: "Startup Founder", country: "🇨🇦 Canada", initial: "ML", color: "#3B82F6",
   },
 ];
 
