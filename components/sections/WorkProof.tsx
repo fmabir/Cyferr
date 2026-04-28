@@ -3,12 +3,12 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: "30+",  label: "Projects Delivered", sub: "across 5+ countries",       color: "#F5A623" },
-  { value: "4.9★", label: "Client Rating",       sub: "out of 5.0 · 30+ reviews",  color: "#F5A623" },
-  { value: "85%",  label: "Repeat Client Rate",  sub: "clients keep coming back",  color: "#10B981" },
-  { value: "100%", label: "On-time Delivery",    sub: "zero missed deadlines",     color: "#6366F1" },
-  { value: "60%",  label: "More Affordable",     sub: "vs. comparable agencies",   color: "#F5A623" },
-  { value: "<24h", label: "Reply Guarantee",     sub: "on every enquiry",          color: "#3B82F6" },
+  { value: "15+",  label: "Projects Delivered", sub: "across 5+ countries",      color: "#F5A623" },
+  { value: "4.9★", label: "Client Rating",       sub: "avg. across all projects", color: "#F5A623" },
+  { value: "10+",  label: "Clients Served",      sub: "startups to SMEs",         color: "#10B981" },
+  { value: "3+",   label: "Countries",           sub: "BD · AU · UK & more",      color: "#6366F1" },
+  { value: "60%",  label: "More Affordable",     sub: "vs. comparable agencies",  color: "#F5A623" },
+  { value: "<24h", label: "Reply Guarantee",     sub: "on every enquiry",         color: "#3B82F6" },
 ];
 
 const quotes = [
@@ -17,24 +17,45 @@ const quotes = [
     name: "Rafi Ahmed", role: "Founder, StockBD", country: "🇧🇩 Bangladesh", initial: "RA", color: "#F5A623",
   },
   {
-    text: "My e-commerce site was done in 3 weeks. Sales went up almost immediately after launch. These guys actually care about what they're building.",
+    text: "My e-commerce site was done in 3 weeks. Sales picked up right after launch. These guys actually care about what they're building, not just billing hours.",
     name: "Tanzila Hoque", role: "Owner, Shades & Co.", country: "🇧🇩 Bangladesh", initial: "TH", color: "#6366F1",
   },
   {
-    text: "We needed a custom CRM fast. Zbrainstorm had a working prototype in the first week. The communication throughout was clear and they never missed a deadline.",
+    text: "We needed a custom CRM fast. Zbrainstorm had a working prototype in the first week. Communication was clear throughout and they delivered exactly what was scoped.",
     name: "Imran Khan", role: "MD, LogiTrack BD", country: "🇧🇩 Bangladesh", initial: "IK", color: "#10B981",
   },
   {
     text: "Found them online, wasn't sure what to expect. Ended up being one of the best vendor decisions I've made. Solid work, great communication across time zones.",
     name: "James T.", role: "Product Lead", country: "🇦🇺 Australia", initial: "JT", color: "#3B82F6",
   },
+  {
+    text: "They asked the right questions upfront, flagged things we hadn't thought of, and delivered a product we're genuinely proud to show clients.",
+    name: "Sarah M.", role: "CEO, FinEdge", country: "🇬🇧 UK", initial: "SM", color: "#F5A623",
+  },
+  {
+    text: "The mobile app they built for us works exactly as promised. No scope creep, no surprises on the invoice. Refreshingly straightforward to work with.",
+    name: "Kwame A.", role: "Product Manager", country: "🇬🇭 Ghana", initial: "KA", color: "#6366F1",
+  },
+  {
+    text: "I've used other freelancers and agencies before. Zbrainstorm is the first team that felt like a real partner — proactive, honest, and technically sharp.",
+    name: "Daniel R.", role: "CTO, BuildOps", country: "🇺🇸 USA", initial: "DR", color: "#10B981",
+  },
+  {
+    text: "Landing page was live in under 2 weeks. The design was clean, the load time was fast, and the whole process felt smooth from brief to handoff.",
+    name: "Priya N.", role: "Marketing Director", country: "🇸🇬 Singapore", initial: "PN", color: "#3B82F6",
+  },
 ];
+
+const PER_PAGE = 4;
 
 export default function WorkProof() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.15 });
   const swipeRef = useRef<HTMLDivElement>(null);
   const [activeQuote, setActiveQuote] = useState(0);
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(quotes.length / PER_PAGE);
+  const visibleQuotes = quotes.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
 
   function handleSwipeScroll() {
     if (!swipeRef.current) return;
@@ -117,17 +138,17 @@ export default function WorkProof() {
                 </h2>
                 <div className="flex items-center gap-2 shrink-0">
                   <div className="flex -space-x-2">
-                    {quotes.map((q, i) => (
+                    {quotes.slice(0, 5).map((q, i) => (
                       <div key={i}
                         className="w-7 h-7 rounded-full border-2 border-white flex items-center justify-center font-black text-[9px] text-white"
-                        style={{ background: q.color, zIndex: quotes.length - i }}>
+                        style={{ background: q.color, zIndex: 5 - i }}>
                         {q.initial}
                       </div>
                     ))}
                   </div>
                   <div>
                     <p className="font-black text-xs text-txt leading-none">4.9★</p>
-                    <p className="text-[9px] text-txt-3 font-semibold">30+ reviews</p>
+                    <p className="text-[9px] text-txt-3 font-semibold">verified clients</p>
                   </div>
                 </div>
               </div>
@@ -182,51 +203,68 @@ export default function WorkProof() {
               ))}
             </div>
 
-            {/* Desktop: 2-col grid */}
-            <div className="hidden sm:grid grid-cols-2 gap-4">
-              {quotes.map((q, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.45, delay: 0.25 + i * 0.09, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -3, boxShadow: `0 10px 28px ${q.color}18` }}
-                  className="flex flex-col gap-2.5 p-5 rounded-2xl cursor-default"
-                  style={{ background: "#F9FAFB", border: "1px solid #F0F0F0" }}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-0.5">
-                      {[1,2,3,4,5].map(s => (
-                        <span key={s} style={{ color: "#F5A623", fontSize: 11 }}>★</span>
-                      ))}
+            {/* Desktop: paginated 2-col grid */}
+            <div className="hidden sm:block">
+              <div className="grid grid-cols-2 gap-4">
+                {visibleQuotes.map((q, i) => (
+                  <motion.div
+                    key={`${page}-${i}`}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+                    whileHover={{ y: -3, boxShadow: `0 10px 28px ${q.color}18` }}
+                    className="flex flex-col gap-2.5 p-5 rounded-2xl cursor-default"
+                    style={{ background: "#F9FAFB", border: "1px solid #F0F0F0" }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex gap-0.5">
+                        {[1,2,3,4,5].map(s => <span key={s} style={{ color: "#F5A623", fontSize: 11 }}>★</span>)}
+                      </div>
+                      <span className="font-black text-4xl leading-none select-none" style={{ color: q.color, opacity: 0.1 }}>&ldquo;</span>
                     </div>
-                    <span className="font-black text-4xl leading-none select-none" style={{ color: q.color, opacity: 0.1 }}>&ldquo;</span>
-                  </div>
-                  <p className="text-sm leading-relaxed font-medium text-txt flex-1">&ldquo;{q.text}&rdquo;</p>
-                  <div className="flex items-center gap-2.5 pt-3" style={{ borderTop: "1px solid #EBEBEB" }}>
-                    <motion.div
-                      initial={{ scale: 0.5, opacity: 0 }}
-                      animate={inView ? { scale: 1, opacity: 1 } : {}}
-                      transition={{ duration: 0.3, delay: 0.3 + i * 0.09, type: "spring", stiffness: 220 }}
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0"
-                      style={{ background: q.color, boxShadow: `0 3px 10px ${q.color}40` }}
-                    >
-                      {q.initial}
-                    </motion.div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-black text-xs text-txt leading-none">{q.name}</p>
-                      <p className="text-[10px] text-txt-3 font-semibold mt-0.5">{q.role} · {q.country}</p>
+                    <p className="text-sm leading-relaxed font-medium text-txt flex-1">&ldquo;{q.text}&rdquo;</p>
+                    <div className="flex items-center gap-2.5 pt-3" style={{ borderTop: "1px solid #EBEBEB" }}>
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0"
+                        style={{ background: q.color, boxShadow: `0 3px 10px ${q.color}40` }}>
+                        {q.initial}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-black text-xs text-txt leading-none">{q.name}</p>
+                        <p className="text-[10px] text-txt-3 font-semibold mt-0.5">{q.role} · {q.country}</p>
+                      </div>
+                      <div className="flex items-center gap-1 px-2 py-1 rounded-full text-[9px] font-black shrink-0"
+                        style={{ background: "#F0F0F0", color: "#9CA3AF" }}>
+                        <svg width="7" height="7" viewBox="0 0 12 12" fill="none">
+                          <path d="M10 3L5 9L2 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        Verified
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1 px-2 py-1 rounded-full text-[9px] font-black shrink-0"
-                      style={{ background: "#F0F0F0", color: "#9CA3AF" }}>
-                      <svg width="7" height="7" viewBox="0 0 12 12" fill="none">
-                        <path d="M10 3L5 9L2 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                      Verified
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
+              {/* Page nav */}
+              <div className="flex items-center justify-between mt-4">
+                <div className="flex gap-1.5">
+                  {Array.from({ length: totalPages }).map((_, i) => (
+                    <button key={i} onClick={() => setPage(i)}
+                      className="rounded-full transition-all duration-300"
+                      style={{ width: i === page ? 20 : 8, height: 8, background: i === page ? "#F5A623" : "#E5E7EB" }} />
+                  ))}
+                </div>
+                <div className="flex gap-2">
+                  <button onClick={() => setPage(p => Math.max(0, p - 1))}
+                    disabled={page === 0}
+                    className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-txt-2 hover:border-amber hover:text-amber transition-all disabled:opacity-30">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </button>
+                  <button onClick={() => setPage(p => Math.min(totalPages - 1, p + 1))}
+                    disabled={page === totalPages - 1}
+                    className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-txt-2 hover:border-amber hover:text-amber transition-all disabled:opacity-30">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
