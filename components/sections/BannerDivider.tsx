@@ -5,8 +5,7 @@ export default function BannerDivider({ src }: { src: string }) {
         src={src}
         alt=""
         aria-hidden
-        className="w-full object-cover object-center block"
-        style={{ maxHeight: 340 }}
+        className="w-full object-contain block"
       />
     </div>
   );
