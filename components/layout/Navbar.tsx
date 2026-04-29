@@ -49,12 +49,12 @@ export default function Navbar() {
               <svg viewBox="0 0 40 46" fill="none" className="w-full h-full transition-transform duration-300 group-hover:rotate-[20deg]">
                 <path d="M20 2L37 11.5V30.5L20 40L3 30.5V11.5L20 2Z"
                   fill="rgba(245,166,35,0.12)" stroke="#F5A623" strokeWidth="2.5"/>
-                <text x="20" y="27" textAnchor="middle" fontSize="16" fontWeight="900"
-                  fill="#F5A623" fontFamily="system-ui">Z</text>
+                <text x="20" y="27" textAnchor="middle" fontSize="12" fontWeight="900"
+                  fill="#F5A623" fontFamily="system-ui">BW</text>
               </svg>
             </div>
             <span className="font-display font-black text-xl tracking-tight text-txt">
-              Z<span className="text-amber">brainstorm</span>
+              Brainstorm <span className="text-amber">Web</span>
             </span>
           </a>
 
