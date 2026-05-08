@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   description:
     "Websites, web apps, mobile apps, desktop software & AI solutions — built fast, built right, at an affordable cost for local and international clients.",
   keywords: "web development, mobile app, AI automation, chatbot, software company",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
