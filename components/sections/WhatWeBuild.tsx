@@ -33,7 +33,7 @@ export default function WhatWeBuild() {
         {/* Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
           {services.map((s, i) => (
-            <div key={i} className="relative cursor-default h-[170px] sm:h-[195px] lg:h-[215px]">
+            <div key={i} className="relative cursor-default h-[220px] sm:h-[250px] lg:h-[280px]">
 
               {/* Back: rotated image card */}
               <div

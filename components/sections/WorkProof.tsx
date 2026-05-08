@@ -21,7 +21,7 @@ const quotes = [
     name: "Tanzila H.", role: "E-commerce Owner", country: "🇧🇩 Bangladesh", initial: "TH", color: "#6366F1",
   },
   {
-    text: "We needed a custom CRM fast. Brainstorm Web had a working prototype in the first week. Communication was clear throughout and they delivered exactly what was scoped.",
+    text: "We needed a custom CRM fast. Cyferr had a working prototype in the first week. Communication was clear throughout and they delivered exactly what was scoped.",
     name: "Imran K.", role: "Managing Director", country: "🇧🇩 Bangladesh", initial: "IK", color: "#10B981",
   },
   {
@@ -37,7 +37,7 @@ const quotes = [
     name: "Kwame A.", role: "Product Manager", country: "🇬🇭 Ghana", initial: "KA", color: "#6366F1",
   },
   {
-    text: "I've used other freelancers and agencies before. Brainstorm Web is the first team that felt like a real partner — proactive, honest, and technically sharp.",
+    text: "I've used other freelancers and agencies before. Cyferr is the first team that felt like a real partner — proactive, honest, and technically sharp.",
     name: "Daniel R.", role: "CTO", country: "🇺🇸 USA", initial: "DR", color: "#10B981",
   },
   {

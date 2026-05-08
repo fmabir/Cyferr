@@ -30,7 +30,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {/* Email */}
           <motion.a
-            href="mailto:hello@brainstorm-web.com"
+            href="mailto:hello@cyferr.com"
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
             whileHover={{ y: -6 }}
@@ -42,7 +42,7 @@ export default function Contact() {
             </div>
             <div>
               <p className="text-[10px] font-black uppercase tracking-widest text-txt-3 mb-1">Email Us</p>
-              <p className="font-black text-lg text-txt group-hover:text-amber transition-colors">hello@brainstorm-web.com</p>
+              <p className="font-black text-lg text-txt group-hover:text-amber transition-colors">hello@cyferr.com</p>
               <p className="text-xs text-txt-3 font-semibold mt-1">We reply within 24 hours</p>
             </div>
           </motion.a>

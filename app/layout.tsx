@@ -20,7 +20,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Brainstorm Web — We Build Digital Products That Work",
+  title: "Cyferr — We Build Digital Products That Work",
   description:
     "Websites, web apps, mobile apps, desktop software & AI solutions — built fast, built right, at an affordable cost for local and international clients.",
   keywords: "web development, mobile app, AI automation, chatbot, software company",

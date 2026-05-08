@@ -66,7 +66,7 @@ function CodeEditorIllustration() {
           <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
           <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
           <span className="w-3 h-3 rounded-full bg-[#28C840]" />
-          <span className="ml-3 text-[11px] font-mono" style={{ color: "#4B4B6A" }}>brainstorm-web/app.ts</span>
+          <span className="ml-3 text-[11px] font-mono" style={{ color: "#4B4B6A" }}>cyferr/app.ts</span>
           <span className="ml-auto text-[10px] px-2 py-0.5 rounded-full font-bold" style={{ background: "#10B98120", color: "#10B981" }}>● live</span>
         </div>
 
@@ -98,7 +98,7 @@ function CodeEditorIllustration() {
           <motion.span style={{ color: "#F5A623" }}
             animate={{ opacity: [1, 0.3, 1] }}
             transition={{ duration: 1.5, repeat: Infinity }}>
-            ⬡ Brainstorm Web
+            ⬡ Cyferr
           </motion.span>
         </div>
       </motion.div>
@@ -117,7 +117,7 @@ function PriceChartIllustration() {
 
   const cols = [
     { label: "Agency", value: "$15k", height: 180, color: "#E5E7EB" },
-    { label: "Brainstorm Web", value: "$6k", height: 72, color: "#F5A623" },
+    { label: "Cyferr", value: "$6k", height: 72, color: "#F5A623" },
   ];
 
   return (
@@ -173,7 +173,7 @@ function PriceChartIllustration() {
         className="px-5 py-2 rounded-full font-black text-sm"
         style={{ background: "#FFF7E6", color: "#D4891A", border: "1.5px solid #F5A623" }}
       >
-        Save 60% with Brainstorm Web
+        Save 60% with Cyferr
       </motion.div>
     </div>
   );
@@ -358,13 +358,13 @@ const slides = [
     right: "code" as const,
   },
   {
-    badge: "Why Brainstorm Web",
+    badge: "Why Cyferr",
     headline: ["60% More Affordable.", "2× Faster Delivery."],
     accentLine: 1,
     sub: "Same quality as top agencies. Half the price. We charge for the work, not the brand name. One lean team, zero hand-offs, no surprises.",
     ctas: [
       { label: "See Pricing",  href: "#pricing", primary: true  },
-      { label: "Why Brainstorm Web", href: "#about",   primary: false },
+      { label: "Why Cyferr", href: "#about",   primary: false },
     ],
     right: "chart" as const,
   },
@@ -542,7 +542,7 @@ export default function Hero() {
                   >
                     <img
                       src="/images/v6.png"
-                      alt="Brainstorm Web — Digital Product Development"
+                      alt="Cyferr — Digital Product Development"
                       className="w-full max-w-[380px] sm:max-w-[560px] lg:max-w-[760px] object-contain object-bottom drop-shadow-xl"
                       style={{ height: "115%", maxHeight: "none" }}
                     />
@@ -564,7 +564,7 @@ export default function Hero() {
                         <div className="flex items-center gap-1.5">
                           <motion.div animate={{ scale:[1,1.2,1], opacity:[0.6,1,0.6] }} transition={{ duration:2, repeat:Infinity }}
                             className="w-1.5 h-1.5 rounded-full" style={{ background:"#4ADE80" }} />
-                          <span className="text-[9px] font-black uppercase tracking-widest" style={{ color:"#9CA3AF" }}>Brainstorm Web · Stats</span>
+                          <span className="text-[9px] font-black uppercase tracking-widest" style={{ color:"#9CA3AF" }}>Cyferr · Stats</span>
                         </div>
                         <span className="text-[9px] font-black px-2 py-0.5 rounded-full" style={{ background:"#FFF7E6", color:"#F5A623", border:"1px solid #F5A62330" }}>2025</span>
                       </div>
