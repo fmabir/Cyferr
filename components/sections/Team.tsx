@@ -8,7 +8,7 @@ const abir = {
   quote: "Every project we take on, I treat like it's my own startup. If it doesn't work for you, it doesn't work for us.",
   image: "/images/ab.PNG",
   linkedin: "https://www.linkedin.com/in/f-m-abir-hossain-2aa832242/",
-  email: "fmabir2015@gmail.com",
+  email: "abir@cyferr.com",
 };
 
 const safwan = {
@@ -17,7 +17,7 @@ const safwan = {
   quote: "We build quietly with purpose and precision, so when the product reaches you, it speaks clearly on its own.",
   image: "/images/sa.PNG",
   linkedin: "https://www.linkedin.com/in/safwan-ul-islam-a70b4439a/",
-  email: "safwanislam0000@gmail.com",
+  email: "safwan@cyferr.com",
 };
 
 function FoundersVideo() {
@@ -98,16 +98,16 @@ export default function Team() {
               <p className="text-[11px] sm:text-[13px] lg:text-[14px] text-[#444] leading-relaxed italic">&ldquo;{abir.quote}&rdquo;</p>
               <p className="mt-3 font-semibold text-[12px] sm:text-[14px] lg:text-[15px] text-[#0A0A0A]">{abir.name}</p>
               <p className="text-[9px] sm:text-[10px] lg:text-[11px] font-medium uppercase tracking-widest mt-0.5" style={{ color: "#F5A623" }}>{abir.role}</p>
-              <div className="flex items-center gap-2 mt-3">
+              <div className="flex flex-wrap items-center gap-2 mt-3">
                 <a href={abir.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                   className="flex items-center justify-center rounded-full transition-opacity hover:opacity-70"
                   style={{ width: 22, height: 22, background: "#0A66C2" }}>
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
-                <a href={`https://mail.google.com/mail/?view=cm&to=${abir.email}`} target="_blank" rel="noopener noreferrer" aria-label="Email"
-                  className="flex items-center justify-center rounded-full transition-opacity hover:opacity-70"
-                  style={{ width: 22, height: 22, background: "#F5A623" }}>
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href={`mailto:${abir.email}`} className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold transition-opacity hover:opacity-70"
+                  style={{ background: "rgba(245,166,35,0.1)", color: "#F5A623", border: "1px solid rgba(245,166,35,0.25)" }}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  {abir.email}
                 </a>
               </div>
             </div>
@@ -129,16 +129,16 @@ export default function Team() {
               <p className="text-[11px] sm:text-[13px] lg:text-[14px] text-[#444] leading-relaxed italic">&ldquo;{safwan.quote}&rdquo;</p>
               <p className="mt-3 font-semibold text-[12px] sm:text-[14px] lg:text-[15px] text-[#0A0A0A]">{safwan.name}</p>
               <p className="text-[9px] sm:text-[10px] lg:text-[11px] font-medium uppercase tracking-widest mt-0.5" style={{ color: "#6366F1" }}>{safwan.role}</p>
-              <div className="flex items-center gap-2 mt-3">
+              <div className="flex flex-wrap items-center gap-2 mt-3">
                 <a href={safwan.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                   className="flex items-center justify-center rounded-full transition-opacity hover:opacity-70"
                   style={{ width: 22, height: 22, background: "#0A66C2" }}>
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
-                <a href={`https://mail.google.com/mail/?view=cm&to=${safwan.email}`} target="_blank" rel="noopener noreferrer" aria-label="Email"
-                  className="flex items-center justify-center rounded-full transition-opacity hover:opacity-70"
-                  style={{ width: 22, height: 22, background: "#6366F1" }}>
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href={`mailto:${safwan.email}`} className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold transition-opacity hover:opacity-70"
+                  style={{ background: "rgba(99,102,241,0.1)", color: "#6366F1", border: "1px solid rgba(99,102,241,0.25)" }}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  {safwan.email}
                 </a>
               </div>
             </div>

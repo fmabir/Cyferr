@@ -32,6 +32,10 @@ export default function Footer() {
               <span className="flex items-center gap-2">
                 <MapPin size={14} className="text-amber" /> Available Worldwide
               </span>
+              <a href="mailto:support@cyferr.com" className="flex items-center gap-2 transition-colors hover:text-amber">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                support@cyferr.com
+              </a>
             </div>
             <div className="flex gap-3 mt-6">
               {["X","in","gh","ig"].map((l) => (
@@ -70,26 +74,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div className="col-span-2 md:col-span-1">
-            <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#6B7280" }}>Stay Updated</h4>
-            <p className="text-sm leading-relaxed mb-4" style={{ color: "#9CA3AF" }}>
-              Tech tips & project insights straight to your inbox.
-            </p>
-            <form className="flex flex-col gap-2" action="#" method="POST">
-              <input type="email" placeholder="your@email.com"
-                className="w-full rounded-xl px-4 py-2.5 text-sm focus:outline-none transition-colors"
-                style={{ background: "#1A1A1A", border: "2px solid #333333", color: "#FFFFFF" }}
-                onFocus={(e) => (e.currentTarget.style.borderColor = "#F5A623")}
-                onBlur={(e) => (e.currentTarget.style.borderColor = "#333333")}
-              />
-              <button type="submit"
-                className="w-full rounded-xl bg-amber text-dark text-sm font-black py-2.5 border-2 border-amber-dark transition-all hover:-translate-y-0.5"
-                style={{ boxShadow: "2px 3px 0px #D4891A" }}>
-                Subscribe
-              </button>
-            </form>
-          </div>
         </div>
 
         {/* Trust badges row */}
