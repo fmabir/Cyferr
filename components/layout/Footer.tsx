@@ -14,9 +14,11 @@ export default function Footer() {
           <div className="col-span-2 lg:col-span-2">
             <a href="/" className="inline-flex items-center gap-2.5 group mb-5">
               <div className="relative w-8 h-8">
-                <svg viewBox="0 0 40 46" fill="none" className="w-full h-full">
-                  <path d="M20 2L37 11.5V30.5L20 40L3 30.5V11.5L20 2Z" fill="rgba(245,166,35,0.15)" stroke="#F5A623" strokeWidth="2.5"/>
-                  <text x="20" y="27" textAnchor="middle" fontSize="14" fontWeight="900" fill="#F5A623" fontFamily="system-ui">C</text>
+                <svg viewBox="0 0 36 36" fill="none" className="w-full h-full">
+                  <rect width="36" height="36" rx="9" fill="#F5A623"/>
+                  <rect x="10" y="9" width="14" height="3.5" rx="1.75" fill="white"/>
+                  <rect x="10" y="9" width="3.5" height="18" rx="1.75" fill="white"/>
+                  <rect x="10" y="23.5" width="14" height="3.5" rx="1.75" fill="white"/>
                 </svg>
               </div>
               <span className="font-display font-black text-xl tracking-tight text-white">
