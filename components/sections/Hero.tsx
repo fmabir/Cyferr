@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, FileText, Zap, Lock, MessageCircle, Globe, Star } from "lucide-react";
 
 /* ── Slide 1: Animated Code Editor ─────────────────────────────────────────── */
 const CODE_LINES = [
@@ -211,7 +211,7 @@ function NeuCard({ delay, className, style, children }: {
 
 function FloatingCardsIllustration() {
   return (
-    <div className="w-full max-w-[500px]" style={{ ...NEU_RAISED, padding: 14 }}>
+    <div className="w-full max-w-[580px]" style={{ ...NEU_RAISED, padding: 18 }}>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "auto auto auto auto", gap: 10 }}>
 
         {/* ── Card 1: Projects stat (tall, spans 2 rows) ── */}
@@ -219,7 +219,7 @@ function FloatingCardsIllustration() {
           <div>
             <p className="text-[10px] font-black uppercase tracking-widest mb-3" style={{ color: "#9CA3AF" }}>Delivered</p>
             <div style={{ display: "flex", alignItems: "flex-end", gap: 4 }}>
-              <span className="font-display font-black leading-none" style={{ fontSize: 52, color: "#0A0A0A" }}>30</span>
+              <span className="font-display font-black leading-none" style={{ fontSize: 52, color: "#0A0A0A" }}>15</span>
               <span className="font-display font-black text-2xl mb-2" style={{ color: "#F5A623" }}>+</span>
             </div>
             <p className="text-xs font-semibold mt-1" style={{ color: "#6B7280" }}>Projects delivered worldwide</p>
@@ -250,7 +250,7 @@ function FloatingCardsIllustration() {
           <div style={{ display: "flex", gap: 2, marginTop: 4 }}>
             {[1,2,3,4,5].map(i => <span key={i} style={{ color: "#F5A623", fontSize: 11 }}>★</span>)}
           </div>
-          <p className="text-[9px] font-semibold mt-2" style={{ color: "#D4891A" }}>30+ verified reviews</p>
+          <p className="text-[9px] font-semibold mt-2" style={{ color: "#D4891A" }}>15+ verified reviews</p>
         </NeuCard>
 
         {/* ── Card 3: Founders / no middlemen ── */}
@@ -284,13 +284,13 @@ function FloatingCardsIllustration() {
         <NeuCard delay={0.4} style={{ gridColumn: "span 2", padding: "12px 16px" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             {[
-              { icon: "📄", label: "Fixed Price",   sub: "No surprises"    },
-              { icon: "⚡", label: "2× Faster",     sub: "vs agencies"     },
-              { icon: "🔒", label: "NDA Ready",     sub: "IP protected"    },
-              { icon: "🌍", label: "Remote-first",  sub: "Async-friendly"  },
+              { icon: <FileText size={16} color="#6B7280" />, label: "Fixed Price",   sub: "No surprises"    },
+              { icon: <Zap size={16} color="#6B7280" />,      label: "2× Faster",     sub: "vs agencies"     },
+              { icon: <Lock size={16} color="#6B7280" />,     label: "NDA Ready",     sub: "IP protected"    },
+              { icon: <Globe size={16} color="#6B7280" />,    label: "Remote-first",  sub: "Async-friendly"  },
             ].map((u, i) => (
               <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3, flex: 1 }}>
-                <span style={{ fontSize: 16 }}>{u.icon}</span>
+                <span style={{ display: "flex" }}>{u.icon}</span>
                 <p className="font-black text-[11px] text-txt leading-none">{u.label}</p>
                 <p className="text-[9px] font-semibold" style={{ color: "#9CA3AF" }}>{u.sub}</p>
               </div>
@@ -556,7 +556,7 @@ export default function Hero() {
                 {s.right === "cards" && (
                   <>
                     {/* ── Mobile: stats panel — matches site's light neumorphic style ── */}
-                    <div className="lg:hidden w-full max-w-[340px] mx-auto rounded-2xl p-3"
+                    <div className="lg:hidden w-full max-w-[390px] mx-auto rounded-2xl p-4"
                       style={{ background: "#F0F2F6", boxShadow: "inset 3px 3px 8px rgba(0,0,0,0.06), inset -3px -3px 8px rgba(255,255,255,0.9), 0 8px 32px rgba(0,0,0,0.08)" }}>
 
                       {/* Header */}
@@ -566,13 +566,13 @@ export default function Hero() {
                             className="w-1.5 h-1.5 rounded-full" style={{ background:"#4ADE80" }} />
                           <span className="text-[9px] font-black uppercase tracking-widest" style={{ color:"#9CA3AF" }}>Cyferr · Stats</span>
                         </div>
-                        <span className="text-[9px] font-black px-2 py-0.5 rounded-full" style={{ background:"#FFF7E6", color:"#F5A623", border:"1px solid #F5A62330" }}>2025</span>
+                        <span className="text-[9px] font-black px-2 py-0.5 rounded-full" style={{ background:"#FFF7E6", color:"#F5A623", border:"1px solid #F5A62330" }}>2026</span>
                       </div>
 
                       {/* 2×2 stat cards */}
                       <div className="grid grid-cols-2 gap-2 mb-2">
                         {[
-                          { val: "30+",  label: "Projects Delivered", color: "#F5A623" },
+                          { val: "15+",  label: "Projects Delivered", color: "#F5A623" },
                           { val: "4.9★", label: "Client Rating",      color: "#F5A623" },
                           { val: "85%",  label: "Repeat Client Rate",  color: "#10B981" },
                           { val: "100%", label: "On-time Delivery",    color: "#6366F1" },
@@ -592,15 +592,15 @@ export default function Hero() {
                       <div className="grid grid-cols-4 rounded-xl overflow-hidden"
                         style={{ background:"#FFFFFF", boxShadow:"4px 4px 10px rgba(0,0,0,0.07), -3px -3px 8px rgba(255,255,255,0.95)" }}>
                         {[
-                          { icon:"📄", label:"Fixed Price" },
-                          { icon:"⚡", label:"2× Faster"   },
-                          { icon:"🔒", label:"NDA Ready"   },
-                          { icon:"💬", label:"24h Reply"   },
+                          { icon:<FileText size={14} color="#6B7280" />, label:"Fixed Price" },
+                          { icon:<Zap size={14} color="#6B7280" />,      label:"2× Faster"   },
+                          { icon:<Lock size={14} color="#6B7280" />,     label:"NDA Ready"   },
+                          { icon:<MessageCircle size={14} color="#6B7280" />, label:"24h Reply" },
                         ].map((u, i) => (
                           <div key={u.label}
                             className="flex flex-col items-center gap-1 py-2.5 border-r last:border-r-0"
                             style={{ borderColor:"#F0F0F0" }}>
-                            <span style={{ fontSize:14 }}>{u.icon}</span>
+                            <span style={{ display:"flex" }}>{u.icon}</span>
                             <span className="text-[8px] font-black text-center leading-tight" style={{ color:"#6B7280" }}>{u.label}</span>
                           </div>
                         ))}
@@ -640,12 +640,12 @@ export default function Hero() {
               </div>
             ))}
           </div>
-          <div className="hidden sm:flex items-center gap-3 text-xs font-semibold text-txt-3">
-            <span>⭐ 4.9/5.0</span>
+          <div className="hidden sm:flex items-center gap-4 text-sm font-semibold text-txt-3">
+            <span className="flex items-center gap-1.5"><Star size={18} /> 4.9/5.0</span>
             <span className="text-border">·</span>
-            <span>🔒 NDA Ready</span>
+            <span className="flex items-center gap-1.5"><Lock size={18} /> NDA Ready</span>
             <span className="text-border">·</span>
-            <span>💬 24h Reply</span>
+            <span className="flex items-center gap-1.5"><MessageCircle size={18} /> 24h Reply</span>
           </div>
         </div>
       </div>
